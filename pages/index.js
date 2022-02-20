@@ -12,6 +12,7 @@ export default function Home(props) {
   console.log("homepage props", props)
 
   const aboutPageData = props.aboutPageData
+  const resumeData = props.resumeData
 
   //  console.log("aboutPageData", props.aboutPageData)
   return (
@@ -24,7 +25,7 @@ export default function Home(props) {
 
       <main className={styles.main}>
         <About aboutPageData={aboutPageData} />
-        <Resume />
+        <Resume resumeData={resumeData} />
         {/* <Skills/> */}
         <Portfolio />
         <Contact />
@@ -53,6 +54,8 @@ export const getStaticProps = async () => {
      interests, 
      strenghts, 
      contactDetails, 
+     employment,
+      skills,
      
     } = data.data.codingDv.data.attributes
 
@@ -64,10 +67,27 @@ export const getStaticProps = async () => {
     
     }
 
+    const portfolioData = {
+      projects: projects,
+
+    }
+
+    const resumeData = {
+      education: qualifications,
+      work: employment,
+      skills: skills,
+      
+    }
+
+
+      
+
   return {
 
     props: {
       aboutPageData,
+      portfolioData,
+      resumeData,
 
 
 

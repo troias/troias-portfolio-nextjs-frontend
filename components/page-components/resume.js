@@ -1,5 +1,24 @@
 const Resume = (props) => {
 
+    console.log("resumeComp props", props)
+    const { education, work, skills } = props.resumeData
+
+    console.log("resumeComp education", education)
+
+    const educationList = education.map((qualification, index) => {
+        const { name,completed, institution } = qualification.qualification.data.attributes
+        console.log("resumeComp qualification", qualification.qualification.data.attributes)
+        return (
+            <div >
+                <h3>{institution}</h3>
+                <p className="info">{name} <span>&bull;</span><em className="date">{completed}</em></p>
+                {/* <p>{education.description}</p> */} 
+            </div>
+        )
+    }
+    )
+
+
     return (
         <section id="resume">
 
@@ -11,7 +30,7 @@ const Resume = (props) => {
                 <div className="nine columns main-col">
                     <div className="row item">
                         <div className="twelve columns">
-                            {/* {education} */}
+                             {educationList} 
                         </div>
                     </div>
                 </div>

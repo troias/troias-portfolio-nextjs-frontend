@@ -14,12 +14,14 @@ export const getPortfolioData = async () => {
               attributes {
                 title
                 bio
+                intro
+                body
+                
               contactDetails {
                 name
                 address
               }
-                intro
-                body
+            
                 interests {
                   name
                 }
@@ -37,13 +39,38 @@ export const getPortfolioData = async () => {
                       }
                     }
                   }
+
+         
                   
                 }
+
+                employment {
+                  job {
+                    data {
+                      attributes {
+                        title
+                      }
+                    }
+                  }
+                }
+
+                skills {
+                  skill_categories {
+                    data {
+                      attributes {
+                        name
+                      }
+                    }
+                  }
+                }
+
                 qualifications {
                   qualification {
                     data {
                       attributes {
                         name
+                        completed
+                        institution
                       }
                     }
                   }
