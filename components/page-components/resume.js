@@ -18,6 +18,42 @@ const Resume = (props) => {
     }
     )
 
+    const workList = work.map((job, index) => {
+        const { title, company, body, duration } = job.job.data.attributes
+        console.log("resumeComp job", job.job.data.attributes)
+        return (
+            <div key={company}><h3>{company}</h3>
+            <p className="info">{title}<span>&bull;</span> <em className="date">{duration}</em></p>
+            <p>{body}</p>
+        </div>
+        )
+    })
+
+    const skillList = skills.map((skill, index) => {
+        // const { name } = skill.skill_categories.data.attributes
+        console.log("resumeComp skill", skill.skill_categories.data)
+        const skillCategoryList = skill.skill_categories.data.map((skillCategory, index) => {
+            const { name } = skillCategory.attributes
+            console.log("resumeComp skillCategory", name)
+            return (
+                <>
+                    <h3>{name}</h3>
+                </>
+            )
+        })
+        return (
+            <>
+            <li key={skillCategoryList.name}>
+                {/* <span style={{width:skills.level}}className={className}></span> */}
+                <em>{skillCategoryList}</em>
+                </li>
+            </>
+        )
+    })
+
+
+
+
 
     return (
         <section id="resume">
@@ -44,7 +80,7 @@ const Resume = (props) => {
                 </div>
 
                 <div className="nine columns main-col">
-                    {/* {work} */}
+                     {workList} 
                 </div>
             </div>
 
@@ -62,7 +98,7 @@ const Resume = (props) => {
 
                     <div className="bars">
                         <ul className="skills">
-                            {/* {skills} */}
+                             {skillList} 
                         </ul>
                     </div>
                 </div>

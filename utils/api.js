@@ -36,6 +36,14 @@ export const getPortfolioData = async () => {
                     data {
                       attributes {
                         name
+                        body
+                        skill_categories {
+                          data {
+                            attributes {
+                              name
+                            }
+                          }
+                        }
                       }
                     }
                   }
@@ -49,6 +57,11 @@ export const getPortfolioData = async () => {
                     data {
                       attributes {
                         title
+                        duration
+                        body
+                        company
+                        location
+
                       }
                     }
                   }

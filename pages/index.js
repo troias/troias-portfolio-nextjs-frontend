@@ -13,6 +13,7 @@ export default function Home(props) {
 
   const aboutPageData = props.aboutPageData
   const resumeData = props.resumeData
+  const portfolioData = props.portfolioData
 
   //  console.log("aboutPageData", props.aboutPageData)
   return (
@@ -27,7 +28,7 @@ export default function Home(props) {
         <About aboutPageData={aboutPageData} />
         <Resume resumeData={resumeData} />
         {/* <Skills/> */}
-        <Portfolio />
+        <Portfolio portfolioData={portfolioData} />
         <Contact />
       </main>
 
@@ -88,9 +89,6 @@ export const getStaticProps = async () => {
       aboutPageData,
       portfolioData,
       resumeData,
-
-
-
     }
   }
 }

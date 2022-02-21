@@ -1,4 +1,4 @@
-
+import headerBackground from '../../../assets/images/header-background.jpg';
 const Header = () => {
 
     return (
@@ -22,6 +22,7 @@ const Header = () => {
 
       <div className="row banner">
          <div className="banner-text">
+            {/* <img alt="troias-portfolio-header-background" src={headerBackground} /> */}
             {/* <h1 className="responsive-headline">I'm {name}.</h1> */}
             {/* <h3>A {city} based <span>{occupation}</span>. {description}.</h3> */}
             <hr />

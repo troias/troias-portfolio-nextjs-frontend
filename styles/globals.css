@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -14,3 +18,76 @@ a {
 * {
   box-sizing: border-box;
 }
+
+ @layer components {
+
+   /* ------------------------------------------------------------------ */
+/* b. Header Styles
+/* ------------------------------------------------------------------ */
+
+  header {
+    @apply relative h-[800px] min-h-[500px] w-full bg-[#161415] 	bg-top bg-center bg-cover text-center overflow-hidden 
+    bg-[url(.././assets/images/header-background.jpg)]
+   
+ }
+
+  #nav-wrap ul,
+  #nav-wrap li,
+  #nav-wrap a {
+    @apply m-0 p-0 border-0 outline-0;
+  }
+
+  #nav-wrap {
+    @apply text-xs font-sans w-full uppercase tracking-wide m-auto z-50 fixed top-0 left-0
+  }
+
+  #nav-wrap > a.mobile-btn { 
+    @apply hidden 
+  }
+
+  ul#nav {
+    @apply min-h-[48px] w-auto text-center
+  }
+  ul#nav li {
+    @apply  relative list-none h-12 inline-block
+
+ }
+ ul#nav li a {
+
+  /* 8px padding top + 8px padding bottom + 32px line-height = 48px */
+   @apply inline-block pt-1.5 pr-3 leading-8 no-underline text-left text-white transition ease-in-out delay-150 text-white 
+    
+  }
+
+  .scrolldown a:hover {
+    @apply text-[#11ABB0]
+  }
+  /* .mobile-btn {
+    @apply;
+  }
+  .home {
+    @apply;
+  }
+  .nav-wrap {
+    @apply;
+  }
+  .nav {
+    @apply;
+  }
+  .row-banner {
+    @apply;
+  }
+  .banner-text {
+    @apply;
+  }
+  .social {
+    @apply;
+  }
+  .scrolldown {
+    @apply;
+  }
+  .icon-down-circle {
+    @apply;
+  }  */
+
+} 
