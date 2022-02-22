@@ -1,4 +1,6 @@
 import headerBackground from '../../../assets/images/header-background.jpg';
+import {FaChevronCircleDown} from 'react-icons/fa';
+
 const Header = () => {
 
     return (
@@ -23,8 +25,8 @@ const Header = () => {
       <div className="row banner">
          <div className="banner-text">
             {/* <img alt="troias-portfolio-header-background" src={headerBackground} /> */}
-            {/* <h1 className="responsive-headline">I'm {name}.</h1> */}
-            {/* <h3>A {city} based <span>{occupation}</span>. {description}.</h3> */}
+             <h1 className="responsive-headline">I'm Troy Flavell </h1>
+             <h3>A  Hamilton based  <span> React freelancer @WebDevIncNz</span>.</h3> 
             <hr />
             <ul className="social">
                {/* {networks} */}
@@ -33,7 +35,7 @@ const Header = () => {
       </div>
 
       <p className="scrolldown">
-         <a className="smoothscroll" href="#about"><i className="icon-down-circle"></i></a>
+         <a className="smoothscroll" href="#about"><FaChevronCircleDown/></a>
       </p>
 
    </header>
