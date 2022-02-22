@@ -6,13 +6,13 @@ const Resume = (props) => {
     console.log("resumeComp education", education)
 
     const educationList = education.map((qualification, index) => {
-        const { name,completed, institution } = qualification.qualification.data.attributes
+        const { name, completed, institution } = qualification.qualification.data.attributes
         console.log("resumeComp qualification", qualification.qualification.data.attributes)
         return (
             <div >
                 <h3>{institution}</h3>
                 <p className="info">{name} <span>&bull;</span><em className="date">{completed}</em></p>
-                {/* <p>{education.description}</p> */} 
+                {/* <p>{education.description}</p> */}
             </div>
         )
     }
@@ -22,10 +22,11 @@ const Resume = (props) => {
         const { title, company, body, duration } = job.job.data.attributes
         console.log("resumeComp job", job.job.data.attributes)
         return (
-            <div key={company}><h3>{company}</h3>
-            <p className="info">{title}<span>&bull;</span> <em className="date">{duration}</em></p>
-            <p>{body}</p>
-        </div>
+            <div key={company} className="flex-col justify-center">
+                <h3 className="">{company}</h3>
+                <p className="info">{title}<span>&bull;</span> <em className="date">{duration}</em></p>
+                <p>{body}</p>
+            </div>
         )
     })
 
@@ -43,9 +44,9 @@ const Resume = (props) => {
         })
         return (
             <>
-            <li key={skillCategoryList.name}>
-                {/* <span style={{width:skills.level}}className={className}></span> */}
-                <em>{skillCategoryList}</em>
+                <li key={skillCategoryList.name}>
+                    {/* <span style={{width:skills.level}}className={className}></span> */}
+                    <em>{skillCategoryList}</em>
                 </li>
             </>
         )
@@ -58,29 +59,29 @@ const Resume = (props) => {
     return (
         <section id="resume">
 
-            <div className="row education">
-                <div className="three columns header-col">
-                    <h1><span>Education</span></h1>
+            <div className=" education flex-col items-center">
+                <div className="flex justify-center">
+                    <h1 className="" ><span>Education</span></h1>
                 </div>
 
-                <div className="nine columns main-col">
-                    <div className="row item">
-                        <div className="twelve columns">
-                             {educationList} 
+                <div className="nine columns main-col flex justify-end">
+                    <div className="row item ">
+                        <div className="twelve columns ">
+                            {educationList}
                         </div>
                     </div>
                 </div>
             </div>
 
 
-            <div className="row work">
+            <div className="row work flex-col justify-center">
 
-                <div className="three columns header-col">
+                <div className="three columns header-col flex justify-center">
                     <h1><span>Work</span></h1>
                 </div>
 
-                <div className="nine columns main-col">
-                     {workList} 
+                <div className="nine columns main-col ">
+                    {workList}
                 </div>
             </div>
 
@@ -98,7 +99,7 @@ const Resume = (props) => {
 
                     <div className="bars">
                         <ul className="skills">
-                             {skillList} 
+                            {skillList}
                         </ul>
                     </div>
                 </div>

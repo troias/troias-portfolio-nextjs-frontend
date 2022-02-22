@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/* TOC:
+a. General Styles
+b. Header Styles
+c. About Section
+d. Resume Section
+e. Portfolio Section
+f. Call To Action Section
+g. Testimonials Section
+h. Contact Section
+i. Footer */
+
+/* a. General Styles */
+
 html,
 body {
   padding: 0;
@@ -19,84 +32,63 @@ a {
   box-sizing: border-box;
 }
 
- @layer components {
-
-   /* ------------------------------------------------------------------ */
-/* b. Header Styles
+@layer components {
+  /* ------------------------------------------------------------------ */
+  /* b. Header Styles
 /* ------------------------------------------------------------------ */
 
   header {
     @apply relative h-[800px] min-h-[500px] w-full bg-[#161415] 	bg-top bg-center bg-cover text-center overflow-hidden 
-    bg-[url(.././assets/images/header-background.jpg)]
-   
- }
+    bg-[url(.././assets/images/header-background.jpg)];
+  }
 
- header { 
-    @apply before:content-[inline-block] before:content-[align-middle] before:content-[h-full]
+  header {
+    @apply before:content-[inline-block] before:content-[align-middle] before:content-[h-full];
+  }
 
-}
+  header .banner {
+    @apply flex flex-col items-center justify-center h-full;
+  }
 
-header .banner {
+  header .banner-text {
+    @apply w-full;
+  }
 
+  header .banner-text h1 {
+    @apply font-[opensans-bold] text-white tracking-tighter m-0 mb-2 text-5xl drop-shadow-sm;
+  }
 
-  @apply flex flex-col items-center justify-center h-full
-  
+  header .banner-text h3 {
+    @apply font-[librebaskerville-regular] text-[#A8A8A8] m-0 m-auto w-9/12 drop-shadow-sm;
+  }
 
-}
-
-header .banner-text { 
- @apply w-full
-}
-
-header .banner-text h1 {
-  @apply font-[opensans-bold] text-white tracking-tighter m-0 mb-2 text-5xl drop-shadow-sm
-
-}
-
-header .banner-text h3 {
-  @apply font-[librebaskerville-regular] text-[#A8A8A8] m-0 m-auto w-9/12 drop-shadow-sm 
-}
- 
   header .banner-text hr {
-    @apply w-7/12 mt-4 mr-auto mb-6 ml-auto border-[#2F2D2E] border-[#969696]
+    @apply w-7/12 mt-4 mr-auto mb-6 ml-auto border-[#2F2D2E] border-[#969696];
+  }
 
- }
- 
- /* header social links */
-header .social {
-  @apply mt-6 mr-0 p-0  text-3xl drop-shadow-sm
- 
+  /* header social links */
+  header .social {
+    @apply mt-6 mr-0 p-0  text-3xl drop-shadow-sm;
+  }
+  header .social li {
+    @apply inline-block mt-0 mr-4 p-0;
+  }
+  header .social li a {
+    @apply text-white;
+  }
+  header .social li a:hover {
+    @apply text-[#11ABB0];
+  }
 
+  /* scrolldown link */
+  header .scrolldown a {
+    @apply absolute bottom-8 left-2/4 -ml-7 text-white block h-11 w-11 text-5xl leading-10 rounded-[100%] transition duration-150 ease-in-out;
+  }
+  header .scrolldown a:hover {
+    @apply text-[#11ABB0];
+  }
 
-}
-header .social li {
-  @apply inline-block mt-0 mr-4 p-0
- 
-
-
-}
-header .social li a { 
-  @apply text-white
-}
-header .social li a:hover { 
-  @apply text-[#11ABB0]
-
-}
-
-/* scrolldown link */
-header .scrolldown a {
-  @apply absolute bottom-8 left-2/4 -ml-7 text-white block h-11 w-11 text-5xl leading-10 rounded-[100%] transition duration-150 ease-in-out
-
-
-}
-header .scrolldown a:hover { 
-  @apply text-[#11ABB0]
- }
-
-
-
-
-/* primary navigation
+  /* primary navigation
 --------------------------------------------------------------------- */
 
   #nav-wrap ul,
@@ -106,36 +98,128 @@ header .scrolldown a:hover {
   }
 
   #nav-wrap {
-    @apply text-xs font-sans w-full uppercase tracking-wide m-auto z-50 fixed top-0 left-0
+    @apply text-xs font-sans w-full uppercase tracking-wide m-auto z-50 fixed top-0 left-0;
   }
-  .opaque { 
-    @apply bg-[#333]
-   
+  .opaque {
+    @apply bg-[#333];
   }
 
-  #nav-wrap > a.mobile-btn { 
-    @apply hidden 
+  #nav-wrap > a.mobile-btn {
+    @apply hidden;
   }
 
   ul#nav {
-    @apply min-h-[48px] w-auto text-center
+    @apply min-h-[48px] w-auto text-center;
   }
   ul#nav li {
-    @apply  relative list-none h-12 inline-block
-
- }
- ul#nav li a {
-
-  /* 8px padding top + 8px padding bottom + 32px line-height = 48px */
-   @apply inline-block pt-1.5 pr-3 leading-8 no-underline text-left text-white transition ease-in-out delay-150 text-white 
-    
+    @apply relative list-none h-12 inline-block;
+  }
+  ul#nav li a {
+    /* 8px padding top + 8px padding bottom + 32px line-height = 48px */
+    @apply inline-block pt-1.5 pr-3 leading-8 no-underline text-left text-white transition ease-in-out delay-150 text-white;
   }
 
   /* Links */
 
   .scrolldown a:hover {
-    @apply text-[#11ABB0]
+    @apply text-[#11ABB0];
   }
 
+  /* ------------------------------------------------------------------ */
+  /* c. About Section
+/* ------------------------------------------------------------------ */
 
-} 
+#about {
+  @apply bg-[#2B2B2B] pt-24 pb-16 overflow-hidden w-full
+}
+
+#about a, #about a:visited  {
+  @apply text-white;
+ 
+   }
+#about a:hover, #about a:focus { 
+  @apply text-[#11ABB0];
+  
+}
+
+#about h2 {
+  @apply font-[opensans-bold] text-white text-xl leading-tight mb-4 mt-2;
+ 
+}
+#about p {
+  @apply leading-7 text-[#7a7a7a]
+}
+#about .profile-pic {
+  @apply relative w-32  h-32 rounded-[120px]
+}
+#about .contact-details { 
+  @apply w-5/12
+}
+#about .download {
+  @apply w-7/12 pt-2
+}
+#about .main-col { 
+  @apply pr-[5%]
+ }
+#about .download .button {
+  @apply mt-2 bg-[#444]
+
+}
+#about .download .button:hover {
+  @apply bg-[#fff] text-[#2B2B2B];
+}
+#about .download .button i {
+  @apply mr-4 text-2xl
+
+}
+
+/* d. Resume Section */
+
+#resume {
+  @apply bg-[#fff] pt-24 pb-16 overflow-hidden w-full
+}
+
+#resume a, #resume a:visited  { 
+  @apply text-[#11ABB0];
+ }
+#resume a:hover, #resume a:focus { 
+  @apply text-[#313131];
+ }
+
+#resume h1 {
+  @apply font-[opensans-bold] text-2xl leading-tight mb-4 mt-2 uppercase
+
+}
+#resume h1 span {
+  @apply  border-b-[#11ABB0] pb-2
+}
+#resume h3 {
+  @apply font-[opensans-bold] text-2xl leading-tight mb-4 mt-2 uppercase
+ 
+}
+
+#resume .header-col { 
+  @apply pt-2
+   }
+#resume .main-col { 
+  @apply pr-[10%]
+ 
+ }
+
+.education, .work {
+  @apply mb-12 pb-5 border-b-[#E8E8E8]
+
+}
+#resume .info {
+  @apply font-[librebaskerville-italic] text-[#6E7881] mb-4 mt-2
+
+}
+#resume .info span {
+  @apply mr-2 ml-1
+}
+#resume .date {
+  @apply font-[opensans-regular] mt-2
+
+}
+
+}
