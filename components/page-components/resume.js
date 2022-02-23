@@ -11,7 +11,9 @@ const Resume = (props) => {
         return (
             <div >
                 <h3>{institution}</h3>
-                <p className="info">{name} <span>&bull;</span><em className="date">{completed}</em></p>
+                <p className="info">{name} <span>&bull;</span>
+                <em className="date">{completed}</em>
+                </p>
                 {/* <p>{education.description}</p> */}
             </div>
         )
@@ -22,7 +24,7 @@ const Resume = (props) => {
         const { title, company, body, duration } = job.job.data.attributes
         console.log("resumeComp job", job.job.data.attributes)
         return (
-            <div key={company} className="flex-col justify-center">
+            <div key={company} className="">
                 <h3 className="">{company}</h3>
                 <p className="info">{title}<span>&bull;</span> <em className="date">{duration}</em></p>
                 <p>{body}</p>
@@ -59,14 +61,14 @@ const Resume = (props) => {
     return (
         <section id="resume">
 
-            <div className=" education flex-col items-center">
-                <div className="flex justify-center">
+            <div className=" education flex justify-between">
+                <div className="w-1/4">
                     <h1 className="" ><span>Education</span></h1>
                 </div>
 
-                <div className="nine columns main-col flex justify-end">
-                    <div className="row item ">
-                        <div className="twelve columns ">
+                <div className=" w-3/5 flex justify-center">
+                    <div className="">
+                        <div className="">
                             {educationList}
                         </div>
                     </div>
@@ -74,26 +76,26 @@ const Resume = (props) => {
             </div>
 
 
-            <div className="row work flex-col justify-center">
+            <div className=" work flex justify-between ">
 
-                <div className="three columns header-col flex justify-center">
+                <div className="w-1/4 ">
                     <h1><span>Work</span></h1>
                 </div>
 
-                <div className="nine columns main-col ">
+                <div className="w-3/5 ">
                     {workList}
                 </div>
             </div>
 
 
 
-            <div className="row skill">
+            <div className=" skill flex justify-between">
 
-                <div className="three columns header-col">
+                <div className="w-1/4">
                     <h1><span>Skills</span></h1>
                 </div>
 
-                <div className="nine columns main-col">
+                <div className="">
 
                     {/* <p>{skillmessage} </p> */}
 

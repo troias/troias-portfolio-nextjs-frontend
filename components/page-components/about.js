@@ -10,16 +10,17 @@ const About = (props) => {
 
     return (
       <section id="about">
-      <div className="row">
-         <div className="three columns">
+      <div className="flex justify-end w-11/12">
+         <div className="">
+          
             {/* <img className="profile-pic"  src={profilepic} alt="Tim Baker Profile Pic" /> */}
          </div>
-         <div className="nine columns main-col">
+         <div className="">
             <h2>About Me</h2>
 
            <p>{bio}</p> 
-            <div className="row">
-               <div className="columns contact-details">
+            <div className="">
+               <div className=" contact-details">
                   <h2>Contact Details</h2>
                   <p className="address">
 						   <span>{name}</span><br />
