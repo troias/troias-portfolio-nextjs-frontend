@@ -9,10 +9,10 @@ const Resume = (props) => {
         const { name, completed, institution } = qualification.qualification.data.attributes
         console.log("resumeComp qualification", qualification.qualification.data.attributes)
         return (
-            <div >
-                <h3>{institution}</h3>
-                <p className="info">{name} <span>&bull;</span>
-                <em className="date">{completed}</em>
+            <div className="flex-col  ">
+                <h3 className="flex justify-center">{institution}</h3>
+                <p className="info flex justify-center ">{name} <span>&bull;</span>
+                    <em className="date flex content-center">{completed}</em>
                 </p>
                 {/* <p>{education.description}</p> */}
             </div>
@@ -24,10 +24,15 @@ const Resume = (props) => {
         const { title, company, body, duration } = job.job.data.attributes
         console.log("resumeComp job", job.job.data.attributes)
         return (
-            <div key={company} className="">
-                <h3 className="">{company}</h3>
-                <p className="info">{title}<span>&bull;</span> <em className="date">{duration}</em></p>
-                <p>{body}</p>
+            <div key={company} className="flex-col">
+                <h3 className="flex justify-center">{company}</h3>
+                <p className="info flex justify-center">
+                    {title}<span>&bull;</span> <em className="date">{duration}</em>
+                </p>
+                <p className="info flex justify-center p-5">
+                    {body}
+                </p>
+
             </div>
         )
     })
@@ -61,37 +66,36 @@ const Resume = (props) => {
     return (
         <section id="resume">
 
-            <div className=" education flex justify-between">
-                <div className="w-1/4">
+            <div className="education  flex-col justify center  md:flex  md:justify-between">
+                <div className="flex justify-center md:w-1/4 ">
                     <h1 className="" ><span>Education</span></h1>
                 </div>
 
-                <div className=" w-3/5 flex justify-center">
-                    <div className="">
-                        <div className="">
-                            {educationList}
-                        </div>
+                <div className=" md:w-3/5  ">
+                    <div className="flex-col justify-center p-5">
+                        {educationList}
                     </div>
+
                 </div>
             </div>
 
 
-            <div className=" work flex justify-between ">
+            <div className=" work flex-col justify-center md:flex  md:justify-between ">
 
-                <div className="w-1/4 ">
+                <div className="flex justify-center md:w-1/4 ">
                     <h1><span>Work</span></h1>
                 </div>
 
-                <div className="w-3/5 ">
-                    {workList}
+                <div className="md:w-3/5 ">
+                        {workList}
                 </div>
             </div>
 
 
 
-            <div className=" skill flex justify-between">
+            <div className=" skill flex-col  md:flex  md:justify-between">
 
-                <div className="w-1/4">
+                <div className="md:w-1/4">
                     <h1><span>Skills</span></h1>
                 </div>
 
@@ -99,8 +103,8 @@ const Resume = (props) => {
 
                     {/* <p>{skillmessage} </p> */}
 
-                    <div className="bars">
-                        <ul className="skills">
+                    <div className="">
+                        <ul className="">
                             {skillList}
                         </ul>
                     </div>

@@ -318,6 +318,7 @@ a {
 
   #resume {
     @apply 
+    
     bg-[#fff] 
     pt-24 
     pb-16 
@@ -366,12 +367,14 @@ a {
   }
 
   .education,
+  .skill,
   .work {
     @apply 
     mb-12 
     pb-5 
     border-b-[#E8E8E8];
   }
+
   #resume .info {
     @apply 
     font-[librebaskerville-italic]
@@ -385,7 +388,7 @@ a {
   #resume .date {
     @apply 
     font-[opensans-regular] 
-    mt-2;
+    
   }
 
   /* ------------------------------------------------------------------ */
