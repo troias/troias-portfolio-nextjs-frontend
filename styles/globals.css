@@ -15,7 +15,6 @@ i. Footer */
 
 /* a. General Styles */
 
-
 html,
 body {
   padding: 0;
@@ -34,18 +33,15 @@ a {
 }
 
 @layer components {
-
   .row {
-    @apply w-[96%] max-w-screen-lg m-auto
-
- }
+    @apply w-[96%] max-w-screen-lg m-auto;
+  }
   /* ------------------------------------------------------------------ */
   /* b. Header Styles
 /* ------------------------------------------------------------------ */
 
   header {
-    @apply 
-    relative 
+    @apply relative 
     h-screen
     min-h-[500px] 
     w-full 
@@ -59,18 +55,13 @@ a {
   }
 
   header:before {
-    @apply 
-    
-    inline-block
+    @apply inline-block
     align-middle
-    h-full
-  
- 
+    h-full;
   }
 
   header .banner {
-    @apply 
-    flex
+    @apply flex
     justify-center
     items-center
     
@@ -79,17 +70,15 @@ a {
     w-[85%]
     pb-0 
     text-center
-    h-full
+    h-full;
   }
 
   header .banner-text {
-    @apply 
-    w-full;
+    @apply w-full;
   }
 
   header .banner-text h1 {
-    @apply 
-    font-[opensans-bold] 
+    @apply font-[opensans-bold] 
     font-medium
     text-white 
     tracking-tighter 
@@ -99,8 +88,7 @@ a {
   }
 
   header .banner-text h3 {
-    @apply 
-    font-[librebaskerville-regular]
+    @apply font-[librebaskerville-regular]
     text-[#A8A8A8]
     m-0 
     m-auto 
@@ -110,29 +98,26 @@ a {
   }
 
   header .banner-text hr {
-    @apply 
-    w-7/12 
+    @apply w-7/12 
     mt-4 
     mr-auto
     mb-6
     ml-auto
  border-[#2F2D2E]
    border-[#969696]
-   border-opacity-10
+   border-opacity-10;
   }
 
   /* header social links */
   header .social {
-    @apply 
-    mt-6 
+    @apply mt-6 
     mr-0 
     p-0  
     text-3xl
     drop-shadow-sm;
   }
   header .social li {
-    @apply 
-    inline-block
+    @apply inline-block
     mt-0
     mr-4
     p-0;
@@ -146,8 +131,7 @@ a {
 
   /* scrolldown link */
   header .scrolldown a {
-    @apply 
-    absolute 
+    @apply absolute 
     bottom-8 
     left-2/4
     -ml-7 
@@ -170,16 +154,14 @@ a {
   #nav-wrap ul,
   #nav-wrap li,
   #nav-wrap a {
-    @apply 
-    m-0 
+    @apply m-0 
     p-0 
     border-0 
     outline-0;
   }
 
   #nav-wrap {
-    @apply 
-    text-base
+    @apply text-base
     
     font-[opensans-bold]
     w-full
@@ -199,24 +181,21 @@ a {
   }
 
   ul#nav {
-    @apply 
-    min-h-[48px] 
+    @apply min-h-[48px] 
     
     w-auto 
     text-center
-    tracking-widest
+    tracking-widest;
   }
   ul#nav li {
-    @apply 
-    relative
+    @apply relative
     list-none
     h-14
     inline-block;
   }
   ul#nav li a {
     /* 8px padding top + 8px padding bottom + 32px line-height = 48px */
-    @apply 
-    font-semibold	
+    @apply font-semibold	
     inline-block 
     pt-2 
     pr-3 
@@ -225,13 +204,13 @@ a {
   
     text-left
   text-white
-    transition ease-in-out delay-150
+    transition ease-in-out delay-150;
   }
 
   ul#nav li a:active {
-    @apply bg-transparent
-    }
-  ul#nav li.current a { 
+    @apply bg-transparent;
+  }
+  ul#nav li.current a {
     @apply text-[#F06000];
   }
 
@@ -246,8 +225,7 @@ a {
 /* ------------------------------------------------------------------ */
 
   #about {
-    @apply 
-    bg-[#2B2B2B] 
+    @apply bg-[#2B2B2B] 
     pt-24 
     pb-16 
     overflow-hidden
@@ -256,76 +234,62 @@ a {
 
   #about a,
   #about a:visited {
-    @apply 
-    text-white;
+    @apply text-white;
   }
   #about a:hover,
   #about a:focus {
-    @apply 
-    text-[#11ABB0];
+    @apply text-[#11ABB0];
   }
 
   #about h2 {
-    @apply 
-    font-[opensans-bold] 
+    @apply font-[opensans-bold] 
   text-white 
     text-xl 
     leading-tight
     mb-4 mt-2;
   }
   #about p {
-    @apply 
-    leading-7 
+    @apply leading-7 
     text-[#7a7a7a];
   }
   #about .profile-pic {
-    @apply 
-    relative 
+    @apply relative 
     w-32  
     h-32 
     rounded-[120px];
   }
   #about .contact-details {
-    @apply 
-    w-5/12;
+    @apply w-5/12;
   }
   #about .download {
-    @apply
-     w-7/12 
+    @apply w-7/12 
      pt-2;
   }
   #about .main-col {
-    @apply 
-    pr-[5%];
+    @apply pr-[5%];
   }
   #about .download .button {
-    @apply 
-    mt-2 
+    @apply mt-2 
     bg-[#444];
   }
   #about .download .button:hover {
-    @apply 
-    bg-[#fff] 
+    @apply bg-[#fff] 
     text-[#2B2B2B];
   }
   #about .download .button i {
-    @apply 
-    mr-4 
+    @apply mr-4 
     text-2xl;
   }
 
   /* d. Resume Section */
 
   #resume {
-    @apply 
-    md:w-full
+    @apply md:w-full
     w-[420px]
     bg-[#fff] 
     pt-24 
     pb-16 
-    overflow-hidden 
-   
-  
+    overflow-hidden;
   }
 
   #resume a,
@@ -338,31 +302,24 @@ a {
   }
 
   #resume h1 {
-    @apply 
-    font-[opensans-bold] 
+    @apply font-[opensans-bold] 
     text-2xl 
     leading-tight 
     mb-6
     mt-2 
     ml-6
-    uppercase
-
-  
+    uppercase;
   }
   #resume h1 span {
-    @apply 
-    border-b-4
+    @apply border-b-4
     border-b-[#11ABB0] 
     pb-2;
   }
   #resume h3 {
-    @apply 
-    font-[opensans-bold] 
+    @apply font-[opensans-bold] 
     text-2xl 
     leading-tight 
     mb-4 mt-2 uppercase;
-
-    
   }
 
   #resume .header-col {
@@ -375,26 +332,21 @@ a {
   .education,
   .skill,
   .work {
-    @apply 
-    mb-12 
+    @apply mb-12 
     pb-5 
     border-b-[#E8E8E8];
   }
 
   #resume .info {
-    @apply 
-    font-[librebaskerville-italic]
+    @apply font-[librebaskerville-italic]
      text-[#6E7881] mb-4 mt-2;
   }
   #resume .info span {
-    @apply 
-    mr-2 
+    @apply mr-2 
     ml-1;
   }
   #resume .date {
-    @apply 
-    font-[opensans-regular] 
-    
+    @apply font-[opensans-regular];
   }
 
   /* ------------------------------------------------------------------ */
@@ -402,7 +354,11 @@ a {
 /* ------------------------------------------------------------------ */
 
   #contact {
-    @apply bg-[#191919] pt-24 pb-28 text-[#636363];
+    @apply bg-[#191919] 
+    pt-24 
+    pb-28 
+    text-[rgb(99,99,99)]
+    w-full;
   }
   #contact .section-head {
     @apply mb-10;
@@ -418,17 +374,33 @@ a {
   }
 
   #contact h1 {
-    @apply font-[opensans-bold] text-2xl tracking-tighter mt-2 uppercase text-[#EBEEEE] mb-1;
+    @apply font-[opensans-bold] 
+    text-2xl
+     tracking-tighter 
+     mt-2 uppercase 
+     text-[#EBEEEE] 
+     mb-1;
   }
   #contact h1 span {
-    @apply hidden;
+    @apply border-b-4
+    border-b-[#11ABB0] 
+    pb-2;
   }
   #contact h1:before {
-    @apply font-[FontAwesome] pr-3 text-right text-2xl float-left text-[#EBEEEE];
+    @apply font-[FontAwesome] 
+    pr-3 
+    text-right 
+    text-2xl 
+     
+    text-[#EBEEEE];
   }
 
   #contact h4 {
-    @apply font-[opensans-bold] text-2xl tracking-tighter mt-2 uppercase text-[#EBEEEE] mb-1;
+    @apply font-[opensans-bold] 
+    text-2xl 
+    tracking-tighter 
+    mt-2 uppercase 
+    text-[#EBEEEE] mb-1;
   }
   #contact p.lead {
     @apply font-[opensans-regular] pr-[3%];
@@ -442,20 +414,25 @@ a {
     @apply mb-10;
   }
   #contact label {
-    @apply font-[opensans-bold] text-2xl tracking-tighter mt-3 uppercase text-[#EBEEEE] mb-1 inline-block w-[26%] float-left;
+    @apply font-[opensans-bold] 
+    text-2xl 
+    tracking-tighter 
+    mt-3 
+    uppercase 
+    text-[#EBEEEE] 
+    mb-1;
   }
   #contact input,
   #contact textarea,
   #contact select {
-    @apply pt-4 
-  pr-5
+    @apply 
+  
   text-[#eee]
   bg-[#373233]
   mb-10
   border-none	
   outline-none
-  text-2xl
-  w-[65%];
+  text-2xl;
   }
   #contact input:focus,
   #contact textarea:focus,
@@ -463,17 +440,36 @@ a {
     @apply text-[#fff] bg-[#11ABB0];
   }
   #contact button.submit {
-    @apply uppercase tracking-wide text-white bg-[#0D0D0D] mb-10 border-none cursor-pointer h-auto inline-block rounded-2xl ml-[26%];
+    @apply uppercase 
+    tracking-wide 
+    text-white 
+    bg-[#0D0D0D] 
+    mb-10 
+    border-none 
+    cursor-pointer 
+    h-auto 
+    inline-block 
+    rounded-2xl 
+    ;
   }
   #contact button.submit:hover {
-    @apply bg-[#fff] text-[#0D0D0D];
+    @apply bg-[#fff] 
+    text-[#0D0D0D];
   }
   #contact span.required {
-    @apply text-[#11ABB0] bg-[#11ABB0]  text-sm;
+    @apply text-[#11ABB0] 
+    bg-[#11ABB0] 
+     text-sm;
   }
   #message-warning,
   #message-success {
-    @apply hidden bg-[#0F0F0F] pt-6 mr-6 mb-9 w-[65%] ml-[26%];
+    @apply hidden 
+    bg-[#0F0F0F] 
+    pt-6 
+    mr-6 
+    mb-9 
+   
+    ;
   }
   #message-warning {
     @apply text-[#D72828];
@@ -487,7 +483,8 @@ a {
     @apply mr-3;
   }
   #image-loader {
-    @apply hidden relative left-4 top-4;
+    @apply hidden 
+    
   }
 
   /* ------------------------------------------------------------------ */
@@ -509,16 +506,22 @@ a {
 
   /* copyright */
   footer .copyright {
-    @apply m-0 p-0;
+    @apply 
+    m-0 p-0;
   }
   footer .copyright li {
-    @apply inline-block m-0 p-0 leading-6;
+    @apply 
+    m-0 p-0 
+    leading-6;
   }
   .ie footer .copyright li {
     @apply inline;
   }
   footer .copyright li:before {
-    @apply content-['\2022'] pl-2 pr-2 text-[#095153];
+    @apply 
+    content-['\2022'] 
+    pl-2 pr-2 
+    text-[#095153];
   }
   footer .copyright li:first-child:before {
     @apply hidden;
@@ -526,10 +529,16 @@ a {
 
   /* social links */
   footer .social-links {
-    @apply mt-4 ml-10 p-0 text-3xl;
+    @apply mt-4 
+    ml-10 
+    p-0 
+    text-3xl;
   }
   footer .social-links li {
-    @apply inline-block m-0 p-0 ml-10 text-[#F06000];
+    @apply m-0 
+     p-0 
+     ml-10 
+     text-[#F06000];
   }
 
   footer .social-links li:first-child {
@@ -538,11 +547,26 @@ a {
 
   /* Go To Top Button */
   #go-top {
-    @apply absolute -top-6  left-[50%] ml-[-30px];
+    @apply 
+    absolute 
+    -top-6  
+    left-[50%]
+    ml-[-30px];
   }
   #go-top a {
-    @apply no-underline border-none block w-16 h-16 bg-[#525252] transition-all duration-300 ease-in-out transform
- text-white  text-2xl text-6xl rounded-full;
+    @apply no-underline 
+    border-none 
+    block
+    w-16
+    h-16 
+  bg-[#525252]
+    transition-all
+    duration-300 
+    ease-in-out transform
+  text-white 
+    text-2xl
+    text-6xl 
+    rounded-full;
   }
   #go-top a:hover {
     @apply bg-[#0F9095];

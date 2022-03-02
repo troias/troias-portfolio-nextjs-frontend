@@ -72,7 +72,6 @@ const Resume = (props) => {
                 </div>
             </div>
 
-
             <div className=" work md:flex  md:justify-between ">
                 <div className=" md:w-1/4 ">
                     <h1 className="flex justify-center"><span>Work</span></h1>
@@ -81,8 +80,6 @@ const Resume = (props) => {
                         {workList}
                 </div>
             </div>
-
-
 
             <div className=" skill  md:flex  md:justify-between">
                 <div className="md:w-1/4">
