@@ -318,12 +318,14 @@ a {
 
   #resume {
     @apply 
-    
+    md:w-full
+    w-[420px]
     bg-[#fff] 
     pt-24 
     pb-16 
     overflow-hidden 
-    w-full;
+   
+  
   }
 
   #resume a,
@@ -340,10 +342,12 @@ a {
     font-[opensans-bold] 
     text-2xl 
     leading-tight 
-    mb-4
+    mb-6
     mt-2 
     ml-6
-    uppercase;
+    uppercase
+
+  
   }
   #resume h1 span {
     @apply 
@@ -357,6 +361,8 @@ a {
     text-2xl 
     leading-tight 
     mb-4 mt-2 uppercase;
+
+    
   }
 
   #resume .header-col {
