@@ -11,9 +11,9 @@ const Resume = (props) => {
         return (
             <div className=" ">
                 <h3 className="flex justify-center">{institution}</h3>
-                <p className="info flex justify-center ">{name} <span>&bull;</span>
+                {/* <p className="info flex justify-center ">{name} <span>&bull;</span>
                     <em className="date ">{completed}</em>
-                </p>
+                </p> */}
                 {/* <p>{education.description}</p> */}
             </div>
         )

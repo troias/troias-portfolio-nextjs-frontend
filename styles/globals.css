@@ -17,8 +17,8 @@ i. Footer */
 
 html,
 body {
-  padding: 0;
-  margin: 0;
+  /* padding: 0;
+  margin: 0; */
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -29,13 +29,13 @@ a {
 }
 
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
 }
 
 @layer components {
-  .row {
+  /* .row {
     @apply w-[96%] max-w-screen-lg m-auto;
-  }
+  } */
   /* ------------------------------------------------------------------ */
   /* b. Header Styles
 /* ------------------------------------------------------------------ */
@@ -55,7 +55,7 @@ a {
   }
 
   header:before {
-    @apply inline-block
+    @apply
     align-middle
     h-full;
   }
@@ -326,7 +326,7 @@ a {
     @apply pt-2;
   }
   #resume .main-col {
-    @apply pr-[10%];
+    @apply ;
   }
 
   .education,
@@ -342,7 +342,7 @@ a {
      text-[#6E7881] mb-4 mt-2;
   }
   #resume .info span {
-    @apply mr-2 
+    @apply  
     ml-1;
   }
   #resume .date {
@@ -358,12 +358,14 @@ a {
     pt-24 
     pb-28 
     text-[rgb(99,99,99)]
-    w-full;
+    w-full
+    
   }
+  
   #contact .section-head {
     @apply mb-10;
   }
-
+ /*
   #contact a,
   #contact a:visited {
     @apply text-[#11ABB0];
@@ -410,7 +412,7 @@ a {
   }
 
   /* contact form */
-  #contact form {
+  /* #contact form {
     @apply mb-10;
   }
   #contact label {
@@ -426,7 +428,7 @@ a {
   #contact textarea,
   #contact select {
     @apply 
-  
+   
   text-[#eee]
   bg-[#373233]
   mb-10
@@ -437,7 +439,8 @@ a {
   #contact input:focus,
   #contact textarea:focus,
   #contact select:focus {
-    @apply text-[#fff] bg-[#11ABB0];
+    @apply text-[#fff] 
+    bg-[#11ABB0];
   }
   #contact button.submit {
     @apply uppercase 
@@ -484,8 +487,8 @@ a {
   }
   #image-loader {
     @apply hidden 
-    
-  }
+     */
+  /* }  */
 
   /* ------------------------------------------------------------------ */
   /* i. Footer
