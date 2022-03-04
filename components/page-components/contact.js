@@ -30,15 +30,15 @@ const Contact = (props) => {
         <section id="contact">
             <div className="section-head flex justify-center">
                 <h2>Get in Touch</h2>
-
             </div>
+        <div className="flex justify-center  ">
 
+        
+            <form onSubmit={formik.handleSubmit} className=" ">
+                <div className=" flex flex-col  w-[50vw] md:w-[30vw]   ">
 
-        <div className="flex justify-center">
-
-  
-            <form onSubmit={formik.handleSubmit} className="flex flex-col w-2/4 items-center ">
-                <label htmlFor="firstName">First Name</label>
+               
+                <label htmlFor="firstName" className="flex justify-center"> Name <span className="">*</span></label>
                 <input
                     id="firstName"
                     name="firstName"
@@ -48,10 +48,10 @@ const Contact = (props) => {
                     value={formik.values.firstName}
                 />
                 {formik.touched.firstName && formik.errors.firstName ? (
-                    <div>{formik.errors.firstName}</div>
+                    <div className="flex justify-center text-red-600" >{formik.errors.firstName}</div>
                 ) : null}
 
-                <label htmlFor="lastName">Last Name</label>
+                <label htmlFor="lastName" className="flex justify-center">Subject </label>
                 <input
                     id="lastName"
                     name="lastName"
@@ -61,10 +61,10 @@ const Contact = (props) => {
                     value={formik.values.lastName}
                 />
                 {formik.touched.lastName && formik.errors.lastName ? (
-                    <div>{formik.errors.lastName}</div>
+                    <div className="flex justify-center text-red-600">{formik.errors.lastName}</div>
                 ) : null}
 
-                <label htmlFor="email">Email Address</label>
+                <label htmlFor="email" className="flex justify-center">Email Address <span className="">*</span></label>
                 <input
                     id="email"
                     name="email"
@@ -74,10 +74,11 @@ const Contact = (props) => {
                     value={formik.values.email}
                 />
                 {formik.touched.email && formik.errors.email ? (
-                    <div>{formik.errors.email}</div>
+                    <div className="flex justify-center text-red-600">{formik.errors.email}</div>
                 ) : null}
 
                 <button type="submit">Submit</button>
+                </div>
             </form>
             </div>
         </section>

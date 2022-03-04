@@ -14,14 +14,11 @@ h. Contact Section
 i. Footer */
 
 /* a. General Styles */
+/* @import url("fonts.css");
+@import url("fontello/css/fontello.css");
+@import url("font-awesome/css/font-awesome.min.css"); */
 
-html,
-body {
-  /* padding: 0;
-  margin: 0; */
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+body { background: #0f0f0f; }
 
 a {
   color: inherit;
@@ -33,43 +30,34 @@ a {
 }
 
 @layer components {
-  /* .row {
-    @apply w-[96%] max-w-screen-lg m-auto;
-  } */
+
   /* ------------------------------------------------------------------ */
   /* b. Header Styles
-/* ------------------------------------------------------------------ */
+  /* ------------------------------------------------------------------ */
 
   header {
-    @apply relative 
+    @apply  
     h-screen
     min-h-[500px] 
-    w-full 
     bg-[#161415] 
     bg-top 
     bg-center
     bg-cover 
     text-center
-    overflow-hidden 
+    
     bg-[url(.././assets/images/header-background.jpg)];
   }
 
-  header:before {
+  /* header:before {
     @apply
-    align-middle
-    h-full;
-  }
+    
+    
+  } */
 
   header .banner {
-    @apply flex
-    justify-center
-    items-center
-    
-    align-middle
+    @apply 
     mt-0 
-    w-[85%]
     pb-0 
-    text-center
     h-full;
   }
 
@@ -136,7 +124,7 @@ a {
     left-2/4
     -ml-7 
   text-white
-    block
+    
     h-11
     w-11
     text-5xl 
@@ -158,19 +146,19 @@ a {
     p-0 
     border-0 
     outline-0;
+   
   }
 
   #nav-wrap {
     @apply text-base
-    
     font-[opensans-bold]
     w-full
     uppercase
-    tracking-wide
+   
     m-auto
     z-50
-    fixed 
-    top-0 left-0;
+   
+   
   }
   .opaque {
     @apply bg-[#333];
@@ -185,18 +173,19 @@ a {
     
     w-auto 
     text-center
-    tracking-widest;
+    tracking-[0.2em]
   }
   ul#nav li {
     @apply relative
     list-none
+    
     h-14
-    inline-block;
+    
   }
   ul#nav li a {
     /* 8px padding top + 8px padding bottom + 32px line-height = 48px */
     @apply font-semibold	
-    inline-block 
+    
     pt-2 
     pr-3 
     leading-8
@@ -285,7 +274,7 @@ a {
 
   #resume {
     @apply md:w-full
-    w-[420px]
+   
     bg-[#fff] 
     pt-24 
     pb-16 
@@ -359,60 +348,16 @@ a {
     pb-28 
     text-[rgb(99,99,99)]
     w-full
-    
+
   }
   
   #contact .section-head {
     @apply mb-10;
   }
- /*
-  #contact a,
-  #contact a:visited {
-    @apply text-[#11ABB0];
-  }
-  #contact a:hover,
-  #contact a:focus {
-    @apply text-[#fff];
-  }
-
-  #contact h1 {
-    @apply font-[opensans-bold] 
-    text-2xl
-     tracking-tighter 
-     mt-2 uppercase 
-     text-[#EBEEEE] 
-     mb-1;
-  }
-  #contact h1 span {
-    @apply border-b-4
-    border-b-[#11ABB0] 
-    pb-2;
-  }
-  #contact h1:before {
-    @apply font-[FontAwesome] 
-    pr-3 
-    text-right 
-    text-2xl 
-     
-    text-[#EBEEEE];
-  }
-
-  #contact h4 {
-    @apply font-[opensans-bold] 
-    text-2xl 
-    tracking-tighter 
-    mt-2 uppercase 
-    text-[#EBEEEE] mb-1;
-  }
-  #contact p.lead {
-    @apply font-[opensans-regular] pr-[3%];
-  }
-  #contact .header-col {
-    @apply pt-2;
-  }
 
   /* contact form */
-  /* #contact form {
+
+   #contact form {
     @apply mb-10;
   }
   #contact label {
@@ -426,22 +371,20 @@ a {
   }
   #contact input,
   #contact textarea,
-  #contact select {
-    @apply 
-   
-  text-[#eee]
+   {
+    @apply text-[#eee]
   bg-[#373233]
   mb-10
   border-none	
   outline-none
   text-2xl;
   }
-  #contact input:focus,
-  #contact textarea:focus,
-  #contact select:focus {
-    @apply text-[#fff] 
-    bg-[#11ABB0];
-  }
+  #contact span
+  {
+    @apply text-[#11ABB0]
+    ml-2
+  } 
+  
   #contact button.submit {
     @apply uppercase 
     tracking-wide 
@@ -464,32 +407,7 @@ a {
     bg-[#11ABB0] 
      text-sm;
   }
-  #message-warning,
-  #message-success {
-    @apply hidden 
-    bg-[#0F0F0F] 
-    pt-6 
-    mr-6 
-    mb-9 
-   
-    ;
-  }
-  #message-warning {
-    @apply text-[#D72828];
-  }
-  #message-success {
-    @apply text-[#11ABB0];
-  }
-
-  #message-warning i,
-  #message-success i {
-    @apply mr-3;
-  }
-  #image-loader {
-    @apply hidden 
-     */
-  /* }  */
-
+ 
   /* ------------------------------------------------------------------ */
   /* i. Footer
 /* ------------------------------------------------------------------ */
