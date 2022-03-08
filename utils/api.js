@@ -1,14 +1,31 @@
 export const getPortfolioData = async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        // 'Authorization': `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`
-      },
-      body: JSON.stringify({
-        query: `
+  const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      // 'Authorization': `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`
+    },
+    body: JSON.stringify({
+      query: `
+
+      fragment FileParts on UploadFileEntityResponse {
+        data {
+          id
+          attributes {
+            alternativeText
+            width
+            height
+            mime
+            url
+            formats
+          }
+        }
+      }
+
+
         query {
+
           codingDv {
             data {
               attributes {
@@ -20,17 +37,23 @@ export const getPortfolioData = async () => {
               contactDetails {
                 name
                 address
-              }
+                iconImage {
+                  ...FileParts
+                }
+                 }
             
                 interests {
                   name
                 }
+
                 strenghts {
                   name
                 }
+
                 referees {
                   name
                 }
+
                 projects {
                   project {
                     data {
@@ -47,9 +70,6 @@ export const getPortfolioData = async () => {
                       }
                     }
                   }
-
-         
-                  
                 }
 
                 employment {
@@ -68,10 +88,11 @@ export const getPortfolioData = async () => {
                 }
 
                 skills {
-                  skill_categories {
+                  skill_category {
                     data {
                       attributes {
-                        name
+                        name 
+                        description
                       }
                     }
                   }
@@ -88,13 +109,16 @@ export const getPortfolioData = async () => {
                     }
                   }
                 }
+
               }
             }
           }
+
+
         }
         `
-      })
     })
-    const data = await response.json()
-    return data
-  }
+  })
+  const data = await response.json()
+  return data
+}

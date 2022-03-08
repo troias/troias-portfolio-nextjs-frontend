@@ -48,12 +48,10 @@ export const getStaticProps = async () => {
     title,
     body,
     bio,
-    intro,
+   
     projects,
      qualifications, 
-     referees, 
-     interests, 
-     strenghts, 
+   
      contactDetails, 
      employment,
       skills,

@@ -44,15 +44,8 @@ a {
     bg-center
     bg-cover 
     text-center
-    
     bg-[url(.././assets/images/header-background.jpg)];
   }
-
-  /* header:before {
-    @apply
-    
-    
-  } */
 
   header .banner {
     @apply 
@@ -242,7 +235,7 @@ a {
     text-[#7a7a7a];
   }
   #about .profile-pic {
-    @apply relative 
+    @apply 
     w-32  
     h-32 
     rounded-[120px];
@@ -450,16 +443,16 @@ a {
 
   /* social links */
   footer .social-links {
-    @apply mt-4 
+    @apply 
     ml-10 
     p-0 
-    text-3xl;
+    text-5xl;
   }
   footer .social-links li {
     @apply m-0 
      p-0 
      ml-10 
-     text-[#F06000];
+    
   }
 
   footer .social-links li:first-child {
@@ -472,24 +465,23 @@ a {
     absolute 
     -top-6  
     left-[50%]
-    ml-[-30px];
+    ml-auto;
   }
   #go-top a {
-    @apply no-underline 
+    @apply
+    no-underline 
     border-none 
     block
     w-16
     h-16 
-  bg-[#525252]
+    rounded-[100%]
     transition-all
     duration-300 
     ease-in-out transform
   text-white 
-    text-2xl
     text-6xl 
-    rounded-full;
+    -ml-7 
+   
   }
-  #go-top a:hover {
-    @apply bg-[#0F9095];
-  }
+
 }
