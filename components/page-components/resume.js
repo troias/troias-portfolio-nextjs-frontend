@@ -66,7 +66,7 @@ const Resume = (props) => {
     return (
         <section id="resume">
             <div className="">
-                <div className="education md:flex md:justify-between ">
+                <div className="education md:flex md:justify-between lg:justify-around  ">
                     <div className=" md:w-1/4">
                         <h1 className="flex justify-center" ><span>Education</span></h1>
                     </div>
@@ -77,24 +77,24 @@ const Resume = (props) => {
                     </div>
                 </div>
 
-                <div className=" work md:flex  md:justify-between ">
+                <div className=" work md:flex  md:justify-between lg:justify-around ">
                     <div className=" md:w-1/4 ">
-                        <h1 className="flex justify-center"><span>Work</span></h1>
+                        <h1 className="flex justify-center"><span>Employment</span></h1>
                     </div>
                     <div className="md:w-3/5 ">
                         {workList}
                     </div>
                 </div>
 
-                <div className=" skill  md:flex  md:justify-between">
+                <div className=" skill  md:flex  md:justify-between lg:justify-around ">
                     <div className="md:w-1/4">
                         <h1 className="flex justify-center"><span>Skills</span></h1>
                     </div>
 
                   
                         {/* <p>{skillmessage} </p> */}
-                        <div className="w-full  ">
-                            <ul className="flex">
+                        <div className="w-full pr-6  ">
+                            <ul className="flex flex-wrap justify-center">
                                 {skillList}
                             </ul>
                         </div>

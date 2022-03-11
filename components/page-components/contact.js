@@ -2,6 +2,7 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { AiOutlineMail } from 'react-icons/ai';
+import { FaChevronCircleUp } from 'react-icons/fa';
 
 
 
@@ -86,6 +87,11 @@ const Contact = (props) => {
                
                 </div>
             </form>
+            {/* <div id="go-top">
+               <a className="smoothscroll " title="Back to Top" href="#home">
+                  <FaChevronCircleUp className="hover:bg-[#0F9095] rounded-[100%]" />
+               </a>
+            </div> */}
             </div>
         </section>
     );

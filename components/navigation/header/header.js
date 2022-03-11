@@ -1,46 +1,53 @@
-import headerBackground from '../../../assets/images/header-background.jpg';
-import {FaChevronCircleDown} from 'react-icons/fa';
+
+import { FaChevronCircleDown } from 'react-icons/fa';
+
+
+
 
 const Header = () => {
 
-    return (
-      <header id="home">
+  return (
 
-      <nav id="nav-wrap ">
 
-         {/* <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+    <nav id="nav-wrap ">
+
+      {/* <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
 	      <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a> */}
 
-         <ul id="nav" className="hidden nav md:flex md:justify-center md:pt-2 ">
-            <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
-            <li><a className="smoothscroll" href="#about">About</a></li>
-	         <li><a className="smoothscroll" href="#resume">Resume</a></li>
-            <li><a className="smoothscroll" href="#portfolio">Works</a></li>
-            <li><a className="smoothscroll" href="#testimonials">Testimonials</a></li>
-            <li><a className="smoothscroll" href="#contact">Contact</a></li>
-         </ul>
+      <header id="home">
 
-      </nav>
-
-      <div className=" banner flex items-center ">
-         <div className="banner-text ">
+        <ul id="nav" className="hidden nav md:flex md:justify-center md:pt-2 ">
+          <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
+          <li><a className="smoothscroll" href="#about">About</a></li>
+          <li><a className="smoothscroll" href="#resume">Resume</a></li>
+          <li><a className="smoothscroll" href="#portfolio">Works</a></li>
+          <li><a className="smoothscroll" href="#testimonials">Testimonials</a></li>
+          <li><a className="smoothscroll" href="#contact">Contact</a></li>
+        </ul>
+        <div className=" banner flex items-center ">
+          <div className="banner-text ">
             {/* <img alt="troias-portfolio-header-background" src={headerBackground} /> */}
-             <h1 className="responsive-headline">I'm Troy Flavell </h1>
-             <h3>A  Hamilton based  <span> React freelancer @WebDevIncNz</span>.</h3> 
+            <h1 className="responsive-headline">I'm Troy Flavell </h1>
+            <h3>A  Hamilton based  <span> React freelancer @WebDevIncNz</span>.</h3>
             <hr />
             <ul className="social">
-               {/* {networks} */}
+              {/* {networks} */}
             </ul>
-         </div>
-      </div>
+          </div>
+        </div>
 
-      <p className="scrolldown">
-         <a className="smoothscroll" href="#about"><FaChevronCircleDown/></a>
-      </p>
+        <p className="scrolldown">
+          <a className="smoothscroll" href="#about"><FaChevronCircleDown /></a>
+        </p>
+      </header>
 
-   </header>
-    );
-  }
+
+
+    </nav>
+
+
+  );
+}
 
 
 export default Header;

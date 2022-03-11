@@ -37,8 +37,8 @@ a {
 
   header {
     @apply  
-    h-screen
-    min-h-[500px] 
+    h-[60vh]
+    min-h-[300px] 
     bg-[#161415] 
     bg-top 
     bg-center
@@ -61,7 +61,7 @@ a {
   header .banner-text h1 {
     @apply font-[opensans-bold] 
     font-medium
-    text-white 
+    text-white
     tracking-tighter 
     m-0 mb-2
     text-6xl 
@@ -70,7 +70,7 @@ a {
 
   header .banner-text h3 {
     @apply font-[librebaskerville-regular]
-    text-[#A8A8A8]
+    text-white
     m-0 
     m-auto 
     w-9/12
@@ -116,7 +116,7 @@ a {
     bottom-8 
     left-2/4
     -ml-7 
-  text-white
+    text-black
     
     h-11
     w-11
@@ -147,7 +147,7 @@ a {
     font-[opensans-bold]
     w-full
     uppercase
-   
+    
     m-auto
     z-50
    
@@ -163,7 +163,7 @@ a {
 
   ul#nav {
     @apply min-h-[48px] 
-    
+   
     w-auto 
     text-center
     tracking-[0.2em]
@@ -183,9 +183,9 @@ a {
     pr-3 
     leading-8
     no-underline
-  
+    text-white
     text-left
-  text-white
+  
     transition ease-in-out delay-150;
   }
 
@@ -330,6 +330,26 @@ a {
   #resume .date {
     @apply font-[opensans-regular];
   }
+
+  /* ------------------------------------------------------------------ */
+/* e. Portfolio Section
+/* ------------------------------------------------------------------ */
+
+#portfolio {
+  @apply bg-[#ebeeee] pt-[90px] pb-[90px]
+
+}
+#portfolio h1 {
+  @apply font-[opensans-bold] text-lg uppercase tracking-wider mb-[48px] text-[#95A3A3] font-semibold
+
+
+}
+
+#portfolio-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 
   /* ------------------------------------------------------------------ */
   /* h. Contact Section

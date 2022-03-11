@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 
     const Portfolio = (props) => {
 
@@ -5,26 +7,43 @@
       const {projects} = props.portfolioData
 
       const projectsList = projects.map((project, index) => {
-        // const {project: {data: {attributes: {name,  body,  skill_categories}}}} = project
-        const {name, body, skill_categories} = project.project.data.attributes
-        console.log("project", skill_categories.data)
-        const skillName = skill_categories.data.map((skill, index) => {
-          return skill.attributes.name
-        })
-
+       
+        const {name, body, link,slug  } = project.project.data.attributes
+        console.log("project1", link )
+        
+        const links = link.map((link, index) => {
+          return (
+            <>
+           <span class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out"><a href={link.url}> #{link.text}</a> </span>
+ 
+            </>
+          )
+        }
+        )
         return (
-          <div className="item-wrap">
-           {/* <a href={projects.url} title={name}> */}
-             {/* <img alt={projects.title} src={projectImage} /> */}
-             <div className="overlay">
-                <div className="portfolio-item-meta">
-               <h5>{name}</h5>
-                   <p>{skillName}</p>
-                </div>
+        
+          <div class="card mt-5 ml-10 ">
+          <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100">
+              <img class="w-full" src="https://static.vecteezy.com/system/resources/previews/001/882/528/non_2x/beautiful-landscape-pine-forest-with-mesmerizing-mountain-views-free-vector.jpg" alt="Mountain" />
+              <div class="px-6 py-4">
+                  <div class="font-bold text-xl mb-2">{name}</div>
+                  <p class="text-gray-700 text-base">
+                       {body} 
+                  </p>
               </div>
-            <div className="link-icon"><i className="fa fa-link"></i></div>
-          {/* </a>  */}
-        </div>
+              <div class="px-6 pt-4 pb-2">
+                  {links}
+             
+              </div>
+              <div class="px-6 pb-4">
+                <btn class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                  <Link href={`/projects/${slug}`}>
+                    <a class="text-white">View Project</a>
+                  </Link>
+                </btn>
+                </div>
+          </div>
+      </div>
   
         )
       })
@@ -32,14 +51,10 @@
 
     return (
       <section id="portfolio">
-
-      <div className="row">
-
-         <div className="twelve columns collapsed">
-
-            <h1>Check Out Some of My Works.</h1>
-
-            <div id="portfolio-wrapper" className="bgrid-quarters s-bgrid-thirds cf">
+      <div className="">
+         <div className="">
+            <h1 className="flex justify-center h-[10vh] text-white">Projects.</h1>
+            <div id="portfolio-wrapper" className="">
                  {projectsList} 
             </div>
           </div>

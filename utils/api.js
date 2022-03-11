@@ -60,6 +60,11 @@ export const getPortfolioData = async () => {
                       attributes {
                         name
                         body
+                        link {
+                          url
+                          text
+                        }
+                        slug
                         skill_categories {
                           data {
                             attributes {
