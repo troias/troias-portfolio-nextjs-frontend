@@ -50,8 +50,8 @@ import Link from 'next/link'
 
 
     return (
-      <section id="portfolio">
-      <div className="">
+      <section id="portfolio" className="flex justify-center">
+      <div className="flex max-w-screen-lg w-full">
          <div className="">
             <h1 className="flex justify-center h-[10vh] text-white">Projects.</h1>
             <div id="portfolio-wrapper" className="">

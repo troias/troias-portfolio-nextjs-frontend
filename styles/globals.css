@@ -210,6 +210,8 @@ a {
     @apply bg-[#2B2B2B] 
     pt-24 
     pb-16 
+    flex
+    justify-center
     overflow-hidden
      w-full;
   }
@@ -263,15 +265,18 @@ a {
     text-2xl;
   }
 
+  #about
+
+
   /* d. Resume Section */
 
   #resume {
-    @apply md:w-full
-   
-    bg-[#fff] 
-    pt-24 
-    pb-16 
-    overflow-hidden;
+    @apply 
+    
+  
+    overflow-hidden
+  
+    w-full;
   }
 
   #resume a,

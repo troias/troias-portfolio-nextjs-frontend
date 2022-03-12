@@ -10,8 +10,8 @@ const About = (props) => {
 
    console.log("About page Image", iconImage)
     return (
-      <section id="about">
-      <div className="flex justify-center md:justify-around ">
+      <section id="about" >
+      <div className="flex justify-center md:justify-around max-w-screen-lg w-full">
 
          <div className=" md:w-1/4  ">
              <NextImage media={iconImage} className=" md:rounded-full"  /> 

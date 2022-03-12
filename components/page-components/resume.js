@@ -64,8 +64,9 @@ const Resume = (props) => {
     })
 
     return (
-        <section id="resume">
-            <div className="">
+        <section id="resume" className="flex justify-center bg-[#fff]   pt-24 
+        pb-16  ">
+            <div className="flex-col  max-w-screen-lg w-full  ">
                 <div className="education md:flex md:justify-between lg:justify-around  ">
                     <div className=" md:w-1/4">
                         <h1 className="flex justify-center" ><span>Education</span></h1>
