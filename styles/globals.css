@@ -37,7 +37,7 @@ a {
 
   header {
     @apply  
-    h-[60vh]
+    h-[100vh]
     min-h-[300px] 
     bg-[#161415] 
     bg-top 
@@ -265,7 +265,7 @@ a {
     text-2xl;
   }
 
-  #about
+
 
 
   /* d. Resume Section */

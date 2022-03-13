@@ -14,7 +14,7 @@ const Header = () => {
       {/* <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
 	      <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a> */}
 
-      <header id="home">
+      <header id="home" className="">
 
         <ul id="nav" className="hidden nav md:flex md:justify-center md:pt-2 ">
           <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
@@ -24,8 +24,8 @@ const Header = () => {
           <li><a className="smoothscroll" href="#testimonials">Testimonials</a></li>
           <li><a className="smoothscroll" href="#contact">Contact</a></li>
         </ul>
-        <div className=" banner flex items-center ">
-          <div className="banner-text ">
+        <div className=" banner flex  items-center  ">
+          <div className="banner-text pb-20">
             {/* <img alt="troias-portfolio-header-background" src={headerBackground} /> */}
             <h1 className="responsive-headline">I'm Troy Flavell </h1>
             <h3>A  Hamilton based  <span> React freelancer @WebDevIncNz</span>.</h3>
@@ -36,9 +36,9 @@ const Header = () => {
           </div>
         </div>
 
-        <p className="scrolldown">
+        {/* <p className="scrolldown">
           <a className="smoothscroll" href="#about"><FaChevronCircleDown /></a>
-        </p>
+        </p> */}
       </header>
 
 

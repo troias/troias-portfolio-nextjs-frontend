@@ -13,7 +13,7 @@ const Resume = (props) => {
         return (
             <div className=" ">
                 <h3 className="flex justify-center">{institution}</h3>
-                <p className="info flex justify-center ">{name} <span>&bull;</span>
+                <p className="info flex justify-center pr-4 pl-4 ">{name} <span>&bull;</span>
                     <em className="date ">{completed}</em>
                 </p>
                 <p>{education.description}</p>
@@ -44,7 +44,7 @@ const Resume = (props) => {
         const { name, description } = skill.skill_category.data.attributes
         return (
           
-                <div class="card mt-5 ml-10 ">
+                <div class="card mt-5 ml-10 pr-8">
                     <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100">
                         <img class="w-full" src="https://static.vecteezy.com/system/resources/previews/001/882/528/non_2x/beautiful-landscape-pine-forest-with-mesmerizing-mountain-views-free-vector.jpg" alt="Mountain" />
                         <div class="px-6 py-4">
@@ -69,7 +69,7 @@ const Resume = (props) => {
             <div className="flex-col  max-w-screen-lg w-full  ">
                 <div className="education md:flex md:justify-between lg:justify-around  ">
                     <div className=" md:w-1/4">
-                        <h1 className="flex justify-center" ><span>Education</span></h1>
+                        <h1 className="flex justify-center lg:justify-start " ><span>Education</span></h1>
                     </div>
                     <div className=" md:w-3/5  ">
                         <div className="">
@@ -80,7 +80,7 @@ const Resume = (props) => {
 
                 <div className=" work md:flex  md:justify-between lg:justify-around ">
                     <div className=" md:w-1/4 ">
-                        <h1 className="flex justify-center"><span>Employment</span></h1>
+                        <h1 className="flex justify-center lg:justify-start"><span>Employment</span></h1>
                     </div>
                     <div className="md:w-3/5 ">
                         {workList}
@@ -89,12 +89,12 @@ const Resume = (props) => {
 
                 <div className=" skill  md:flex  md:justify-between lg:justify-around ">
                     <div className="md:w-1/4">
-                        <h1 className="flex justify-center"><span>Skills</span></h1>
+                        <h1 className="flex  justify-center lg:justify-start"><span>Skills</span></h1>
                     </div>
 
                   
                         {/* <p>{skillmessage} </p> */}
-                        <div className="w-full pr-6  ">
+                        <div className="md:w-3/5   ">
                             <ul className="flex flex-wrap justify-center">
                                 {skillList}
                             </ul>
