@@ -110,6 +110,7 @@ export const getPortfolioData = async () => {
                         name
                         completed
                         institution
+                        distinction
                       }
                     }
                   }

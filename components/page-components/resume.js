@@ -8,15 +8,25 @@ const Resume = (props) => {
     // console.log("resumeComp education", education)
 
     const educationList = education.map((qualification, index) => {
-        const { name, completed, institution } = qualification.qualification.data.attributes
+        const { name, completed, institution, distinction } = qualification.qualification.data.attributes
         // console.log("resumeComp qualification", qualification.qualification.data.attributes)
         return (
             <div className=" ">
                 <h3 className="flex justify-center">{institution}</h3>
-                <p className="info flex justify-center pr-4 pl-4 ">{name} <span>&bull;</span>
-                    <em className="date ">{completed}</em>
+                <p className="info flex justify-center pr-7 pl-7 ">
+                    <span>&bull; {name} </span> <br />
                 </p>
-                <p>{education.description}</p>
+                <p className="info flex justify-center pr-7 pl-7 ">
+                    <em className="date ">Completed: {completed}</em>
+                </p>
+                {distinction ? <p className="info flex justify-center pr-7 pl-7 ">
+
+                    <span className="pr-1">Distinction:  </span><em className="text-black font-medium"> {distinction}</em>
+                </p> : null}
+
+
+
+
             </div>
         )
     }
@@ -43,23 +53,23 @@ const Resume = (props) => {
         console.log("resumeComp skill", skill)
         const { name, description } = skill.skill_category.data.attributes
         return (
-          
-                <div class="card mt-5 ml-10 pr-8">
-                    <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100">
-                        <img class="w-full" src="https://static.vecteezy.com/system/resources/previews/001/882/528/non_2x/beautiful-landscape-pine-forest-with-mesmerizing-mountain-views-free-vector.jpg" alt="Mountain" />
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2">{name}</div>
-                            <p class="text-gray-700 text-base">
-                                {description}
-                            </p>
-                        </div>
-                        <div class="px-6 pt-4 pb-2">
-                            <span class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out">#tailwind</span>
-                            <span class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out">#frontendeverything</span>
-                        </div>
+
+            <div class="card mt-5 ml-10 pr-8">
+                <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100">
+                    <img class="w-full" src="https://static.vecteezy.com/system/resources/previews/001/882/528/non_2x/beautiful-landscape-pine-forest-with-mesmerizing-mountain-views-free-vector.jpg" alt="Mountain" />
+                    <div class="px-6 py-4">
+                        <div class="font-bold text-xl mb-2">{name}</div>
+                        <p class="text-gray-700 text-base">
+                            {description}
+                        </p>
+                    </div>
+                    <div class="px-6 pt-4 pb-2">
+                        <span class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out">#tailwind</span>
+                        <span class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out">#frontendeverything</span>
                     </div>
                 </div>
-         
+            </div>
+
         )
     })
 
@@ -92,14 +102,14 @@ const Resume = (props) => {
                         <h1 className="flex  justify-center lg:justify-start"><span>Skills</span></h1>
                     </div>
 
-                  
-                        {/* <p>{skillmessage} </p> */}
-                        <div className="md:w-3/5   ">
-                            <ul className="flex flex-wrap justify-center">
-                                {skillList}
-                            </ul>
-                        </div>
-                
+
+                    {/* <p>{skillmessage} </p> */}
+                    <div className="md:w-3/5   ">
+                        <ul className="flex flex-wrap justify-center">
+                            {skillList}
+                        </ul>
+                    </div>
+
                 </div>
             </div>
         </section>
