@@ -131,7 +131,9 @@ a {
 
   /* primary navigation
 --------------------------------------------------------------------- */
-
+  #nav {
+    @apply md:fixed flex
+  }
   #nav-wrap ul,
   #nav-wrap li,
   #nav-wrap a {
@@ -150,9 +152,8 @@ a {
     
     m-auto
     z-50
-   
-   
   }
+
   .opaque {
     @apply bg-[#333];
   }

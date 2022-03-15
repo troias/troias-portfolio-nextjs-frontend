@@ -1,23 +1,89 @@
 
 import { FaChevronCircleDown } from 'react-icons/fa';
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
+import classnames from 'classnames';
 
 
 
 
 const Header = () => {
 
+  const ref = useRef()
+
+
   const [visable, setVisable] = useState(false);
+  const [show, setShow] = useState(false);
   const [fadeIn, fadeOut] = useState(false);
+  const [navBar, setNavBar] = useState(false);
+  const [headerElHeight, setHeaderElHeight] = useState(0);
 
   const toggleMenu = (event) => {
     event.preventDefault();
     setVisable(!visable);
 
   }
+  // console.log("window", window.innerWidth)
 
-  // fade in and out of primary Nav
+  /*----------------------------------------------------*/
+  /*	Fade In/Out Primary Navigation
+  ------------------------------------------------------*/
+
+  // useEffect(() => {
+  //   console.log(ref.current.offsetHeight)
+
+  //   const setElHeight = () => {
+  //     const h = ref.current.offsetHeight;
+  //     setHeaderElHeight(h);
+
+  //   }
+  //   setElHeight();
+
+  // })
+
+  const controlNavBar = () => {
+    if (window.scrollY > 100) {
+      setShow(true);
+    } else {
+      setShow(false);
+    }
+  }
+
+  useEffect(() => { 
+    window.addEventListener('scroll', controlNavBar);
+
+    return () => {
+      window.removeEventListener('scroll', controlNavBar);
+    }
   
+  }, [])
+
+
+  console.log("headerElHeight", headerElHeight)
+  
+
+
+  // $(window).on('scroll', function() {
+
+  //   var h = $('header').height();
+  //   var y = $(window).scrollTop();
+  //     var nav = $('#nav-wrap');
+
+  //    if ( (y > h*.20) && (y < h) && ($(window).outerWidth() > 768 ) ) {
+  //       nav.fadeOut('fast');
+  //    }
+  //     else {
+  //        if (y < h*.20) {
+  //           nav.removeClass('opaque').fadeIn('fast');
+  //        }
+  //        else {
+  //           nav.addClass('opaque').fadeIn('fast');
+  //        }
+  //     }
+
+  // });
+
+  console.log("show", show)
+
 
   return (
 
@@ -27,7 +93,7 @@ const Header = () => {
       {/* <a className="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
 	      <a className="mobile-btn" href="#home" title="Hide navigation">Hide navigation</a> */}
 
-      <header id="home" className="">
+      <header id="home" className="" ref={ref} >
 
         {/* <!-- Mobile menu button --> */}
         <div class="md:hidden flex items-center pl-7 pt-4 fixed " onClick={toggleMenu} >
@@ -58,8 +124,10 @@ const Header = () => {
 
 
         {/* desktop-nav */}
-        <div className="md:flex md:justify-center md:pt-2 sticky ">
-          <ul id="nav" className=" md:fixed flex ">
+
+
+        <div className={`md:flex md:justify-center md:pt-2 sticky `}>
+          <ul id="nav" className={`${show && 'opaque'}`}>
             <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
             <li><a className="smoothscroll" href="#about">About</a></li>
             <li><a className="smoothscroll" href="#resume">Resume</a></li>
