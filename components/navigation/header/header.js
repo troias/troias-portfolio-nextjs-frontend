@@ -15,8 +15,10 @@ const Header = () => {
   const [show, setShow] = useState(false);
   const [fadeIn, fadeOut] = useState(false);
   const [navBar, setNavBar] = useState(false);
-  const [headerElHeight, setHeaderElHeight] = useState(0);
+  const [hidden, setHidden] = useState(false);
 
+
+  
   const toggleMenu = (event) => {
     event.preventDefault();
     setVisable(!visable);
@@ -24,43 +26,64 @@ const Header = () => {
   }
   // console.log("window", window.innerWidth)
 
+  const addBackGroundOnNav  = () => {
+    const scroll = window.scrollY;
+    if (scroll > ref.current.offsetHeight / 4 ) {
+      setHidden(true);
+    } 
+    if (scroll > ref.current.offsetHeight ) {
+      setHidden(false);
+      setShow(true);
+    }
+    if (scroll === 0) {
+      setHidden(false);
+      setShow(false);
+    }
+
+  }
+
+  // const setElHeight = () => {
+  //   const h = ref.current.offsetHeight;
+  //   setHeaderElHeight(h);
+  // }
+
+
   /*----------------------------------------------------*/
   /*	Fade In/Out Primary Navigation
   ------------------------------------------------------*/
 
-  // useEffect(() => {
-  //   console.log(ref.current.offsetHeight)
-
-  //   const setElHeight = () => {
-  //     const h = ref.current.offsetHeight;
-  //     setHeaderElHeight(h);
-
-  //   }
-  //   setElHeight();
-
-  // })
-
-  const controlNavBar = () => {
-    if (window.scrollY > 100) {
-      setShow(true);
-    } else {
-      setShow(false);
-    }
-  }
-
-  useEffect(() => { 
-    window.addEventListener('scroll', controlNavBar);
+  useEffect(() => {
+    // setElHeight();
+    // window.addEventListener('resize', setElHeight);
+    window.addEventListener('scroll', addBackGroundOnNav)
 
     return () => {
-      window.removeEventListener('scroll', controlNavBar);
+      // window.removeEventListener('resize', setElHeight);
+      window.removeEventListener('scroll', addBackGroundOnNav
+      )
     }
-  
-  }, [])
 
 
-  console.log("headerElHeight", headerElHeight)
-  
+  }, [hidden])
 
+
+
+  // const controlNavBar = () => {
+  //   if (window.scrollY > 100) {
+  //     setShow(true);
+  //   } else {
+  //     setShow(false);
+  //   }
+  // }
+
+  // useEffect(() => { 
+  //   window.addEventListener('scroll', controlNavBar);
+
+  //   return () => {
+  //     window.removeEventListener('scroll', controlNavBar);
+  //   }
+
+  // }, [])
 
   // $(window).on('scroll', function() {
 
@@ -82,7 +105,7 @@ const Header = () => {
 
   // });
 
-  console.log("show", show)
+  // console.log("show", show)
 
 
   return (
@@ -126,15 +149,15 @@ const Header = () => {
         {/* desktop-nav */}
 
 
-        <div className={`md:flex md:justify-center md:pt-2 sticky `}>
-          <ul id="nav" className={`${show && 'opaque'}`}>
+       <div className={`md:flex md:justify-center md:pt-2 sticky `}>
+     {  !hidden &&  <ul id="nav" className={`${show && 'opaque'}`}>
             <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
             <li><a className="smoothscroll" href="#about">About</a></li>
             <li><a className="smoothscroll" href="#resume">Resume</a></li>
             <li><a className="smoothscroll" href="#portfolio">Works</a></li>
             <li><a className="smoothscroll" href="#testimonials">Testimonials</a></li>
             <li><a className="smoothscroll" href="#contact">Contact</a></li>
-          </ul>
+          </ul>}
 
         </div>
 
@@ -147,6 +170,9 @@ const Header = () => {
             <hr />
             <ul className="social">
               {/* {networks} */}
+              {/* <span className="text-white">{headerElHeight} </span>
+              <br />
+              <span className="text-white"> {scrollPos}</span> */}
             </ul>
           </div>
         </div>
