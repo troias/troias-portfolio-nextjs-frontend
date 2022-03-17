@@ -18,7 +18,7 @@ const Header = () => {
   const [hidden, setHidden] = useState(false);
 
 
-  
+
   const toggleMenu = (event) => {
     event.preventDefault();
     setVisable(!visable);
@@ -26,12 +26,12 @@ const Header = () => {
   }
   // console.log("window", window.innerWidth)
 
-  const addBackGroundOnNav  = () => {
+  const addBackGroundOnNav = () => {
     const scroll = window.scrollY;
-    if (scroll > ref.current.offsetHeight / 4 ) {
+    if (scroll > ref.current.offsetHeight / 4) {
       setHidden(true);
-    } 
-    if (scroll > ref.current.offsetHeight ) {
+    }
+    if (scroll > ref.current.offsetHeight) {
       setHidden(false);
       setShow(true);
     }
@@ -149,17 +149,20 @@ const Header = () => {
         {/* desktop-nav */}
 
 
-       <div className={`md:flex md:justify-center md:pt-2 sticky `}>
-     {  !hidden &&  <ul id="nav" className={`${show && 'opaque'}`}>
-            <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
-            <li><a className="smoothscroll" href="#about">About</a></li>
-            <li><a className="smoothscroll" href="#resume">Resume</a></li>
-            <li><a className="smoothscroll" href="#portfolio">Works</a></li>
-            <li><a className="smoothscroll" href="#testimonials">Testimonials</a></li>
-            <li><a className="smoothscroll" href="#contact">Contact</a></li>
-          </ul>}
-
-        </div>
+       
+          {!hidden &&
+           <div className={`md:flex md:justify-center md:pt-2 sticky z-50`}>
+              <ul id="nav" className={` ${show && 'opaque'}`}>
+                <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
+                <li><a className="smoothscroll" href="#about">About</a></li>
+                <li><a className="smoothscroll" href="#resume">Resume</a></li>
+                <li><a className="smoothscroll" href="#portfolio">Works</a></li>
+                <li><a className="smoothscroll" href="#testimonials">Testimonials</a></li>
+                <li><a className="smoothscroll" href="#contact">Contact</a></li>
+              </ul>
+           </div>
+          }
+       
 
 
         <div className=" banner flex  items-center  ">

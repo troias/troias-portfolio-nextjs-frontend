@@ -13,8 +13,8 @@ const About = (props) => {
       <section id="about" >
          <div className="flex justify-center md:justify-around max-w-screen-lg w-full p-4">
 
-            <div className=" md:w-1/4  ">
-               <NextImage media={iconImage} className=" md:rounded-full" />
+            <div className=" md:w-1/4   ">
+               <NextImage media={iconImage} className=" md:rounded-full z-0 " />
             </div>
 
             <div className=" flex flex-col p-4 ">

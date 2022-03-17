@@ -132,7 +132,9 @@ a {
   /* primary navigation
 --------------------------------------------------------------------- */
   #nav {
-    @apply md:fixed flex
+    @apply md:fixed 
+    flex
+    
   }
   #nav-wrap ul,
   #nav-wrap li,
@@ -164,10 +166,13 @@ a {
 
   ul#nav {
     @apply min-h-[48px] 
-   
-    w-auto 
+    flex
+    justify-center
+    w-full
     text-center
     tracking-[0.2em]
+    top-0
+    
   }
   ul#nav li {
     @apply relative
