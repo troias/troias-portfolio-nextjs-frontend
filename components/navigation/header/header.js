@@ -2,11 +2,15 @@
 import { FaChevronCircleDown } from 'react-icons/fa';
 import { useState, useRef, useEffect } from 'react'
 import classnames from 'classnames';
+import {CSSTransition} from 'react-transition-group';
 
 
 
 
 const Header = () => {
+
+
+
 
   const ref = useRef()
 
@@ -149,10 +153,10 @@ const Header = () => {
         {/* desktop-nav */}
 
 
-       
-          {!hidden &&
-           <div className={`md:flex md:justify-center md:pt-2 sticky z-50`}>
-              <ul id="nav" className={` ${show && 'opaque'}`}>
+       <CSSTransition in={!hidden} className="fade" timeout={300} unmountOnExit >
+           <div className={`md:flex md:justify-center md:pt-2 sticky z-50   `}>
+          
+              <ul id="nav" className={` ${show && 'transition ease-in-out delay-[2000] opaque ' } `}>
                 <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
                 <li><a className="smoothscroll" href="#about">About</a></li>
                 <li><a className="smoothscroll" href="#resume">Resume</a></li>
@@ -160,8 +164,9 @@ const Header = () => {
                 <li><a className="smoothscroll" href="#testimonials">Testimonials</a></li>
                 <li><a className="smoothscroll" href="#contact">Contact</a></li>
               </ul>
+       
            </div>
-          }
+         </CSSTransition>
        
 
 

@@ -18,6 +18,9 @@ i. Footer */
 @import url("fontello/css/fontello.css");
 @import url("font-awesome/css/font-awesome.min.css"); */
 
+
+
+
 body { background: #0f0f0f; }
 
 a {
@@ -30,6 +33,39 @@ a {
 }
 
 @layer components {
+
+  /* css transiton group for hiding navbar */
+
+ fade-enter {
+    @apply   bg-black
+  }
+  fade-enter-active {
+    @apply bg-black
+  }
+  fade-exit {
+    @apply    bg-black
+  }
+
+  fade-exit-active {
+    @apply   bg-black
+  } 
+
+  /* css transiton group adding bg color */
+
+  fade-in-enter {
+    @apply   bg-black
+  }
+  fade-in-enter-active {
+    @apply bg-black
+  }
+  fade-in-exit {
+    @apply    bg-black
+  }
+
+  fade-in-exit-active {
+    @apply   bg-black
+  } 
+
 
   /* ------------------------------------------------------------------ */
   /* b. Header Styles
@@ -172,6 +208,7 @@ a {
     text-center
     tracking-[0.2em]
     top-0
+    transition ease-in-out delay-1000
     
   }
   ul#nav li {
