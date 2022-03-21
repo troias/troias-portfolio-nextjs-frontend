@@ -1,15 +1,25 @@
 
 // import { FaChevronCircleDown } from 'react-icons/fa';
-import { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import {CSSTransition} from 'react-transition-group';
 
-const Header = () => {
+const Header = React.forwardRef((props, ref) => {
 
-  const ref = useRef()
+  const headerRef = useRef()
+  const aboutref = useRef()
+  const contactref = useRef()
+  const resumeref = useRef()
+  const workdsref = useRef()
+  const testimonialsref = useRef()
+  
+
   const [visable, setVisable] = useState(false);
   const [show, setShow] = useState(false);
   const [hidden, setHidden] = useState(false);
-
+  const [current, setCurrent] = useState(false);
+  
+  console.log("HeaderRef", ref )
+  console.log("current", current)
   console.log("show", show)
 
   const toggleMenu = (event) => {
@@ -33,22 +43,33 @@ const Header = () => {
      
     }
   }
+  const addCurrNavItem = () => {
+   
+    const scroll = window.scrollY;
+    console.log("aboutref", aboutref.current)
+    if ( aboutref.current === null) {
+      return null
+    }
+
+  }
 
   /*----------------------------------------------------*/
   /*	Fade In/Out Primary Navigation
   ------------------------------------------------------*/
-
+  
   useEffect(() => {
     window.addEventListener('scroll', addBackGroundOnNav)
+    window.addEventListener('scroll', addCurrNavItem)
     return () => {
       window.removeEventListener('scroll', addBackGroundOnNav
       )
+      window.removeEventListener('scroll', addCurrNavItem)
     }
-  }, [hidden])
+  }, [])
 
   return (
     <nav id="nav-wrap ">
-      <header id="home" className="" ref={ref} >
+      <header id="home" className="" ref={headerRef} >
         {/* <!-- Mobile menu button --> */}
         <div class="md:hidden flex items-center pl-7 pt-4 fixed " onClick={toggleMenu} >
           <button class="outline-none mobile-menu-button">
@@ -81,12 +102,12 @@ const Header = () => {
        <CSSTransition in={!hidden} className="" timeout={15} unmountOnExit>
            <div className={`md:flex md:justify-center md:pt-2 sticky ` }>
                <ul id="nav" className={`${show && 'opaque  z-50 '}`}> 
-                <li className="current"><a className="smoothscroll" href="#home">Home</a></li>
-                <li><a className="smoothscroll" href="#about">About</a></li>
-                <li><a className="smoothscroll" href="#resume">Resume</a></li>
-                <li><a className="smoothscroll" href="#portfolio">Works</a></li>
-                <li><a className="smoothscroll" href="#testimonials">Testimonials</a></li>
-                <li><a className="smoothscroll" href="#contact">Contact</a></li>
+                <li className={`${current && "current"}`}><a className="smoothscroll" href="#home">Home</a></li>
+                <li className={`${current && "current"}`} ref={aboutref}><a className="smoothscroll" href="#about" >About</a></li>
+                <li ref={resumeref} ><a className={"smoothscroll"} href="#resume">Resume</a></li>
+                <li ref={workdsref} ><a className={"smoothscroll"} href="#portfolio">Works</a></li>
+                <li  ref={testimonialsref}><a className={"smoothscroll"} href="#testimonials">Testimonials</a></li>
+                <li  ref={contactref}><a className={"smoothscroll"} href="#contact">Contact</a></li>
               </ul>
 
            </div>
@@ -114,7 +135,9 @@ const Header = () => {
     </nav>
 
   );
-}
+})
+
+
 
 
 export default Header;
