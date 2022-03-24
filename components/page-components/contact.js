@@ -1,4 +1,4 @@
-
+import React, {useEffect, useRef} from "react"
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { AiOutlineMail } from 'react-icons/ai';
@@ -8,6 +8,16 @@ import { FaChevronCircleUp } from 'react-icons/fa';
 
 
 const Contact = (props) => {
+
+    const contactRef = useRef()
+
+    const sendReftoHeader = () => {
+        props.headerRef([contactRef])
+    }
+
+    useEffect(() => {
+        sendReftoHeader()
+    }, [])
 
     const formik = useFormik({
         initialValues: {
@@ -29,7 +39,10 @@ const Contact = (props) => {
         },
     });
     return (
-        <section id="contact" className="flex justify-center" >
+        <section id="contact"  ref={contactRef}>
+            <div className="flex justify-center">
+
+         
 
             <div className="flex-col justify-center max-w-screen-lg w-full  ">
                 <div className="section-head flex justify-center">
@@ -92,6 +105,7 @@ const Contact = (props) => {
                   <FaChevronCircleUp className="hover:bg-[#0F9095] rounded-[100%]" />
                </a>
             </div> */}
+            </div>
             </div>
         </section>
     );

@@ -1,9 +1,20 @@
-const Resume = (props) => {
+import React, {useEffect, useRef} from "react"
 
+const Resume = (props, ref) => {
+
+    const resumeRef = useRef()
+
+    const sendReftoHeader = () => {
+        props.headerRef([resumeRef])
+    }
+
+    useEffect(() => {
+        sendReftoHeader()
+    }, [])
     // console.log("resumeComp props", props)
     const { education, work, skills } = props.resumeData
 
-    console.log("resume skills", skills)
+
 
     // console.log("resumeComp education", education)
 
@@ -23,10 +34,6 @@ const Resume = (props) => {
 
                     <span className="pr-1">Distinction:  </span><em className="text-black font-medium"> {distinction}</em>
                 </p> : null}
-
-
-
-
             </div>
         )
     }
@@ -34,7 +41,7 @@ const Resume = (props) => {
 
     const workList = work.map((job, index) => {
         const { title, company, body, duration } = job.job.data.attributes
-        console.log("resumeComp job", job.job.data.attributes)
+       
         return (
             <div key={company} className="">
                 <h3 className="flex justify-center">{company}</h3>
@@ -50,7 +57,7 @@ const Resume = (props) => {
     })
 
     const skillList = skills.map((skill, index) => {
-        console.log("resumeComp skill", skill)
+        
         const { name, description } = skill.skill_category.data.attributes
         return (
 
@@ -74,8 +81,10 @@ const Resume = (props) => {
     })
 
     return (
-        <section id="resume" className="flex justify-center bg-[#fff]   pt-24 
-        pb-16  ">
+        <section id="resume" ref={resumeRef}>
+            <div  className="flex justify-center bg-[#fff]   pt-24  pb-16  ">
+
+           
             <div className="flex-col  max-w-screen-lg w-full  ">
                 <div className="education md:flex md:justify-between lg:justify-around  ">
                     <div className=" md:w-1/4">
@@ -112,10 +121,12 @@ const Resume = (props) => {
 
                 </div>
             </div>
+            </div>
         </section>
     );
-
 }
+
+
 
 
 export default Resume;

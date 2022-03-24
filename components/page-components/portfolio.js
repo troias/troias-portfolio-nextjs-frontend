@@ -1,15 +1,25 @@
 import Link from 'next/link'
+import {useEffect, useRef} from 'react'
 
 
     const Portfolio = (props) => {
 
-      console.log("portfolio props", props)
+      const porfolioRef = useRef()
+
+      const sendReftoHeader = () => {
+          props.headerRef([porfolioRef])
+      }
+
+      useEffect(() => {
+        sendReftoHeader()
+    }, [])
+      
       const {projects} = props.portfolioData
 
       const projectsList = projects.map((project, index) => {
        
         const {name, body, link,slug  } = project.project.data.attributes
-        console.log("project1", link )
+       
         
         const links = link.map((link, index) => {
           return (
@@ -21,7 +31,7 @@ import Link from 'next/link'
         }
         )
         return (
-        
+          <section id="portfolio"  ref={porfolioRef}>
           <div class="card mt-5 ml-10 ">
           <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100">
               <img class="w-full" src="https://static.vecteezy.com/system/resources/previews/001/882/528/non_2x/beautiful-landscape-pine-forest-with-mesmerizing-mountain-views-free-vector.jpg" alt="Mountain" />
@@ -33,7 +43,6 @@ import Link from 'next/link'
               </div>
               <div class="px-6 pt-4 pb-2">
                   {links}
-             
               </div>
               <div class="px-6 pb-4">
                 <btn class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -44,7 +53,7 @@ import Link from 'next/link'
                 </div>
           </div>
       </div>
-  
+      </section>
         )
       })
 

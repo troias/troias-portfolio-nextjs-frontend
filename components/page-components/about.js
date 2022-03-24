@@ -1,16 +1,26 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useRef } from 'react';
 import NextImage from '../elements/image';
 
-const About = (props) => {
+const About = (props, ref) => {
 
-
+   const aboutRef = useRef()
    console.log("About page props", props)
    const { bio, body, contactDetails, title } = props.aboutPageData
    const { name, email, phone, address, website, iconImage } = contactDetails
 
+   console.log("About page ref", aboutRef)
+
    console.log("About page Image", iconImage)
+
+   const sendReftoHeader = () => {
+       props.headerRef([aboutRef])
+   }
+   useEffect(() => {
+         sendReftoHeader()
+   }, [])
+
    return (
-      <section id="about" >
+      <section id="about" ref={aboutRef} >
          <div className="flex justify-center md:justify-around max-w-screen-lg w-full p-4">
 
             <div className=" md:w-1/4   ">
@@ -38,6 +48,7 @@ const About = (props) => {
       </section>
    );
 }
+
 
 
 export default About;

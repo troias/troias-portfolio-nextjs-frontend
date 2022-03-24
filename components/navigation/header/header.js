@@ -4,23 +4,37 @@ import React, { useState, useRef, useEffect } from 'react'
 import {CSSTransition} from 'react-transition-group';
 
 const Header = React.forwardRef((props, ref) => {
+  let headerRefData
+  // const test = useRef(props.sectionRefData)
+  // console.log("test", test)
+
+
+  // console.log(
+  // "aboutRefPageNavRef", aboutref)
 
   const headerRef = useRef()
   const aboutref = useRef()
+  const homeLinkRef = useRef()
   const contactref = useRef()
   const resumeref = useRef()
-  const workdsref = useRef()
+  const worksRef = useRef()
   const testimonialsref = useRef()
-  
+
+
+
+  console.log("headerRefFromRef", ref);
+  console.log("headerRefData", props.sectionRefData )
+
+//  console.log("headerProps", headerRefData)
 
   const [visable, setVisable] = useState(false);
   const [show, setShow] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [current, setCurrent] = useState(false);
   
-  console.log("HeaderRef", ref )
-  console.log("current", current)
-  console.log("show", show)
+  // console.log("HeaderRef", ref )
+  // console.log("current", current)
+  // console.log("show", show)
 
   const toggleMenu = (event) => {
     event.preventDefault();
@@ -30,10 +44,10 @@ const Header = React.forwardRef((props, ref) => {
 
   const addBackGroundOnNav = () => {
     const scroll = window.scrollY;
-    if (scroll > ref.current.offsetHeight / 4) {
+    if (scroll > headerRef.current.offsetHeight / 4) {
       setHidden(true);
     }
-    if (scroll > ref.current.offsetHeight) {
+    if (scroll > headerRef.current.offsetHeight) {
       setHidden(false);
       setShow(true);
     }
@@ -43,14 +57,136 @@ const Header = React.forwardRef((props, ref) => {
      
     }
   }
+  useEffect(() => {
+    headerRefData = props.sectionRefData
+    console.log("headerRefInnerData", props.sectionRefData)
+  }, [])
   const addCurrNavItem = () => {
    
     const scroll = window.scrollY;
-    console.log("aboutref", aboutref.current)
-    if ( aboutref.current === null) {
-      return null
+    const sections = [...ref.current]
+
+    let [about, resume, portfolio, contact ] = sections
+   
+    const aboutSectionHeight = about[0].current.offsetTop
+    const aboutSectionHeightBottom = about[0].current.offsetHeight + aboutSectionHeight
+
+    const resumeSectionHeight = resume[0].current.offsetTop
+    const resumeSectionHeightBottom = resume[0].current.offsetHeight + resumeSectionHeight
+
+    const contactSectionHeight = contact[0].current.offsetTop
+    const contactSectionHeightBottom = contact[0].current.offsetHeight + contactSectionHeight
+
+    const portfolioSectionHeight = portfolio[0].current.offsetTop
+    const portfolioSectionHeightBottom = portfolio[0].current.offsetHeight + portfolioSectionHeight
+
+
+    if (scroll < aboutSectionHeight ) {
+      if (homeLinkRef.current) {
+         const curr = homeLinkRef.current
+      curr.classList.add("current")
+      }
+     
+    }
+    if(scroll > aboutSectionHeight ) {
+      const prev = homeLinkRef.current
+      prev.classList.remove("current")
+       const curr = aboutref.current
+       curr.classList.add('current')
+     
+    } 
+
+    if(scroll > aboutSectionHeightBottom ) {
+      curr = aboutref.current 
+      curr.classList.remove('current')
+    } 
+
+    if (scroll < aboutSectionHeightBottom ) {
+      if ( resumeref.current) {
+        curr = resumeref.current
+        curr.classList.remove('current')
+      }
     }
 
+
+     if (scroll > resumeSectionHeight) {
+      const prev = aboutref.current 
+      prev.classList.remove('current')
+       const curr = resumeref.current
+      curr.classList.add('current')
+
+      if (scroll < aboutSectionHeightBottom) {
+        prev.classList.remove('current')
+      }
+
+     }
+
+      if (scroll > resumeSectionHeightBottom) {
+        curr = resumeref.current
+        curr.classList.remove('current')
+      }
+
+      if (scroll < resumeSectionHeightBottom) {
+        if (worksRef.current) {
+          curr = worksRef.current
+          curr.classList.remove('current')
+        }
+      }
+
+      if (scroll > portfolioSectionHeight) {
+        const prev = resumeref.current
+        prev.classList.remove('current')
+        const curr = worksRef.current
+        curr.classList.add('current')
+        if (scroll < resumeSectionHeightBottom) {
+          prev.classList.remove('current')
+        }
+      }
+
+      if (scroll > portfolioSectionHeightBottom) {
+        curr = worksRef.current
+        curr.classList.remove('current')
+      }
+      
+      if (scroll > contactSectionHeight) {
+        const prev = worksRef.current
+        prev.classList.remove('current')
+  
+      }
+
+      if (scroll > contactSectionHeight) {
+        curr = contactref.current
+        curr.classList.add('current')
+      }
+      if (scroll < contactSectionHeight) {
+        if (contactref.current) {
+          curr = contactref.current
+          curr.classList.remove('current')
+        }
+      
+      }
+
+   
+
+
+     console.log("scroll", scroll);
+     console.log("aboutSectionHeightBottom", aboutSectionHeightBottom);
+
+
+     
+
+
+
+
+
+
+
+    
+ 
+
+
+   
+ 
   }
 
   /*----------------------------------------------------*/
@@ -102,12 +238,12 @@ const Header = React.forwardRef((props, ref) => {
        <CSSTransition in={!hidden} className="" timeout={15} unmountOnExit>
            <div className={`md:flex md:justify-center md:pt-2 sticky ` }>
                <ul id="nav" className={`${show && 'opaque  z-50 '}`}> 
-                <li className={`${current && "current"}`}><a className="smoothscroll" href="#home">Home</a></li>
-                <li className={`${current && "current"}`} ref={aboutref}><a className="smoothscroll" href="#about" >About</a></li>
-                <li ref={resumeref} ><a className={"smoothscroll"} href="#resume">Resume</a></li>
-                <li ref={workdsref} ><a className={"smoothscroll"} href="#portfolio">Works</a></li>
-                <li  ref={testimonialsref}><a className={"smoothscroll"} href="#testimonials">Testimonials</a></li>
-                <li  ref={contactref}><a className={"smoothscroll"} href="#contact">Contact</a></li>
+                <li ref={homeLinkRef} className="current"><a className="smoothscroll" href="#home">Home</a></li>
+                <li  ref={aboutref}><a className="smoothscroll" href="#about" >About</a></li>
+                <li ref={resumeref} ><a className="smoothscroll" href="#resume">Resume</a></li>
+                <li ref={worksRef} ><a className="smoothscroll" href="#portfolio">Works</a></li>
+                {/* <li  ref={testimonialsref}><a className="smoothscroll" href="#testimonials">Testimonials</a></li> */}
+                <li  ref={contactref}><a className="smoothscroll" href="#contact">Contact</a></li>
               </ul>
 
            </div>
