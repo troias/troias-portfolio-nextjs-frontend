@@ -31,7 +31,7 @@ import {useEffect, useRef} from 'react'
         }
         )
         return (
-          <section id="portfolio"  ref={porfolioRef}>
+       
           <div class="card mt-5 ml-10 ">
           <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100">
               <img class="w-full" src="https://static.vecteezy.com/system/resources/previews/001/882/528/non_2x/beautiful-landscape-pine-forest-with-mesmerizing-mountain-views-free-vector.jpg" alt="Mountain" />
@@ -53,16 +53,16 @@ import {useEffect, useRef} from 'react'
                 </div>
           </div>
       </div>
-      </section>
+   
         )
       })
 
 
     return (
-      <section id="portfolio" className="flex justify-center">
+      <section id="portfolio" className="flex justify-center"  ref={porfolioRef}>
       <div className="flex max-w-screen-lg w-full">
          <div className="">
-            <h1 className="flex justify-center h-[10vh] text-white">Projects.</h1>
+            <h1 className="flex justify-center  text-white">Projects.</h1>
             <div id="portfolio-wrapper" className="">
                  {projectsList} 
             </div>

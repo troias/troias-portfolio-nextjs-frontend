@@ -63,7 +63,8 @@ a {
   }
 
   header .banner-text {
-    @apply w-full;
+    @apply w-full
+    z-0
   }
 
   header .banner-text h1 {
@@ -208,8 +209,52 @@ a {
     @apply bg-transparent;
   }
   ul#nav li.current a {
-    @apply text-[#F06000];
+    @apply text-[#F06000] font-bold
+    
   }
+
+  #mobile-nav {
+    @apply 
+    sm:hidden
+    bg-gray-800 
+    max-w-screen-sm
+    
+    z-50
+
+  }
+  ul#mobile-nav li {
+    @apply 
+    sticky
+    fixed
+    list-none
+    h-14
+    text-center
+   
+    text-lg
+    font-semibold
+    pt-2
+    pr-3
+    leading-8
+    no-underline
+    transition ease-in-out delay-150
+    border-b 
+    border-gray-500
+    border-opacity-5
+  }
+  ul#mobile-nav li a {
+    @apply 
+    
+  
+    text-white
+   
+  }
+
+  ul#mobile-nav li.current a {
+    @apply text-[#F06000] font-bold
+    
+  }
+
+
 
   /* Links */
 
@@ -356,11 +401,11 @@ a {
 /* ------------------------------------------------------------------ */
 
 #portfolio {
-  @apply bg-[#ebeeee] pt-[90px] pb-[90px]
+  @apply bg-[#ebeeee] pt-[60px] pb-[60px]
 
 }
 #portfolio h1 {
-  @apply font-[opensans-bold] text-lg uppercase tracking-wider mb-[48px] text-[#95A3A3] font-semibold
+  @apply font-[opensans-bold] text-lg uppercase tracking-wider m-6 text-[#95A3A3] font-semibold
 
 
 }
