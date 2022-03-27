@@ -141,7 +141,7 @@ a {
   /* primary navigation
 --------------------------------------------------------------------- */
   #nav {
-    @apply md:fixed 
+    @apply 
     flex
     
   }
@@ -176,7 +176,7 @@ a {
     @apply min-h-[48px] 
     flex
     justify-center
-    w-full
+   
     text-center
     tracking-[0.2em]
     top-0
@@ -185,7 +185,7 @@ a {
     
   }
   ul#nav li {
-    @apply relative
+    @apply 
     list-none
 
     h-14
@@ -225,11 +225,10 @@ a {
   ul#mobile-nav li {
     @apply 
     sticky
-    fixed
+    
     list-none
     h-14
     text-center
-   
     text-lg
     font-semibold
     pt-2
@@ -253,6 +252,12 @@ a {
     @apply text-[#F06000] font-bold
     
   }
+
+  ul#mobile-nav li a {
+    @apply text-white font-bold
+    
+  }
+
 
 
 
