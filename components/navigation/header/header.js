@@ -18,7 +18,7 @@ const Header = React.forwardRef((props, ref) => {
 
 
   const router = useRouter()
-  console.log("router", router);
+  console.log("routerInformation", router);
 
 
   const headerRef = useRef()
@@ -71,9 +71,10 @@ const Header = React.forwardRef((props, ref) => {
       id: '#Contact',
       path: '/#contact',
     }
+
   ];
 
-  //  console.log("headerProps", headerRefData)
+   
 
   const [visable, setVisable] = useState(false);
   const [desktop, setDesktop] = useState(false)
@@ -92,45 +93,61 @@ const Header = React.forwardRef((props, ref) => {
     setVisable(!visable);
 
   }
+    /*----------------------------------------------------*/
+  /*	Fade In/Out Primary Navigation
+  ------------------------------------------------------*/
 
-  const addBackGroundOnNav = () => {
-    const scroll = window.scrollY;
-    if (scroll > headerRef.current.offsetHeight / 4) {
-      setHidden(true);
-    }
-    if (scroll > headerRef.current.offsetHeight) {
-      setHidden(false);
-      setShow(true);
-    }
-    if (scroll === 0) {
-      setShow(false);
-      setHidden(false);
+  // const addBackGroundOnNav = () => {
+  //   const scroll = window.scrollY;
+  //   if (scroll > headerRef.current.offsetHeight / 4) {
+  //     setHidden(true);
+  //   }
+  //   if (scroll > headerRef.current.offsetHeight) {
+  //     setHidden(false);
+  //     setShow(true);
+  //   }
+  //   if (scroll === 0) {
+  //     setShow(false);
+  //     setHidden(false);
 
-    }
-  }
+  //   }
+  // }
+
   const checkDimensions = () => {
     console.log("innderDimensions", window.innerWidth)
     if (window.innerWidth > 768) {
       setDesktop(true)
     }
     else { setDesktop(false) }
-    
-
-
-
-
   }
-  /*----------------------------------------------------*/
-  /*	Fade In/Out Primary Navigation
-  ------------------------------------------------------*/
+
+  const setIntialNavItem = () => {
+    const refs  = [homeLinkRef, aboutref, resumeref, worksRef, contactref]
+    refs.forEach(ref => {
+      if (ref.current.childNodes[0].href === `${`http://localhost:3000${router.asPath}`}`) {
+        console.log("refs", ref.current.childNodes[0].href);
+        ref.current.childNodes[0].classList.add("current");
+      } else {
+        ref.current.childNodes[0].classList.remove("current");
+      }
+
+    })
+  }
+
+
 
   useEffect(() => {
     // window.addEventListener("scroll", addBackGroundOnNav);
+    setDesktop(isDesktop)
     window.addEventListener("resize", checkDimensions);
+    checkDimensions()
+    setIntialNavItem()
     return () => {
       // window.removeEventListener("scroll", addBackGroundOnNav);
     }
-  }, [])
+  }, [router.asPath])
+
+
 
   return (
     <div id="nav-wrap ">
@@ -138,22 +155,26 @@ const Header = React.forwardRef((props, ref) => {
         <div onClick={toggleMenu}>
         { !visable ? <AiOutlineAlignRight  className="mobile-button" /> : <FaTimes className="mobile-button"/>}
          </div>
-        {console.log("isDesktop", visable, isDesktop)}
+        {console.log("isDesktop",  isDesktop, desktop, visable,)}
 
-        <nav className={!isDesktop || !desktop ? `${visable ? 'mobile' : 'hidden ' }` : "desktop" }>
+        <nav className={!isDesktop || !desktop  ? `${visable ? 'mobile' : 'hidden ' }` : 'desktop'  }>
+        <ul className={""}>
           {menuItems.map((item, index) => {
-            console.log("ItemPath", item.path)
+           
+
+      
+      
             return (
-              <ul className={""}>
-                <li key={index} ref={item.ref} className={` ${router.asPath === item.path ? "current" : "scrollsmooth"}`}>
-                  <Link href={item.path}>{item.title}</Link>
+            
+                <li key={index} ref={item.ref} className={item.cName}  >
+                  <Link href={item.path} >{item.title}</Link>
                 </li>
-              </ul>
+           
             )
           }
           )}
+             </ul>
          </nav>
-
 
         <div className=" banner flex  items-center  z-0 ">
           <div className="banner-text pb-20 z-0">
@@ -166,7 +187,7 @@ const Header = React.forwardRef((props, ref) => {
       </header>
     </div>
 
-  );
+  )
 })
 
 

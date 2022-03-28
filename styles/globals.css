@@ -210,25 +210,105 @@ a {
   ul#nav li a:active {
     @apply bg-transparent;
   }
-  ul#nav li.current a {
-    @apply text-[#F06000] font-bold
-    
-  }
+
 
 
   .desktop {
     @apply 
-    flex 
+    flex
+   
+   
+    justify-center
+    text-center
+    text-white 
+    
+    pt-4
+    
+    
+   
+    
+  }
+
+  .desktop ul {
+
+    @apply flex 
+    justify-center
+    space-x-3 
+    tracking-wider
     font-bold
+  }
+
+  .desktop li.current a {
+    @apply 
+    text-[#F06000] font-bold
+   
+  }
+  .desktop li a.current {
+    @apply 
+    text-[#F06000] font-bold
+   
+  }
+  
+  .mobile {
+    @apply 
+    text-white
+    flex
+    justify-center
+    items-center
+    pt-2
+    
+  
+   
+    
+  }
+
+  
+  .mobile ul {
+    @apply 
+    flex
+    flex-col
+    
+    bg-[#1f2024]
+    pt-4
+    pb-6
+    pr-8
+    pl-8
+    w-11/12
+    sm:w-8/12 
     justify-center
     text-center
     text-white 
     tracking-wider
-    pt-4
     
-    space-x-3 
+  
+
+    
     
   }
+
+  .mobile ul li {
+    @apply 
+    list-none
+    h-14
+    border-b
+    pt-2
+    border-white
+    border-opacity-10
+    
+
+   
+  }
+
+
+  .mobile li a.current {
+    @apply 
+    text-[#F06000] font-bold
+    
+
+    
+  }
+
+
     
   
     .mobile-button {
@@ -244,28 +324,6 @@ a {
     }
     
    
-
-  .mobile {
-    @apply 
-    text-white
-    bg-gray-500
-   
-    
-    
-
-  }
-  .mobile ul {
-    @apply 
-    flex
-    justify-center
-    text-center
-    text-white 
-    tracking-wider
-    pt-4
-    transition ease-in-out delay-1000
-    space-x-3 
-    
-  }
 
 
 
