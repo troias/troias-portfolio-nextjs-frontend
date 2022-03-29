@@ -215,15 +215,17 @@ a {
 
   .desktop {
     @apply 
+    
     flex
-   
-   
+    fixed
+    w-full
     justify-center
     text-center
     text-white 
     
     pt-4
     
+
     
    
     
@@ -253,9 +255,12 @@ a {
     @apply 
     text-white
     flex
+    w-full
+    fixed
     justify-center
     items-center
     pt-2
+    z-10
     
   
    
@@ -300,6 +305,14 @@ a {
   }
 
 
+  .mobile li.current {
+    @apply 
+    text-[#F06000] font-bold
+    
+
+    
+  }
+
   .mobile li a.current {
     @apply 
     text-[#F06000] font-bold
@@ -309,12 +322,13 @@ a {
   }
 
 
+
     
   
     .mobile-button {
       @apply 
       md:hidden
-     text-white 
+     text-orange-600 
       pt-4 
       pl-4 
       text-5xl 

@@ -12,7 +12,7 @@ const Contact = (props) => {
     const contactRef = useRef()
 
     const sendReftoHeader = () => {
-        props.headerRef([contactRef])
+        props.headerRef(contactRef)
     }
 
     useEffect(() => {

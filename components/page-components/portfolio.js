@@ -7,7 +7,7 @@ import {useEffect, useRef} from 'react'
       const porfolioRef = useRef()
 
       const sendReftoHeader = () => {
-          props.headerRef([porfolioRef])
+          props.headerRef(porfolioRef)
       }
 
       useEffect(() => {

@@ -1,11 +1,11 @@
 import React, {useEffect, useRef} from "react"
 
-const Resume = (props, ref) => {
+const Resume = (props) => {
 
     const resumeRef = useRef()
 
     const sendReftoHeader = () => {
-        props.headerRef([resumeRef])
+        props.headerRef(resumeRef)
     }
 
     useEffect(() => {

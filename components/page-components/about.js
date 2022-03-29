@@ -8,12 +8,12 @@ const About = (props, ref) => {
    const { bio, body, contactDetails, title } = props.aboutPageData
    const { name, email, phone, address, website, iconImage } = contactDetails
 
-   console.log("About page ref", aboutRef)
+   // console.log("About page ref", aboutRef)
 
-   console.log("About page Image", iconImage)
+   // console.log("About page Image", iconImage)
 
    const sendReftoHeader = () => {
-       props.headerRef([aboutRef])
+       props.headerRef(aboutRef)
    }
    useEffect(() => {
          sendReftoHeader()
