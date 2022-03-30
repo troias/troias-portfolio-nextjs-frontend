@@ -24,7 +24,10 @@ import {useEffect, useRef} from 'react'
         const links = link.map((link, index) => {
           return (
             <>
-           <span class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out"><a href={link.url}> #{link.text}</a> </span>
+           <span class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold
+            text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out">
+             <a href={link.url}> #{link.text}</a>
+              </span>
  
             </>
           )
@@ -32,7 +35,7 @@ import {useEffect, useRef} from 'react'
         )
         return (
        
-          <div class="card mt-5 ml-10 ">
+          <div class="card mt-5 ml-10 pr-8">
           <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100">
               <img class="w-full" src="https://static.vecteezy.com/system/resources/previews/001/882/528/non_2x/beautiful-landscape-pine-forest-with-mesmerizing-mountain-views-free-vector.jpg" alt="Mountain" />
               <div class="px-6 py-4">
@@ -59,15 +62,23 @@ import {useEffect, useRef} from 'react'
 
 
     return (
-      <section id="portfolio" className="flex justify-center"  ref={porfolioRef}>
-      <div className="flex max-w-screen-lg w-full">
-         <div className="">
+      <section id="portfolio"   className=" " ref={porfolioRef}>
+          <div className="">
             <h1 className="flex justify-center  text-white">Projects.</h1>
-            <div id="portfolio-wrapper" className="">
+            </div>
+        <div className="flex justify-center">  
+        <div className="flex max-w-screen-lg w-full flex-wrap ">
+
+     
+    
+       
+            <div id="portfolio-wrapper " className=" flex flex-col w-full items-center md:flex-row md:items-baseline md:justify-center">
                  {projectsList} 
             </div>
-          </div>
+        
       </div>
+      </div>
+   
    </section>
     );
   }

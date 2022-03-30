@@ -22,7 +22,7 @@ const Header = React.forwardRef((props, ref) => {
   const worksRef = useRef()
   const navRef = useRef()
 
-  console.log("navRef", navRef);
+  console.log("navRef", ref);
 
   const menuItems = [
     {
@@ -104,7 +104,9 @@ const Header = React.forwardRef((props, ref) => {
     }
   }
 
+
   const checkDimensions = () => {
+
     if (window.innerWidth > 768) {
       setDesktop(true)
     }
@@ -124,6 +126,10 @@ const Header = React.forwardRef((props, ref) => {
     })
   }
 
+  // const overAboutTop = window.scrollY > ref.current[0].current.offsetTop 
+  // console.log("overAboutTop", overAboutTop);
+  
+
   useEffect(() => {
     window.addEventListener("scroll", addBackGroundOnNav);
     setDesktop(isDesktop)
@@ -135,6 +141,8 @@ const Header = React.forwardRef((props, ref) => {
     }
   }, [router.asPath])
 
+    
+ 
 
   return (
     <div id="nav-wrap ">
@@ -152,28 +160,21 @@ const Header = React.forwardRef((props, ref) => {
             !desktop ?
             `${visable ? 'mobile' : 'hidden '}` :
             (`${!hidden ?
-              (`${window.scrollY > ref.current[0].current.offsetTop ?
-                "desktop transition ease-in-out delay-500 bg-gray-500 " :
+              (`${window.scrollY > ref.current[0].current.offsetTop  ?
+                "  desktop active " :
                 "desktop"}`) : "hidden"}`)
 
         }>
           <ul className={""}>
             {menuItems.map((item, index) => {
-
-
-
-
               return (
-
                 <li key={index} ref={item.ref} className={
                   item.cName === "current" ?
                     (`${item.id}` !== router.asPath ? (`${router.asPath === "/" ? "current " : "smoothscroll"}`) : "current ") :
                     "smoothscroll"
-
                 }  >
                   <Link href={item.path} >{item.title}</Link>
                 </li>
-
               )
             }
             )}

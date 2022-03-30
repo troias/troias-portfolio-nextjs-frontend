@@ -9,6 +9,8 @@ import Portfolio from '../components/page-components/portfolio'
 import { getPortfolioData } from '../utils/api'
 import Header from '../components/navigation/header/header'
 
+
+
 export default function Home(props) {
 
   console.log("homepage props", props)

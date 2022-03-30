@@ -230,6 +230,11 @@ a {
    
     
   }
+  .desktop.active {
+    @apply
+    pb-2  
+    transition-opacity duration-1000 ease-out opacity-100  bg-[#333]
+  }
 
   .desktop ul {
 
@@ -503,8 +508,7 @@ a {
 }
 
 #portfolio-wrapper {
-  display: flex;
-  flex-wrap: wrap;
+ 
 }
 
 
