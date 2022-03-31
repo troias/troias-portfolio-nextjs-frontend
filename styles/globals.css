@@ -32,12 +32,51 @@ a {
   /* box-sizing: border-box; */
 }
 
+.carosel-enter {
+  opacity: 0;
+  transform: translateY(20px);
+  background-color: #0f0f0f;
+}
+.carosel-enter-active {
+  opacity: 1;
+  background-color: #0f0f0f;
+  transform: translateY(0px);
+  transition: all 300ms ease-in-out;
+
+}
+.carosel-exit {
+  opacity: 1;
+  background-color: #0f0f0f;
+  transition: all 300ms ease-in-out;
+
+
+}
+.carosel-exit-active {
+  opacity: 0;
+  background-color: #0f0f0f;
+  transition: all 300ms ease-in-out;
+}
+
+
 @layer components {
 
  
 
+  /* carosel */
 
- 
+  /* .carosel-enter {
+     @apply transition-all duration-300 ease-in-out;
+  }
+  .carosel-enter-active {
+    @apply transform translate-y-0;
+  }
+  .carosel-exit {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  .carosel-exit-active {
+    @apply transform translate-y-full;
+  }
+  */
 
   /* ------------------------------------------------------------------ */
   /* b. Header Styles

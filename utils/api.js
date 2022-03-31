@@ -9,6 +9,20 @@ export const getPortfolioData = async () => {
     body: JSON.stringify({
       query: `
 
+      fragment CollectionParts on UploadFileRelationResponseCollection {
+        data {
+          id
+              attributes {
+                  alternativeText
+                  width
+                  height
+                  mime
+                  url
+                  formats
+                }
+        }
+      }
+
       fragment FileParts on UploadFileEntityResponse {
         data {
           id
@@ -60,6 +74,9 @@ export const getPortfolioData = async () => {
                       attributes {
                         name
                         body
+                        images {
+                          ...CollectionParts
+                        }
                         link {
                           url
                           text

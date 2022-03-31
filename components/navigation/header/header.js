@@ -1,7 +1,7 @@
 
 // import { FaChevronCircleDown } from 'react-icons/fa';
 import React, { useState, useRef, useEffect } from 'react'
-import { CSSTransition } from 'react-transition-group';
+
 import Link from 'next/link';
 import { useRouter } from 'next/router'
 import { useMediaQuery } from 'react-responsive'
@@ -90,7 +90,9 @@ const Header = React.forwardRef((props, ref) => {
   const addBackGroundOnNav = () => {
     const scroll = window.scrollY;
 
-    const refs = ref
+    if (headerRef.current) {
+
+ 
 
     if (scroll > headerRef.current.offsetHeight / 4) {
       setHidden(true);
@@ -98,6 +100,7 @@ const Header = React.forwardRef((props, ref) => {
     if (scroll > headerRef.current.offsetHeight) {
       setHidden(false);
     }
+  }
 
     if (scroll === 0) {
       setHidden(false);
