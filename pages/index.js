@@ -53,6 +53,13 @@ export default function Home(props) {
 
   const resumeData = props.resumeData
   const portfolioData = props.portfolioData
+   const featuredPortfolioData = portfolioData.projects.filter(item => {
+     console.log("featured", item.project.data.attributes.featured);
+     const featuredProductArr = item.project.data.attributes.featured
+     return  featuredProductArr === "on"
+  })
+
+  console.log("featuredPortfolioData", featuredPortfolioData);
 
 
 
@@ -71,7 +78,10 @@ export default function Home(props) {
         <About aboutPageData={aboutPageData} headerRef={headerRefArr} />
         <Resume resumeData={resumeData} headerRef={headerRefArr} />
         {/* <Skills/> */}
-        <Portfolio portfolioData={portfolioData}  headerRef={headerRefArr} />
+        {/* <div id="portfolio-wrapper " className=" flex flex-col w-full items-center md:flex-row md:items-baseline md:justify-center"> */}
+
+        <Portfolio portfolioData={featuredPortfolioData}  headerRef={headerRefArr} />
+        {/* </div> */}
         <Contact   headerRef={headerRefArr}/>
       </main>
 

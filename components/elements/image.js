@@ -4,7 +4,7 @@ import Image from "next/image"
 // import { mediaPropTypes } from "utils/types"
 
 const NextImage = ({ media, collection, ...props }) => {
-  const { url, alternativeText, width, height } = media.attributes
+  const { url, alternativeText, width, height } = media.data.attributes
 
 
   console.log("media", media)

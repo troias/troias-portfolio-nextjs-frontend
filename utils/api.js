@@ -40,6 +40,8 @@ export const getPortfolioData = async () => {
 
         query {
 
+          
+
           codingDv {
             data {
               attributes {
@@ -74,6 +76,7 @@ export const getPortfolioData = async () => {
                       attributes {
                         name
                         body
+                        featured
                         images {
                           ...CollectionParts
                         }

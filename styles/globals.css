@@ -32,30 +32,25 @@ a {
   /* box-sizing: border-box; */
 }
 
-.carosel-enter {
-  opacity: 0;
-  transform: translateY(20px);
-  background-color: #0f0f0f;
-}
-.carosel-enter-active {
+/* .my-node-enter {
   opacity: 1;
-  background-color: #0f0f0f;
-  transform: translateY(0px);
-  transition: all 300ms ease-in-out;
-
 }
-.carosel-exit {
+.my-node-enter-active {
   opacity: 1;
-  background-color: #0f0f0f;
-  transition: all 300ms ease-in-out;
-
-
+  transition: opacity 200ms;
+  transition-duration: 2000ms;
+  transition-delay: 500ms;
+  transition-timing-function: ease-in-out;
+  
 }
-.carosel-exit-active {
+.my-node-exit {
   opacity: 0;
-  background-color: #0f0f0f;
-  transition: all 300ms ease-in-out;
 }
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+  transition-duration: 2000ms;
+} */
 
 
 @layer components {
@@ -64,19 +59,38 @@ a {
 
   /* carosel */
 
-  /* .carosel-enter {
-     @apply transition-all duration-300 ease-in-out;
+  .carosel-enter {
+     @apply 
+     transition-all 
+     duration-[2000] 
+     ease-in-outo
+      bg-opacity-0
+      absolute
   }
   .carosel-enter-active {
-    @apply transform translate-y-0;
+    @apply 
+    transform 
+    translate-y-0 
+    bg-opacity-100
+    absolute
   }
   .carosel-exit {
-    @apply transition-all duration-300 ease-in-out;
+    @apply 
+    transition-all 
+    duration-[2000] 
+    ease-in-out
+     bg-opacity-100 
+     absolute
+    
   }
   .carosel-exit-active {
-    @apply transform translate-y-full;
+    @apply 
+    transform
+     translate-y-full
+       bg-opacity-0
+       absolute
   }
-  */
+ 
 
   /* ------------------------------------------------------------------ */
   /* b. Header Styles

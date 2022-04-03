@@ -1,9 +1,11 @@
 import Link from 'next/link'
 import {useEffect, useRef} from 'react'
+import ProjectsList from '../elements/projectsList/projectsList'
 
 
     const Portfolio = (props) => {
 
+      console.log("baseProps", props);
       const porfolioRef = useRef()
 
       const sendReftoHeader = () => {
@@ -14,68 +16,34 @@ import {useEffect, useRef} from 'react'
         sendReftoHeader()
     }, [])
       
-      const {projects} = props.portfolioData
+        const projects = props.portfolioData
 
-      const projectsList = projects.map((project, index) => {
-       
-        const {name, body, link,slug  } = project.project.data.attributes
-       
-        
-        const links = link.map((link, index) => {
-          return (
-            <>
-           <span class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold
-            text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out">
-             <a href={link.url}> #{link.text}</a>
-              </span>
- 
-            </>
-          )
-        }
-        )
-        return (
-       
-          <div class="card mt-5 ml-10 pr-8">
-          <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100">
-              <img class="w-full" src="https://static.vecteezy.com/system/resources/previews/001/882/528/non_2x/beautiful-landscape-pine-forest-with-mesmerizing-mountain-views-free-vector.jpg" alt="Mountain" />
-              <div class="px-6 py-4">
-                  <div class="font-bold text-xl mb-2">{name}</div>
-                  <p class="text-gray-700 text-base">
-                       {body} 
-                  </p>
-              </div>
-              <div class="px-6 pt-4 pb-2">
-                  {links}
-              </div>
-              <div class="px-6 pb-4">
-                <btn class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                  <Link href={`/projects/${slug}`}>
-                    <a class="text-white">View Project</a>
-                  </Link>
-                </btn>
-                </div>
-          </div>
-      </div>
-   
-        )
-      })
+      console.log("PortfolioComponentArr", projects);
+
+
 
 
     return (
       <section id="portfolio"   className=" " ref={porfolioRef}>
           <div className="">
-            <h1 className="flex justify-center  text-white">Projects.</h1>
+            <h1 className="flex justify-center  text-white">Featured Projects</h1>
             </div>
         <div className="flex justify-center">  
         <div className="flex max-w-screen-lg w-full flex-wrap ">
 
-     
+      
     
        
             <div id="portfolio-wrapper " className=" flex flex-col w-full items-center md:flex-row md:items-baseline md:justify-center">
-                 {projectsList} 
-            </div>
-        
+                       <ProjectsList projects={projects} /> 
+            </div> 
+            <div className="flex justify-center w-full pt-8">
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <Link href="/projects">
+                  <a className="text-white">View All Projects</a>
+                </Link>
+              </button>
+              </div>
       </div>
       </div>
    
