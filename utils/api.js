@@ -118,6 +118,16 @@ export const getPortfolioData = async () => {
                       attributes {
                         name 
                         description
+                        icon {
+                          ...FileParts
+                        }
+                        project_categories {
+                          data {
+                            attributes {
+                              name
+                            }
+                          }
+                        }
                       }
                     }
                   }

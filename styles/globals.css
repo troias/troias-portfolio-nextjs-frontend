@@ -59,7 +59,7 @@ a {
   /* portfolioNavBar */
 
   .portfolioNavBar-enter {
-    @apply opacity-0  bg-gray-700 ;
+    @apply opacity-0   ;
 
   }
   .portfolioNavBar-enter-active {
@@ -505,14 +505,14 @@ a {
     w-full;
   }
 
-  #resume a,
+  /* #resume a,
   #resume a:visited {
     @apply text-[#11ABB0];
   }
   #resume a:hover,
   #resume a:focus {
     @apply text-[#313131];
-  }
+  } */
 
   #resume h1 {
     @apply font-[opensans-bold] 
@@ -570,11 +570,11 @@ a {
   @apply bg-[#ebeeee] pt-[60px] pb-[60px]
 
 }
-#portfolio h1 {
+/* #portfolio h1 {
   @apply font-[opensans-bold] text-lg uppercase tracking-wider m-6 text-[#95A3A3] font-semibold
 
 
-}
+} */
 
 #portfolio-wrapper {
  
