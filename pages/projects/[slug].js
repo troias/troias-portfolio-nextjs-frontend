@@ -3,6 +3,7 @@ import { getPortfolioData } from '../../utils/api'
 import Head from 'next/head'
 import Image from 'next/image'
 import NextImage from "../../components/elements/image"
+import PortfolioNav from '../../components/page-components/portfolioNav'
 import { AiOutlineVerticalRight, AiOutlineVerticalLeft } from "react-icons/ai";
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
@@ -61,7 +62,7 @@ export const ProjectDetails = (props) => {
                 <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
 
             </Head>
-
+                <PortfolioNav />
             <div className="bg-white flex justify-center">
 
                 <div className="max-w-screen-lg pr-8 pl-8 ">
@@ -139,14 +140,14 @@ export const ProjectDetails = (props) => {
 
                     </div>
 
-                    <div className="pb-8 pt-8 flex">
+                    <div className="pb-12 pt-12 flex">
                         <div className="pr4 w-1/2 flex items-center justify-center font-sans text-4xl subpixel-antialiased italic font-semibold tracking-normal  ">
                             <h3 className=" ">
                                 stack #
                             </h3>
                         </div>
 
-                        <div className="w-11/12">
+                        <div className="w-11/12 ">
                             <ul className="flex justify-around">
                                 {props.techStackArr.map((tech, index) => {
                                     const image = tech.attributes.icon.data

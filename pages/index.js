@@ -25,9 +25,9 @@ export default function Home(props) {
 
   
  
-  const [aboutSection, setAboutSection] = useState(false)
-  const [resumeSection, setResumeSection] = useState(false)
-  const [portfolioSection, setPortfolioSection] = useState(false)
+  // const [aboutSection, setAboutSection] = useState(false)
+  // const [resumeSection, setResumeSection] = useState(false)
+  // const [portfolioSection, setPortfolioSection] = useState(false)
 
   const [headerRef, setHeaderRef] = useState([])
 

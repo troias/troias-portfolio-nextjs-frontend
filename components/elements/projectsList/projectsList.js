@@ -1,18 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 
-
-
-
-
-
 const projectsList = (props) => {
 
     console.log("projectsListPropsprops", props);
 
     const projects = props.projects 
+
   return (
-    <div className="w-full flex-wrap flex"> 
+    <div className="w-full justify-center flex-wrap flex "> 
         { projects.map((project, index) => {
        
        const {name, body, link, slug  } = project.project.data.attributes
@@ -20,18 +16,12 @@ const projectsList = (props) => {
         console.log("projectsList", project);
    
    
-    //    const links = link.map((link, index) => {
-    //      return (
-    //        <>
-    //       <span class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold
-    //        text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out">
-    //         <a href={link.url}> #{link.text}</a>
-    //          </span>
-   
-    //        </>
-    //      )
-    //    }
-    //    )
+       const links = link.map((link, index) =>  ( <span class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold
+           text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out">
+            <a href={link.url}> #{link.text}</a>
+             </span>)
+       )
+
        return (
       <div className="max-w-max ">
          <div class="card mt-5 ml-10 pr-8">
@@ -44,7 +34,7 @@ const projectsList = (props) => {
                  </p>
              </div>
              <div class="px-6 pt-4 pb-2">
-                 {/* {links} */}
+                  {links} 
              </div>
              <div class="px-6 pb-4">
                <btn class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

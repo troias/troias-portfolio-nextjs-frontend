@@ -56,7 +56,23 @@ a {
 @layer components {
 
  
+  /* portfolioNavBar */
 
+  .portfolioNavBar-enter {
+    @apply opacity-0  bg-gray-700 ;
+
+  }
+  .portfolioNavBar-enter-active {
+    @apply opacity-100 transition ease-in duration-150 bg-gray-700 ;
+
+  }
+  .portfolioNavBar-exit {
+    @apply opacity-100 bg-gray-700;
+  }
+  .portfolioNavBar-exit-active {
+    @apply opacity-0 transition ease-in-out duration-500 bg-gray-700 ;
+ 
+  }
   /* carosel */
 
   .carosel-enter {

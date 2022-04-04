@@ -13,6 +13,7 @@ import { FaTimes } from 'react-icons/fa'
 const Header = React.forwardRef((props, ref) => {
   const router = useRouter()
   // console.log("routerInformation", router);
+  
 
   const headerRef = useRef()
   const homeLinkRef = useRef()
