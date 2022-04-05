@@ -302,7 +302,10 @@ a {
   .desktop.active {
     @apply
     pb-2  
-    transition-opacity duration-1000 ease-out opacity-100  bg-[#333]
+    transition-opacity 
+    duration-1000 
+    ease-out opacity-100  
+    bg-gray-800
   }
 
   .desktop ul {
@@ -321,7 +324,7 @@ a {
   }
   .desktop li a.current {
     @apply 
-    text-[#F06000] font-bold
+    text-red-500 font-bold
    
   }
   
@@ -381,7 +384,7 @@ a {
 
   .mobile li.current {
     @apply 
-    text-[#F06000] font-bold
+    text-red-500 font-bold
     
 
     
@@ -389,7 +392,7 @@ a {
 
   .mobile li a.current {
     @apply 
-    text-[#F06000] font-bold
+    text-red-500 font-bold
     
 
     
@@ -407,7 +410,7 @@ a {
       pl-4 
       text-5xl 
       text-center
-      pt-4
+     
       transition ease-in-out delay-1000
     }
     
@@ -551,7 +554,8 @@ a {
   }
 
   #resume .info {
-    @apply font-[librebaskerville-italic]
+    @apply
+     font-[librebaskerville-italic]
      text-[#6E7881] mb-4 mt-2;
   }
   #resume .info span {
@@ -567,7 +571,7 @@ a {
 /* ------------------------------------------------------------------ */
 
 #portfolio {
-  @apply bg-[#ebeeee] pt-[60px] pb-[60px]
+  @apply bg-[#ebeeee]  pb-[60px]
 
 }
 /* #portfolio h1 {
@@ -589,16 +593,16 @@ a {
     @apply 
     /* bg-[#191919]  */
     bg-white
-    pt-24 
+    
     pb-28 
     text-[rgb(99,99,99)]
     w-full
 
   }
   
-  #contact .section-head {
-    @apply mb-10;
-  }
+  /* #contact .section-head {
+    @apply ;
+  } */
 
   /* contact form */
 

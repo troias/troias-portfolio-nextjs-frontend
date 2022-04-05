@@ -13,10 +13,10 @@ const About = (props, ref) => {
    // console.log("About page Image", iconImage)
 
    const sendReftoHeader = () => {
-       props.headerRef(aboutRef)
+      props.headerRef(aboutRef)
    }
    useEffect(() => {
-         sendReftoHeader()
+      sendReftoHeader()
    }, [])
 
    return (
@@ -27,22 +27,31 @@ const About = (props, ref) => {
                <NextImage media={iconImage} className=" md:rounded-full z-0 " />
             </div>
 
-            <div className=" flex flex-col p-4 ">
+            <div className=" flex flex-col p-4  justify-center  ">
 
-           
-        
-               <h2>About Me</h2>
+
+               <div>
+                  <h2>About Me</h2>
+               </div>
+               <div>
                   <p className="">{bio}</p>
+               </div>
+               <p>
                   <h2 className="">Contact Details</h2>
+               </p>
+               <div>
                   <p className="">
-                     {name}
-                     <br/>
+                    
+               
                      {address}
-
+                     <br />
+                     +64278494900
                      {/* <span>{phone}</span><br />
                      <span>{email}</span> */}
                   </p>
-           
+               </div>
+
+
             </div>
          </div>
       </section>

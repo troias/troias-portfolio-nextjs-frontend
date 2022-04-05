@@ -42,7 +42,7 @@ const Contact = (props) => {
     });
     return (
         <section id="contact"  ref={contactRef}>
-            <div className="flex justify-center">
+            <div className="flex justify-center bg-gray-300 pt-8">
 
          
 
