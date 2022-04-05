@@ -2,7 +2,6 @@ import React, {useEffect, useRef} from "react"
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { AiOutlineMail } from 'react-icons/ai';
-import { FaChevronCircleUp } from 'react-icons/fa';
 
 
 
@@ -34,6 +33,9 @@ const Contact = (props) => {
                 .required('Required'),
             email: Yup.string().email('Invalid email address').required('Required'),
         }),
+        handleBlur: () => {
+            console.log('blur')
+        },
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));
         },
@@ -53,7 +55,7 @@ const Contact = (props) => {
                     <div className=" flex flex-col w-2/3  lg:w-2/4   ">
 
 
-                        <label htmlFor="firstName" className=" "> Name <span className="">*</span></label>
+                        <label htmlFor="firstName" className=" "> Name </label>
                         <input
                             id="firstName"
                             name="firstName"
@@ -61,7 +63,8 @@ const Contact = (props) => {
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             value={formik.values.firstName}
-                            className="cursor-pointer mb-2"
+                            className=""
+                            placeholder="name"
                         />
                         {formik.touched.firstName && formik.errors.firstName ? (
                             <div className="flex  text-red-600" >{formik.errors.firstName}</div>
@@ -75,13 +78,14 @@ const Contact = (props) => {
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             value={formik.values.lastName}
-                            className="cursor-pointer mb-2"
+                            className=""
+                            placeholder="Subject"
                         />
                         {formik.touched.lastName && formik.errors.lastName ? (
                             <div className="flex  text-red-600">{formik.errors.lastName}</div>
                         ) : null}
 
-                        <label htmlFor="email" className=" ">Email Address <span className="">*</span></label>
+                        <label htmlFor="email" className=" ">Email Address </label>
                         <input
                             id="email"
                             name="email"
@@ -89,12 +93,16 @@ const Contact = (props) => {
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             value={formik.values.email}
-                            className="cursor-pointer mb-2"
+                            className=""
+                            placeholder="Email Address"
                         />
+                          <label htmlFor="email" className=" ">Message </label>
+                        <textarea id="email" name="email" placeholder="Message" className="focus:text-blue-600    focus:border-blue-300" />
                         {formik.touched.email && formik.errors.email ? (
                             <div className=" text-red-600">{formik.errors.email}</div>
                         ) : null}
-                        <div className="mt-4">
+                        
+                        <div className="mt-4 flex justify-center">
                             <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-1/2 ">Submit</button>
                         </div>
 

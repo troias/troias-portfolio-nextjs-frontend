@@ -26,7 +26,8 @@ const projectsList = (props) => {
       <div className="max-w-max ">
          <div class="card mt-5 ml-10 pr-8">
          <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100">
-             <img class="w-full" src="https://static.vecteezy.com/system/resources/previews/001/882/528/non_2x/beautiful-landscape-pine-forest-with-mesmerizing-mountain-views-free-vector.jpg" alt="Mountain" />
+             <img class="w-full" 
+             src="https://static.vecteezy.com/system/resources/previews/001/882/528/non_2x/beautiful-landscape-pine-forest-with-mesmerizing-mountain-views-free-vector.jpg" alt="Mountain" />
              <div class="px-6 py-4">
                  <div class="font-bold text-xl mb-2">{name}</div>
                  <p class="text-gray-700 text-base">

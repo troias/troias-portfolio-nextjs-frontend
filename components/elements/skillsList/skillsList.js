@@ -35,8 +35,8 @@ import Link from 'next/link'
             
             <div class="px-6 pb-4">
                <btn class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                 <Link href={`/skills/${skill.skill_category.data.attributes.slug}`}>
-                 View Project
+                 <Link href={`/skills/${skill.skill_category.data.attributes.slug}`} >
+                    View Project
                  </Link>
                    {/* <a class="text-white"></a> */}
                </btn>

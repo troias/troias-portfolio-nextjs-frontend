@@ -55,11 +55,13 @@ const Resume = (props) => {
                             {title}<span>&bull;</span> <em className="date">{duration}</em>
                         </p>
                     </div>
+                    <div className="flex justify-center">
                     <div className="w-3/5">
                         <p className="info flex   ">
 
                             {body}
                         </p>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -98,7 +100,7 @@ const Resume = (props) => {
 
 
                 <div className="flex-col max-w-screen-lg w-full  ">
-                    <div className="education md:flex md:justify-between lg:justify-around  ">
+                    <div className="education md:flex md:justify-around  ">
                         <div className=" md:w-1/4">
                             <h1 className="flex justify-center lg:justify-start " ><span>Education</span></h1>
                         </div>
@@ -108,7 +110,7 @@ const Resume = (props) => {
                         </div>
                     </div>
 
-                    <div className=" work md:flex  md:justify-between lg:justify-around ">
+                    <div className=" work md:flex  md:justify-around ">
                         <div className=" md:w-1/4 ">
                             <h1 className="flex justify-center lg:justify-start"><span>Employment</span></h1>
                         </div>
@@ -119,7 +121,7 @@ const Resume = (props) => {
 
                     <div className=" skill ">
                         <div className="flex justify-center border-t pt-8">
-                            <h1 className="   lg:justify-start  "><span>Featured Skills</span></h1>
+                            <h1 className="   lg:justify-start  "><span>Featured Skill</span></h1>
                         </div>
 
 

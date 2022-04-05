@@ -15,16 +15,9 @@ export default function Home(props) {
 
   console.log("homepage props", props)
 
-
-
   // #pass data down to header
 
- 
 
-  
-
-  
- 
   // const [aboutSection, setAboutSection] = useState(false)
   // const [resumeSection, setResumeSection] = useState(false)
   // const [portfolioSection, setPortfolioSection] = useState(false)

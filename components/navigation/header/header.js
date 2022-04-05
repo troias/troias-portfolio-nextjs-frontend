@@ -154,8 +154,10 @@ const Header = React.forwardRef((props, ref) => {
         <div className=" fixed z-10   ">
 
        
-        <div onClick={toggleMenu} className="h-full w-full">
-          {!visable ? <AiOutlineAlignRight className="mobile-button " /> : <FaTimes className="mobile-button " />}
+        <div onClick={toggleMenu} className="h-full w-full pt-4 ml-6 md:hidden">
+          {!visable ? 
+          <AiOutlineAlignRight size={40} className=" bg-orange-600 bg-opacity-80  rounded-md text-white " /> : 
+          <FaTimes  size={40} className= " bg-orange-600 text-white rounded-md bg-opacity-80 " />}
         </div>
       
 
@@ -188,8 +190,8 @@ const Header = React.forwardRef((props, ref) => {
 
         <div className=" banner flex  items-center  z-0 ">
           <div className="banner-text pb-20 z-0">
-            <h1 className="responsive-headline z-0">I'm Troy Flavell </h1>
-            <h3>A  Hamilton based  <span> React freelancer @WebDevIncNz</span>.</h3>
+            <h1 className="responsive-headline z-0">I'm <span className="text-red-500">Troy Flavell  </span></h1>
+            <h3>A  Hamilton based  <span> React freelancer @Tr0yc0des</span>.</h3>
             <hr />
           </div>
         </div>
