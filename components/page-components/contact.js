@@ -34,7 +34,7 @@ const Contact = (props) => {
             email: Yup.string().email('Invalid email address').required('Required'),
         }),
         handleBlur: () => {
-            console.log('blur')
+            // console.log('blur')
         },
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));

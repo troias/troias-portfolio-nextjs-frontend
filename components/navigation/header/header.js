@@ -12,7 +12,12 @@ import { FaTimes } from 'react-icons/fa'
 
 const Header = React.forwardRef((props, ref) => {
   const router = useRouter()
-  // console.log("routerInformation", router);
+   console.log("props", props);
+
+   const currentEmployment = props.headerData.contactDetails.currentEmployment
+   const jobTitle = props.headerData.contactDetails.jobTitle
+   const location = props.headerData.contactDetails.location
+
   
 
   const headerRef = useRef()
@@ -23,7 +28,7 @@ const Header = React.forwardRef((props, ref) => {
   const worksRef = useRef()
   const navRef = useRef()
 
-  console.log("navRef", ref);
+  // console.log("navRef", ref);
 
   const menuItems = [
     {
@@ -120,9 +125,9 @@ const Header = React.forwardRef((props, ref) => {
   const setIntialNavItem = () => {
     const refs = [homeLinkRef, aboutref, resumeref, worksRef, contactref]
     refs.forEach(ref => {
-      console.log("roter.pathname", router.pathname);
+      // console.log("roter.pathname", router.pathname);
       if (ref.current.childNodes[0].href === `${`http://localhost:3000${router.asPath}`}`) {
-        console.log("refs", ref.current.childNodes[0].href);
+        // console.log("refs", ref.current.childNodes[0].href);
         ref.current.childNodes[0].classList.add("current");
       } else {
         ref.current.childNodes[0].classList.remove("current");
@@ -191,7 +196,7 @@ const Header = React.forwardRef((props, ref) => {
         <div className=" banner flex  items-center  z-0 ">
           <div className="banner-text pb-20 z-0">
             <h1 className="responsive-headline z-0">I'm <span className="text-red-500">Troy Flavell  </span></h1>
-            <h3>A  Hamilton based  <span> React freelancer @Tr0yc0des</span>.</h3>
+            <h3>A {location}  based {jobTitle} {currentEmployment} <span> </span><span></span>.</h3>
             <hr />
           </div>
         </div>

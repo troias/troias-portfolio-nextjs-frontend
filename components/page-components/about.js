@@ -1,54 +1,55 @@
 import React, { Component, useEffect, useRef } from 'react';
 import NextImage from '../elements/image';
+import getAboutSection from '../../utils/api'
 
-const About = (props, ref) => {
+const About = ({aboutPageData}) => {
 
    const aboutRef = useRef()
-   console.log("About page props", props)
-   const { bio, body, contactDetails, title } = props.aboutPageData
-   const { name, email, phone, address, website, iconImage } = contactDetails
+   // console.log("About page props", contactDetails, about )
 
-   // console.log("About page ref", aboutRef)
+   const {about, contactDetails} = aboutPageData
+   console.log("contactDetails", contactDetails)
 
-   // console.log("About page Image", iconImage)
 
-   const sendReftoHeader = () => {
-      props.headerRef(aboutRef)
-   }
-   useEffect(() => {
-      sendReftoHeader()
-   }, [])
+
+   // const sendReftoHeader = () => {
+   //    props.headerRef(aboutRef)
+   // }
+   // useEffect(() => {
+   //    sendReftoHeader()
+   // }, [])
 
    return (
       <section id="about" ref={aboutRef} >
          <div className="flex justify-center md:justify-around max-w-screen-lg w-full p-4">
 
             <div className=" md:w-1/4   ">
-               <NextImage media={iconImage} className=" md:rounded-full z-0 " />
+                <NextImage media={contactDetails.iconImage} className=" md:rounded-full z-0 " /> 
             </div>
 
             <div className=" flex flex-col p-4  justify-center  ">
 
 
                <div>
-                  <h2>About Me</h2>
+                  <h2>{about.title}</h2>
                </div>
                <div>
-                  <p className="">{bio}</p>
+                  <p className="">{about.bio}</p>
                </div>
                <p>
-                  <h2 className="">Contact Details</h2>
+                  <h2 className="">{contactDetails.title}</h2>
                </p>
                <div>
-                  <p className="">
-                    
-               
-                     {address}
-                     <br />
-                     +64278494900
-                     {/* <span>{phone}</span><br />
-                     <span>{email}</span> */}
-                  </p>
+                     {contactDetails.contactDetailItem.map((item, index) => {
+                        return (
+                           <div key={index}>
+                             <p> {item.title}:   {item.text}</p>
+                            
+                           </div>
+                        )
+
+                     }
+                     )}
                </div>
 
 
@@ -61,3 +62,21 @@ const About = (props, ref) => {
 
 
 export default About;
+
+export const getStaticProps = async () => {
+   
+  const about = await getAboutSection()
+
+
+
+
+   console.log("responseAboutSection", about)
+ 
+
+   return {
+      props: {
+         // contactDetails: res.data.codingDv.data.attributes.contactDetails,
+         // aboutPageData: res.data.codingDv.data.attributes
+      }
+   }
+}

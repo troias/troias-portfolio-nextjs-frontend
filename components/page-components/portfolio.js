@@ -5,7 +5,7 @@ import ProjectsList from '../elements/projectsList/projectsList'
 
 const Portfolio = (props) => {
 
-  console.log("baseProps", props);
+  // console.log("baseProps", props);
   const porfolioRef = useRef()
 
   const sendReftoHeader = () => {
@@ -18,7 +18,7 @@ const Portfolio = (props) => {
 
   const projects = props.portfolioData
 
-  console.log("PortfolioComponentArr", projects);
+  // console.log("PortfolioComponentArr", projects);
 
 
 

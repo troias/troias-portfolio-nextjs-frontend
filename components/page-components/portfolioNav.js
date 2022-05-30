@@ -13,7 +13,7 @@ const PortfolioNav = () => {
 
     
     const isMobile = useMediaQuery({ query: '(max-width: 1024px)' })
-    console.log("active", active, "mobile", isMobile);
+    // console.log("active", active, "mobile", isMobile);
 
     return (
         <>
@@ -81,16 +81,7 @@ const PortfolioNav = () => {
                                     <a className=" px-3 py-2  rounded  border-teal-400 hover:text-teal-200 hover:bg-gray-600">Projects</a>
                                 </Link>
                             </li>
-                            {/* <li className="py-4">
-                 <Link href="/about">
-                     <a className=" px-3 py-2 rounded  border-teal-400 hover:text-white hover:border-white">About</a>
-                 </Link>
-             </li>
-             <li className="pt-4 pb-8">
-                 <Link href="/contact">
-                     <a className=" px-3 py-2 rounded  border-teal-400 hover:text-white hover:border-white">Contact</a>
-                 </Link>
-             </li> */}
+    
                         </ul>
                     </div>
                 </CSSTransition>

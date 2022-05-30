@@ -9,8 +9,8 @@ const NextImage = ({ media, collection, ...props }) => {
   const { url, alternativeText, width, height } = media.data.attributes
 
 
-  console.log("media", media)
-  console.log("media widh", width);
+  // console.log("media", media)
+  // console.log("media widh", width);
 
   const loader = ({ src, width }) => {
     return getStrapiMedia(src)

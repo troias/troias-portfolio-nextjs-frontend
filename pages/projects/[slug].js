@@ -59,7 +59,7 @@ export const ProjectDetails = (props) => {
     return (
         <>
             <Head>
-                <script src="./TW-ELEMENTS-PATH/dist/js/index.min.js"></script>
+              
 
             </Head>
                 <PortfolioNav />
@@ -75,8 +75,8 @@ export const ProjectDetails = (props) => {
                     <div className="max-w-screen-lg m-auto ">
 
                         <div className="relative w-full flex  select-none  justify-center">
-                            {console.log("count", currentIndex)}
-                            {
+                            {/* {console.log("count", currentIndex)} */}
+                            {/* {
                                 images.map((image, index) => {
                                     // console.log("checkCurrImage",  checkCurrImage(index));
                                     const currImage = (index === currentIndex) ? true : false
@@ -100,7 +100,7 @@ export const ProjectDetails = (props) => {
                                     )
                                 })
 
-                            }
+                            } */}
 
                             <div className="absolute w-full top-1/2 transform -translate-y-1/2 flex justify-between items-start px-3">
                                 <button onClick={handleOnPrevClick} className="bg-black text-white p-1 rounded-full bg-opacity-50 cursor-pointer hover:bg-opacity-100 transition">

@@ -13,7 +13,7 @@ const projectsList = (props) => {
        
        const {name, body, link, slug  } = project.project.data.attributes
       
-        console.log("projectsList", project);
+        // console.log("projectsList", project);
    
    
        const links = link.map((link, index) =>  ( <span class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold

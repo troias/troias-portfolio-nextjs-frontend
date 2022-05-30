@@ -14,9 +14,10 @@ h. Contact Section
 i. Footer */
 
 /* a. General Styles */
-/* @import url("fonts.css");
+ /* @import url("fonts.css");
 @import url("fontello/css/fontello.css");
-@import url("font-awesome/css/font-awesome.min.css"); */
+@import url("font-awesome/css/font-awesome.min.css");  */
+
 
 
 
@@ -28,35 +29,12 @@ a {
   text-decoration: none;
 }
 
-* {
-  /* box-sizing: border-box; */
-}
-
-/* .my-node-enter {
-  opacity: 1;
-}
-.my-node-enter-active {
-  opacity: 1;
-  transition: opacity 200ms;
-  transition-duration: 2000ms;
-  transition-delay: 500ms;
-  transition-timing-function: ease-in-out;
-  
-}
-.my-node-exit {
-  opacity: 0;
-}
-.my-node-exit-active {
-  opacity: 0;
-  transition: opacity 200ms;
-  transition-duration: 2000ms;
-} */
 
 
 @layer components {
 
  
-  /* portfolioNavBar */
+
 
   .portfolioNavBar-enter {
     @apply opacity-0   ;
@@ -73,7 +51,7 @@ a {
     @apply opacity-0 transition ease-in-out duration-500 bg-gray-700 ;
  
   }
-  /* carosel */
+
 
   .carosel-enter {
      @apply 
@@ -108,9 +86,7 @@ a {
   }
  
 
-  /* ------------------------------------------------------------------ */
-  /* b. Header Styles
-  /* ------------------------------------------------------------------ */
+
 
   header {
     @apply  
@@ -162,12 +138,12 @@ a {
     mr-auto
     mb-6
     ml-auto
- border-[#2F2D2E]
+
    border-[#969696]
    border-opacity-10;
   }
 
-  /* header social links */
+
   header .social {
     @apply mt-6 
     mr-0 
@@ -188,7 +164,7 @@ a {
     @apply text-[#11ABB0];
   }
 
-  /* scrolldown link */
+
   header .scrolldown a {
     @apply absolute 
     bottom-8 
@@ -207,39 +183,18 @@ a {
     @apply text-[#11ABB0];
   }
 
-  /* primary navigation
---------------------------------------------------------------------- */
+
   #nav {
     @apply 
     flex
     
   }
-  /* #nav-wrap ul,
-  #nav-wrap li,
-  #nav-wrap a {
-    @apply m-0 
-    p-0 
-    border-0 
-    outline-0;
-   
-  } */
-
-  /* #nav-wrap {
-    @apply text-base
-    font-[opensans-bold]
-    w-full
-    uppercase
-    m-auto
-    z-50
-  } */
+ 
 
   .opaque {
     @apply bg-[#333];
   }
-/* 
-  #nav-wrap > a.mobile-btn {
-    @apply hidden;
-  } */
+
 
   ul#nav {
     @apply min-h-[48px] 
@@ -263,7 +218,7 @@ a {
   }
 
   ul#nav li a {
-    /* 8px padding top + 8px padding bottom + 32px line-height = 48px */
+
     @apply font-semibold	
     
     pt-2 
@@ -425,15 +380,13 @@ a {
 
 
 
-  /* Links */
+  
 
   .scrolldown a:hover {
     @apply text-[#11ABB0];
   }
 
-  /* ------------------------------------------------------------------ */
-  /* c. About Section
-/* ------------------------------------------------------------------ */
+
 
   #about {
     @apply bg-[#2B2B2B] 
@@ -497,7 +450,7 @@ a {
 
 
 
-  /* d. Resume Section */
+
 
   #resume {
     @apply 
@@ -508,14 +461,6 @@ a {
     w-full;
   }
 
-  /* #resume a,
-  #resume a:visited {
-    @apply text-[#11ABB0];
-  }
-  #resume a:hover,
-  #resume a:focus {
-    @apply text-[#313131];
-  } */
 
   #resume h1 {
     @apply font-[opensans-bold] 
@@ -566,32 +511,24 @@ a {
     @apply font-[opensans-regular];
   }
 
-  /* ------------------------------------------------------------------ */
-/* e. Portfolio Section
-/* ------------------------------------------------------------------ */
+ 
 
 #portfolio {
   @apply bg-[#ebeeee]  pb-[60px]
 
 }
-/* #portfolio h1 {
-  @apply font-[opensans-bold] text-lg uppercase tracking-wider m-6 text-[#95A3A3] font-semibold
 
-
-} */
 
 #portfolio-wrapper {
  
 }
 
 
-  /* ------------------------------------------------------------------ */
-  /* h. Contact Section
-/* ------------------------------------------------------------------ */
+
 
   #contact {
     @apply 
-    /* bg-[#191919]  */
+
     bg-white
     
     pb-28 
@@ -600,11 +537,7 @@ a {
 
   }
   
-  /* #contact .section-head {
-    @apply ;
-  } */
 
-  /* contact form */
 
    #contact form {
     @apply mb-10;
@@ -619,7 +552,21 @@ a {
   }
   #contact input  {
     @apply 
-    bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500
+    bg-gray-50 border 
+    border-gray-300 
+    text-gray-900 
+    text-sm rounded-lg
+     focus:ring-blue-500
+      focus:border-blue-500
+       block 
+       w-full
+        p-2.5 
+        dark:bg-gray-700
+         dark:border-gray-600 
+         dark:placeholder-gray-400
+          dark:text-white
+           dark:focus:ring-blue-500
+            dark:focus:border-blue-500
   }
 
 
@@ -651,7 +598,7 @@ a {
     h-auto 
     inline-block 
     rounded-2xl 
-    ;
+    
   }
   #contact button.submit:hover {
     @apply bg-white
@@ -659,9 +606,7 @@ a {
   }
 
  
-  /* ------------------------------------------------------------------ */
-  /* i. Footer
-/* ------------------------------------------------------------------ */
+
 
   footer {
     @apply pt-12 pb-12 text-[#303030] text-sm  text-center relative;
@@ -689,17 +634,12 @@ a {
   .ie footer .copyright li {
     @apply inline;
   }
-  footer .copyright li:before {
-    @apply 
-    content-['\2022'] 
-    pl-2 pr-2 
-    text-[#095153];
-  }
+
   footer .copyright li:first-child:before {
     @apply hidden;
   }
 
-  /* social links */
+
   footer .social-links {
     @apply 
     ml-10 
@@ -717,7 +657,7 @@ a {
     @apply ml-0;
   }
 
-  /* Go To Top Button */
+
   #go-top {
     @apply 
     absolute 
