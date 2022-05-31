@@ -1,13 +1,14 @@
 import React from 'react'
-import { getPortfolioData } from '../../utils/api'
+import { getProjectsData } from '../../utils/api'
 import ProjectsList from '../../components/elements/projectsList/projectsList'
 import PortfolioNav from '../../components/page-components/portfolioNav'
 
-const Index = (props) => {
+const Index = ({portfolioData, projectsPageData}) => {
 
 
-    const projects = props.portfolioData.projects
-    console.log("portfolioCompPropsData", projects);
+     const projects = portfolioData.data.projects.data
+     console.log("portfolioCompPropsData", projectsPageData);
+     const intro = projectsPageData.data.projectsPage.data.attributes.intro
 
     return (
         <div>
@@ -25,8 +26,7 @@ const Index = (props) => {
                         </h1>
                         <div className="w-3/5 md:w-2/3 lg:w-11/12">
                         <p className="text-black text-2xl pl-10 pr-10 pt-8">
-                            I'm a front end developer based in Hamilton, NZ. I'm passionate about building things that people love. 
-                             <span className="pl-2">Here is a list of some of the things I've built.  </span>
+                      {intro}
                         </p>
                         </div>
                    
@@ -35,7 +35,7 @@ const Index = (props) => {
                 
                  
                     <div id=" " className=" flex  w-full pb-8 ">
-                        <ProjectsList projects={projects} />
+                         <ProjectsList projects={projects} /> 
                     </div>
                 </div>
                 </div>
@@ -47,40 +47,37 @@ const Index = (props) => {
 export default Index
 
 export const getStaticProps = async () => {
-    const data = await getPortfolioData()
-    const {
-        title,
-        body,
-        bio,
-        projects,
-        qualifications,
-        contactDetails,
-        employment,
-        skills,
-    } = data.data.codingDv.data.attributes
 
-    const aboutPageData = {
-        contactDetails,
-        title,
-        body,
-        bio,
-    }
+    const portfolioData = await getProjectsData()
+    const getProjectPageData = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_API}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+            query: `
+            query {
+                projectsPage {
+                  data {
+                    attributes {
+                      intro
+                    }
+                  }
+                }
+              }
+                  
+               `
+        })
+    })
+    const projectsPageData = await getProjectPageData.json()
 
-    const portfolioData = {
-        projects: projects,
-    }
-
-    const resumeData = {
-        education: qualifications,
-        work: employment,
-        skills: skills,
-    }
+    
 
     return {
         props: {
-            aboutPageData,
             portfolioData,
-            resumeData,
+            projectsPageData
         },
     }
 }

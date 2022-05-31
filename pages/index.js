@@ -1,19 +1,19 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React, { useRef, useState} from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
+
 import styles from '../styles/Home.module.css'
 import Contact from '../components/page-components/contact'
 import About from '../components/page-components/about'
 import Resume from '../components/page-components/resume'
 import Portfolio from '../components/page-components/portfolio'
-import { getPortfolioData, getAboutSection, getHeaderDetails, getResumeData } from '../utils/api'
+import {  getAboutSection, getHeaderDetails, getResumeData, getProjectsData } from '../utils/api'
 import Header from '../components/navigation/header/header'
 
 
 
-export default function Home({props, aboutPageData, headerData, resumeData}) {
+export default function Home({props, aboutPageData, headerData, resumeData, portfolioData}) {
 
-   console.log("ResumeData", resumeData)
+   console.log("portfolioData", portfolioData)
 
 
 
@@ -52,8 +52,7 @@ export default function Home({props, aboutPageData, headerData, resumeData}) {
           <Resume  headerRef={headerRefArr} resumeData={resumeData} />  
          {/* <Skills/> */}
          <div id="portfolio-wrapper " className=" flex flex-col w-full items-center md:flex-row md:items-baseline md:justify-center"> 
-
-         {/* <Portfolio portfolioData={featuredPortfolioData}  headerRef={headerRefArr} />  */}
+          <Portfolio portfolioData={portfolioData}  headerRef={headerRefArr} />  
          </div> 
          <Contact   headerRef={headerRefArr}/> 
       </main>
@@ -68,15 +67,16 @@ export const getStaticProps = async () => {
 
 
   const about = await getAboutSection()
-  console.log("first about", about)
+  // console.log("first about", about)
 
   const headerDetails = await getHeaderDetails()
-  console.log("headerDetails", headerDetails);
+  // console.log("headerDetails", headerDetails);
 
    const resumeData = await getResumeData()
-   console.log("getResumeData", resumeData);
+  //  console.log("getResumeData", resumeData);
 
-
+  const portfolioData = await getProjectsData()
+  console.log("portfolioData", portfolioData);
 
 
   return {
@@ -84,7 +84,8 @@ export const getStaticProps = async () => {
     props: {
       aboutPageData: about.data.codingDv.data.attributes,
       headerData: headerDetails.data.codingDv.data.attributes,
-      resumeData: resumeData
+      resumeData: resumeData,
+      portfolioData: portfolioData
     }
   }
 }

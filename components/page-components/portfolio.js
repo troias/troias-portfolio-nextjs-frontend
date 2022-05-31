@@ -16,9 +16,9 @@ const Portfolio = (props) => {
     sendReftoHeader()
   }, [])
 
-  const projects = props.portfolioData
+  const projects = props.portfolioData.data.projects.data
 
-  // console.log("PortfolioComponentArr", projects);
+   console.log("PortfolioComponentArr", projects);
 
 
 
@@ -37,7 +37,7 @@ const Portfolio = (props) => {
 
 
           <div id="portfolio-wrapper " className=" flex flex-col w-full items-center md:flex-row md:items-baseline md:justify-center">
-            <ProjectsList projects={projects} />
+             <ProjectsList projects={projects} /> 
           </div>
           <div className="flex justify-center w-full pt-8">
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">

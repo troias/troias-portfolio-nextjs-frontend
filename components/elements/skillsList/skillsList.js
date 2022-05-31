@@ -15,7 +15,7 @@ import Link from 'next/link'
 
     const skillsList = props.skills.map((skill, index) => (    <div class="card mt-5 ml-10 pr-8">
     <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100" key={index}>
-          {/* <NextImage media={skill.attributes.icon} />   */}
+           <NextImage media={skill.attributes.icon} />   
           {console.log("skills", skill)}
    
         <div class="px-6 py-4">
@@ -42,7 +42,7 @@ import Link from 'next/link'
                  <Link href={`/skills/${skill.attributes.slug}`} >
                     View Project
                  </Link>
-                   {/* <a class="text-white"></a> */}
+               
                </btn>
                </div>
     </div>

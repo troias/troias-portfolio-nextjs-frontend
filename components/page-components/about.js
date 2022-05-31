@@ -36,9 +36,9 @@ const About = ({aboutPageData}) => {
                <div>
                   <p className="">{about.bio}</p>
                </div>
-               <p>
+             
                   <h2 className="">{contactDetails.title}</h2>
-               </p>
+            
                <div>
                      {contactDetails.contactDetailItem.map((item, index) => {
                         return (

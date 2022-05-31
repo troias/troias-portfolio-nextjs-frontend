@@ -3,15 +3,15 @@ import Link from 'next/link'
 
 const projectsList = (props) => {
 
-    console.log("projectsListPropsprops", props);
-
-    const projects = props.projects 
+  
+  const projects = props.projects 
+  console.log("projectsListPropsprops", projects);
 
   return (
     <div className="w-full justify-center flex-wrap flex "> 
         { projects.map((project, index) => {
        
-       const {name, body, link, slug  } = project.project.data.attributes
+       const {name, body, link, slug  } = project.attributes
       
         // console.log("projectsList", project);
    
@@ -35,7 +35,7 @@ const projectsList = (props) => {
                  </p>
              </div>
              <div class="px-6 pt-4 pb-2">
-                  {links} 
+                  {/* {links}  */}
              </div>
              <div class="px-6 pb-4">
                <btn class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
