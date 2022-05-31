@@ -248,6 +248,13 @@ export const getProjectsData = async () => {
               images {
                 ...CollectionParts
               }
+              skill_categories {
+                data {
+                  attributes {
+                    name
+                  }
+                }
+              }
               
             }
           }

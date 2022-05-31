@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getPortfolioData } from '../../utils/api'
+import {  getProjectsData } from '../../utils/api'
 import Head from 'next/head'
 import Image from 'next/image'
 import NextImage from "../../components/elements/image"
@@ -16,13 +16,13 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 
 
-export const ProjectDetails = (props) => {
-    console.log("project details", props);
+export const ProjectDetails = ({project, techStackArr}) => {
+    console.log("project details", project);
 
-    const images = props.project.project.data.attributes.images.data
-    const links = props.project.project.data.attributes.link
-    const description = props.project.project.data.attributes.body
-    const icon = props.project.project.data.attributes
+    // const images = props.project.project.data.attributes.images.data
+    // const links = props.project.project.data.attributes.link
+    // const description = props.project.project.data.attributes.body
+    // const icon = props.project.project.data.attributes
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [currSlide, setCurrSlide] = useState(false)
@@ -30,11 +30,11 @@ export const ProjectDetails = (props) => {
 
 
 
-    console.log("currIndex", currentIndex);
-    console.log("images", images)
-    console.log("links", links)
-    console.log("description", description);
-    console.log("icon", icon);
+    // console.log("currIndex", currentIndex);
+    // console.log("images", images)
+    // console.log("links", links)
+    // console.log("description", description);
+    // console.log("icon", icon);
 
 
     const handleOnNextClick = (event) => {
@@ -55,7 +55,7 @@ export const ProjectDetails = (props) => {
     };
 
 
-    console.log("object", currSlide,);
+    // console.log("object", currSlide,);
     return (
         <>
             <Head>
@@ -116,7 +116,7 @@ export const ProjectDetails = (props) => {
                     <div className="flex flex-col  items-center pt-8 pb-8 md:flex-row">
 
                         <div className="w-3/5 pb-8 flex justify-center md:w-1/2  ">
-                            {links.map((link, index) => {
+                            {/* {links.map((link, index) => {
                                 return (
                                     <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 " key={index}>
                                     <a href={link.url} target="_blank" className=" ">
@@ -126,14 +126,14 @@ export const ProjectDetails = (props) => {
                                     </button>
                                 )
                             }
-                            )}
+                            )} */}
                        
                  
                         </div>
 
                         <div className="w-3/5 md:w-1/2">
                             <p>
-                               {description}
+                               {/* {description} */}
                             </p>
 
                         </div>
@@ -149,7 +149,7 @@ export const ProjectDetails = (props) => {
 
                         <div className="w-11/12 ">
                             <ul className="flex justify-around">
-                                {props.techStackArr.map((tech, index) => {
+                                {/* {props.techStackArr.map((tech, index) => {
                                     const image = tech.attributes.icon.data
                                     console.log("innerImage", image);
                                     return (
@@ -157,7 +157,7 @@ export const ProjectDetails = (props) => {
                                             <Image className="carosel" src={`http://localhost:1337${image.attributes.url}`} width={image.attributes.width} height={image.attributes.height} /> 
                                         </li>
                                     )
-                                })}
+                                })} */}
                             </ul>
                         </div>
                     </div>
@@ -170,98 +170,64 @@ export const ProjectDetails = (props) => {
 
 export const getStaticPaths = async () => {
 
-    const data = await getPortfolioData()
-    // console.log("insac", data.data.codingDv.data.attributes.projects[0].project.data.attributes);
-    const projects = data.data.codingDv.data.attributes.projects
+    const data = await getProjectsData()
+
+     console.log("data", data );
+
+     const projects = data.data.projects.data
+
+     console.log("projects",  projects);
+
+
     const paths = projects.map(project => {
-        const { slug } = project.project.data.attributes
+        console.log("pathsInner",  project)
+        const { slug } = project.attributes
         return { params: { slug: slug } }
     })
+
     console.log("paths", paths)
+
     return {
         paths,
         fallback: false
     }
+
+ 
 
 
 }
 
 
 export const getStaticProps = async (ctx) => {
-    const data = await getPortfolioData()
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/graphql`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          // 'Authorization': `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`
-        },
-        body: JSON.stringify({
-            query: `
-            fragment FileParts on UploadFileEntityResponse {
-                data {
-                  id
-                  attributes {
-                    alternativeText
-                    width
-                    height
-                    mime
-                    url
-                    formats
-                  }
-                }
-              }
-            query	{
-                projects {
-                  data {
-                    attributes {
-                      name
-                      slug
-                      skill_categories {
-                        data {
-                          attributes {
-                            name 
-                            icon {
-                                ...FileParts
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            `
+    const data = await getProjectsData()
 
-        })
-
-        })
-        const convertedData = await response.json()
-        console.log("SingularProjectFetchTest", convertedData.data.projects.data);
-        const projectSkill = convertedData.data.projects.data.find(project => project.attributes.slug === ctx.params.slug)
-     
-        // const projectSkill = convertedData.data.projects.data.find(project => project.data.attributes.name === ctx.params.slug)
-       const techStackArr = projectSkill.attributes.skill_categories.data
-       console.log("gferqgqg", techStackArr);
-        // console.log( "techStackArr", techStackArr);
-    const {
     
-        projects,
+    const convertedData = await data
+    console.log("convertedData", convertedData);
+        // console.log("convertedData", convertedData);
+        // console.log("SingularProjectFetchTest", convertedData.data.projects.data);
+       const projectSkill = convertedData.data.projects.data.find(project => project.attributes.slug === ctx.params.slug)
+          console.log("projectSkillsc", projectSkill.attributes);
+        //  const projectSkill = convertedData.data.projects.data.find(project => project.data.attributes.name === ctx.params.slug)
+          const techStackArr = projectSkill.attributes.skill_categories.data
+          const project = projectSkill.attributes
+    //    console.log("gferqgqg", data.data.projects.data);
+        // console.log( "techStackArr", techStackArr);
 
-    } = data.data.codingDv.data.attributes
 
-    const project = projects.find(project => {
-        const { slug } = project.project.data.attributes
-        return slug === ctx.params.slug
-    })
+    // const project = projects.find(project => {
+    //     const { slug } = project.project.data.attributes
+    //     return slug === ctx.params.slug
+    // })
 
-    console.log("projectData", project.project.data.attributes);
+    // console.log("projectData", project.project.data.attributes);
 
     return {
+
         props: {
-            project,
-            techStackArr
+               project,
+              techStackArr
         }
 
 

@@ -9,6 +9,7 @@ const Index = ({portfolioData, projectsPageData}) => {
      const projects = portfolioData.data.projects.data
      console.log("portfolioCompPropsData", projectsPageData);
      const intro = projectsPageData.data.projectsPage.data.attributes.intro
+     const body = projectsPageData.data.projectsPage.data.attributes.body
 
     return (
         <div>
@@ -17,23 +18,18 @@ const Index = ({portfolioData, projectsPageData}) => {
         <div className="min-h-screen bg-white flex justify-center ">
             <div className=" flex-col max-w-screen-lg w-full flex-wrap   ">
                
-
                     <div className="flex flex-col items-center pt-8 pb-8 ">
 
-
                         <h1 className="text-black text-5xl font-bold  pr-8 pt-8">
-                            Hello, I'm <span className="text-blue-500">Troy</span>
+                        {intro} <span className="text-blue-500">Troy</span>
                         </h1>
                         <div className="w-3/5 md:w-2/3 lg:w-11/12">
                         <p className="text-black text-2xl pl-10 pr-10 pt-8">
-                      {intro}
+                            {body}
                         </p>
                         </div>
-                   
                     </div>
               
-                
-                 
                     <div id=" " className=" flex  w-full pb-8 ">
                          <ProjectsList projects={projects} /> 
                     </div>
@@ -62,6 +58,7 @@ export const getStaticProps = async () => {
                   data {
                     attributes {
                       intro
+                      body
                     }
                   }
                 }
