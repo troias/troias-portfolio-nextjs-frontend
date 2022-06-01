@@ -252,6 +252,9 @@ export const getProjectsData = async () => {
                 data {
                   attributes {
                     name
+                    icon {
+                      ...FileParts
+                    }
                   }
                 }
               }
@@ -264,5 +267,55 @@ export const getProjectsData = async () => {
     })
   })
   const res = await getProjectsData.json()
+  return res
+}
+
+export const getAllSkills = async () => {
+  const getAllSkillsData = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_API}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify({
+      query: `
+      fragment FileParts on UploadFileEntityResponse {
+
+        data {
+          id
+          attributes {
+            alternativeText
+            width
+            height
+            mime
+            url
+            formats
+          }
+        }
+      }
+      query {
+        skillCategories {
+          data {
+            attributes {
+              name 
+              slug
+              icon {
+                ...FileParts
+              }
+              project_categories {
+                data {
+                  attributes {
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      `
+    })
+  })
+  const res = await getAllSkillsData.json()
   return res
 }

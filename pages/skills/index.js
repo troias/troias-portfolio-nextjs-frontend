@@ -1,9 +1,10 @@
 import React from 'react'
 import SkillsList from '../../components/elements/skillsList/skillsList'
 import PortfolioNav from '../../components/page-components/portfolioNav'
+import {getAllSkills} from '../../utils/api'
 
-const Skills = (props) => {
-  console.log("skills page props", props.skills.data.codingDv.data.attributes.skills)
+const Skills = ({skills}) => {
+   console.log("skills page props", skills)
   return (
     <div className="min-h-screen bg-white">
       <PortfolioNav />
@@ -21,7 +22,7 @@ const Skills = (props) => {
         </div>
 
         <div className="flex flex-wrap justify-center pb-12">
-          <SkillsList skills={props.skills.data.codingDv.data.attributes.skills} />
+           <SkillsList skills={skills} /> 
         </div>
       </div>
 
@@ -33,70 +34,15 @@ const Skills = (props) => {
 export default Skills
 
 export const getStaticProps = async () => {
-  const skillsReq = await fetch(`http://localhost:1337/graphql`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    },
-    body: JSON.stringify({
-      query: `
 
-            fragment FileParts on UploadFileEntityResponse {
-                data {
-                  id
-                  attributes {
-                    alternativeText
-                    width
-                    height
-                    mime
-                    url
-                    formats
-                  }
-                }
-              }
-              query {
-                codingDv {
-                  data {
-                    attributes {
-                      skills {
-                        skill_category {
-                          data {
-                            attributes {
-                              name 
-                              slug
-                              description
-                              icon {
-                                ...FileParts
-                              }
-                              project_categories {
-                                data {
-                                  attributes {
-                                    name
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }`
-    })
-  })
+  const getAllSkillsData = await getAllSkills()
+  const skills = getAllSkillsData.data.skillCategories.data
 
-  const skills = await skillsReq.json()
-
-
-  console.log("skillPagestaticImport", skills);
-
-
+  console.log("getAllSkillsData", skills)
 
   return {
     props: {
-      skills: skills
+       skills
     }
   }
 }

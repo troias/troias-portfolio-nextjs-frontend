@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import PortfolioNav from '../../components/page-components/portfolioNav'
+import {getAllSkills} from '../../utils/api'
 
 const SkillItem = () => {
   return (
@@ -45,21 +46,21 @@ const SkillItem = () => {
 
             
 
-                <table class="shadow-lg bg-white w-full  ">
+                <table className="shadow-lg bg-white w-full  ">
                   <tr>
-                    <th class="bg-blue-100 border text-left px-8 py-4">Skill Title</th>
+                    <th className="bg-blue-100 border text-left px-8 py-4">Skill Title</th>
                 
                   </tr>
                   <tr>
-                    <td class="border px-8 py-4">UseEffect</td>
+                    <td className="border px-8 py-4">UseEffect</td>
                    
                   </tr>
                   <tr>
-                    <td class="border px-8 py-4">Centro comercial Moctezuma</td>
+                    <td className="border px-8 py-4">Centro comercial Moctezuma</td>
                    
                   </tr>
                   <tr>
-                    <td class="border px-8 py-4">Ernst Handel</td>
+                    <td className="border px-8 py-4">Ernst Handel</td>
                    
                   </tr>
                 </table>
@@ -77,3 +78,48 @@ const SkillItem = () => {
 }
 
 export default SkillItem
+
+export const getStaticPaths = async () => {
+
+  const data = await getAllSkills()
+
+  console.log("getStaticPathsData", data );
+
+   const skills = data.data.skillCategories.data
+
+  console.log("skills",  skills);
+
+
+ const paths = skills.map(skills => {
+     console.log("pathsInner",  skills)
+     const { slug } = skills.attributes
+     console.log("slug", slug)
+     return { params: { slug: slug } }
+ })
+
+  console.log("paths", paths)
+
+ return {
+     paths,
+     fallback: false
+ }
+
+
+
+
+}
+
+export const getStaticProps = async (ctx) => {
+
+ 
+
+  const { slug } = ctx.params
+  console.log("SkillContext", slug)
+  return {
+    props: {
+      // skill: res
+    }
+  }
+}
+
+

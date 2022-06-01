@@ -6,14 +6,14 @@ import Link from 'next/link'
 
 
 
- const SkillsList = (props) => {
+ const SkillsList = ({skills}) => {
 
-  console.log("skillsListList", props)
+  console.log("skillsListList", skills)
    
 
     // console.log("skillsList props", props.skills);
 
-    const skillsList = props.skills.map((skill, index) => (    <div class="card mt-5 ml-10 pr-8">
+    const skillsList = skills.map((skill, index) => (    <div class="card mt-5 ml-10 pr-8">
     <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100" key={index}>
            <NextImage media={skill.attributes.icon} />   
           {console.log("skills", skill)}
@@ -40,7 +40,7 @@ import Link from 'next/link'
             <div class="px-6 pb-4">
                <btn class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                  <Link href={`/skills/${skill.attributes.slug}`} >
-                    View Project
+                    View Skill
                  </Link>
                
                </btn>
