@@ -1,14 +1,15 @@
 import React from 'react'
 import SkillsList from '../../components/elements/skillsList/skillsList'
-import PortfolioNav from '../../components/page-components/portfolioNav'
+import PortfolioNav from "../../components/page-components/portfolioNav"
 import {getAllSkills} from '../../utils/api'
 
 const Skills = ({skills}) => {
    console.log("skills page props", skills)
   return (
     <div className="min-h-screen bg-white">
+    
       <PortfolioNav />
-
+  
       <div className="flex-col justify-center">
 
         <div className="flex flex-col items-center pt-8 pb-8 ">

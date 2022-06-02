@@ -298,7 +298,17 @@ export const getAllSkills = async () => {
           data {
             attributes {
               name 
+              description
               slug
+              skills {
+                data {
+                  attributes {
+                    name
+                    body
+                    slug
+                  }
+                }
+              }
               icon {
                 ...FileParts
               }
