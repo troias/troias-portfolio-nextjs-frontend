@@ -94,21 +94,21 @@ export const getStaticPaths = async () => {
 
   const data = await getAllSkills()
 
-  console.log("getStaticPathsData", data );
+  // console.log("getStaticPathsData", data );
 
    const skills = data.data.skillCategories.data
 
-  console.log("skills",  skills);
+  // console.log("skills",  skills);
 
 
  const paths = skills.map(skills => {
-     console.log("pathsInner",  skills)
+    //  console.log("pathsInner",  skills)
      const { slug } = skills.attributes
-     console.log("slug", slug)
+    //  console.log("slug", slug)
      return { params: { slug: slug } }
  })
 
-  console.log("paths", paths)
+  // console.log("paths", paths)
 
  return {
      paths,
@@ -127,13 +127,13 @@ export const getStaticProps = async (ctx) => {
  
 
   const { slug } = ctx.params
-  console.log("SkillContext", slug)
+  // console.log("SkillContext", slug)
 
   const data = await getAllSkills()
 
     const getAllSkillsCat = data.data.skillCategories.data.filter(skill => skill.attributes.slug === slug)
 
-  //   console.log("getAllSkillsCat", getAllSkillsCat);
+    //  console.log("getAllSkillsCat", getAllSkillsCat);
 
 
 

@@ -126,7 +126,7 @@ const Header = React.forwardRef((props, ref) => {
     const refs = [homeLinkRef, aboutref, resumeref, worksRef, contactref]
     refs.forEach(ref => {
       // console.log("roter.pathname", router.pathname);
-      if (ref.current.childNodes[0].href === `${`http://localhost:3000${router.asPath}`}`) {
+      if (ref.current.childNodes[0].href === `${`${process.env.NEXT_PUBLIC_STRAPI_URL}${router.asPath}`}`) {
         // console.log("refs", ref.current.childNodes[0].href);
         ref.current.childNodes[0].classList.add("current");
       } else {

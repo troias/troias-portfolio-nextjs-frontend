@@ -306,6 +306,14 @@ export const getAllSkills = async () => {
                     name
                     body
                     slug
+                    cover {
+                      ...FileParts
+                    }
+                    link {
+                      newTab
+                      url
+                      text
+                    }
                   }
                 }
               }
@@ -327,5 +335,62 @@ export const getAllSkills = async () => {
     })
   })
   const res = await getAllSkillsData.json()
+  return res
+}
+
+export const getSkill = async (slug) => {
+  const getSkillData = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_API}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+    },
+    body: JSON.stringify({
+      query: `
+      fragment FileParts on UploadFileEntityResponse {
+
+        data {
+          id
+          attributes {
+            alternativeText
+            width
+            height
+            mime
+            url
+            formats
+          }
+        }
+      }
+      query($slug: String! ){
+        skills(filters: {
+          slug: {
+            contains: $slug
+          }
+        }) {
+          data {
+            attributes {
+              name
+              body
+              slug
+              link {
+                newTab
+                url
+                text
+              }
+              cover {
+                ...FileParts
+              }
+            }
+          }
+        }
+      }
+      `, 
+      variables: {
+        slug
+      }
+    })
+  }
+  )
+  const res = await getSkillData.json()
   return res
 }
