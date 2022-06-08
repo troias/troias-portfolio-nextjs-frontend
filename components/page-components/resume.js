@@ -37,7 +37,7 @@ const Resume = (props) => {
 
     return (
         <section id="resume" ref={resumeRef}>
-            <div className="flex justify-center bg-[#fff] pt-8      ">
+            <div className="flex justify-center  pt-8      ">
                 <div className="flex-col   ">
                     <div className="  flex justify-center">
                         <div className="max-w-screen-lg w-full">

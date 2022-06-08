@@ -24,7 +24,7 @@ const Portfolio = (props) => {
 
 
   return (
-    <section id="portfolio" className=" " ref={porfolioRef}>
+    <section id="portfolio" className=" w-full" ref={porfolioRef}>
       <div className="flex justify-center border-t pt-8  ">
         <h1 className="   lg:justify-start font-[opensans-bold] text-2xl leading-tight  mb-6 mt-2 ml-6 uppercase "><span className="border-b-4
     border-b-[#11ABB0] 

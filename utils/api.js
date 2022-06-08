@@ -33,6 +33,7 @@ export const getAboutSection = async () => {
                       title
                       bio
                    }
+               
                   contactDetails {
                     iconImage {
                       ...FileParts
@@ -81,6 +82,11 @@ export const getHeaderDetails = async () => {
                   title
                   bio
                }
+               header_social_links {
+                url
+                text
+                newTab
+              }
               contactDetails {
                 currentEmployment      
                 jobTitle

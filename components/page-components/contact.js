@@ -64,7 +64,7 @@ const Contact = (props) => {
                             onBlur={formik.handleBlur}
                             value={formik.values.firstName}
                             className=""
-                            placeholder="name"
+                         
                         />
                         {formik.touched.firstName && formik.errors.firstName ? (
                             <div className="flex  text-red-600" >{formik.errors.firstName}</div>
@@ -79,7 +79,7 @@ const Contact = (props) => {
                             onBlur={formik.handleBlur}
                             value={formik.values.lastName}
                             className=""
-                            placeholder="Subject"
+                          
                         />
                         {formik.touched.lastName && formik.errors.lastName ? (
                             <div className="flex  text-red-600">{formik.errors.lastName}</div>
@@ -94,10 +94,10 @@ const Contact = (props) => {
                             onBlur={formik.handleBlur}
                             value={formik.values.email}
                             className=""
-                            placeholder="Email Address"
+                          
                         />
                           <label htmlFor="email" className=" ">Message </label>
-                        <textarea id="email" name="email" placeholder="Message" className="focus:text-blue-600    focus:border-blue-300" />
+                        <textarea id="email" name="email"  className="focus:text-blue-600    focus:border-blue-300" />
                         {formik.touched.email && formik.errors.email ? (
                             <div className=" text-red-600">{formik.errors.email}</div>
                         ) : null}

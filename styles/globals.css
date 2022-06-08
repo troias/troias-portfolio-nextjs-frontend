@@ -455,7 +455,7 @@ a {
   #resume {
     @apply 
     
-  
+    bg-[#ebeeee]
     overflow-hidden
   
     w-full;
@@ -531,7 +531,7 @@ a {
 
     bg-white
     
-    pb-28 
+    pb-2
     text-[rgb(99,99,99)]
     w-full
 
