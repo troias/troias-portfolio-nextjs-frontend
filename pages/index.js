@@ -50,7 +50,7 @@ export default function Home({props, aboutPageData, headerData, resumeData, port
       <main className="">
         <About headerRef={headerRefArr} aboutPageData={aboutPageData} /> 
           <Resume  headerRef={headerRefArr} resumeData={resumeData} />  
-         {/* <Skills/> */}
+      
          <div id="portfolio-wrapper " className=" flex flex-col w-full items-center md:flex-row md:items-baseline md:justify-center"> 
           <Portfolio portfolioData={portfolioData}  headerRef={headerRefArr} />  
          </div> 

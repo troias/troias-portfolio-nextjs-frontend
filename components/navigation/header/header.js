@@ -14,7 +14,7 @@ import { RiMessengerLine } from 'react-icons/ri'
 
 const Header = React.forwardRef((props, ref) => {
   const router = useRouter()
-  console.log("Headerprops", props);
+  // console.log("Headerprops", props);
 
   const currentEmployment = props.headerData.contactDetails.currentEmployment
   const jobTitle = props.headerData.contactDetails.jobTitle
@@ -203,18 +203,18 @@ const Header = React.forwardRef((props, ref) => {
             <hr />
             <div>
               <h3> Get in touch with me @</h3>
-              <div className="flex justify-center mt-2">
+              <div className="flex justify-center mt-4">
                
              
                     <a href={social_link[0].url} target="_blank" className="text-red-500 mr-2">
-                      <RiMessengerLine size={20} className="text-red-500" />
+                      <RiMessengerLine size={30} className="text-red-500" />
                     </a>
 
                     <a href={social_link[1].url} target="_blank" className="text-red-500 mr-2">
-                      <AiOutlineLinkedin size={20} className="text-red-500" />
+                      <AiOutlineLinkedin size={30} className="text-red-500" />
                     </a>
                     <a href={`mailto:${social_link[2].url}`} target="_top" className="text-red-500 mr-2">
-                      <FaEnvelope size={20} className="text-red-500" />
+                      <FaEnvelope size={30} className="text-red-500" />
                     </a>
              
           

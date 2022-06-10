@@ -1,12 +1,21 @@
-import React, {useEffect, useRef} from "react"
+import React, {useEffect, useRef, useState} from "react"
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { AiOutlineMail } from 'react-icons/ai';
+import Notification from "../elements/notification"
+
 
 
 
 
 const Contact = (props) => {
+
+    const [status, setStatus] = useState("");
+    const [submitting, setSubmitting] = useState(false);
+    const [message, setMessage] = useState("");
+    const [title, setTitle] = useState("");
+
+    console.log("status", status)
 
     const contactRef = useRef()
 
@@ -18,30 +27,96 @@ const Contact = (props) => {
         sendReftoHeader()
     }, [])
 
+    if (status === "success") {
+  
+        setTimeout(() => {
+          setMessage("")
+          setTitle("")
+          setSubmitting(false);
+          setStatus("")
+          formik.resetForm();
+     
+      
+        }, 3000);
+    
+        clearTimeout();
+      }
+
     const formik = useFormik({
         initialValues: {
-            firstName: '',
-            lastName: '',
+            name: '',
+            subject: '',
             email: '',
+            message: ''
         },
         validationSchema: Yup.object({
-            firstName: Yup.string()
-                .max(15, 'Must be 15 characters or less')
-                .required('Required'),
-            lastName: Yup.string()
-                .max(20, 'Must be 20 characters or less')
-                .required('Required'),
+            name: Yup.string(), 
+            subject: Yup.string(),
             email: Yup.string().email('Invalid email address').required('Required'),
+            message: Yup.string().required('Required')
         }),
         handleBlur: () => {
             // console.log('blur')
         },
         onSubmit: values => {
-            alert(JSON.stringify(values, null, 2));
+            console.log('submit', values)
+  
+
+            // console.log('innerVals', JSON.stringify(data))
+
+
+            setMessage("Pending")
+            setTitle("Submitting investigation")
+            setSubmitting(true);
+            setStatus('pending')
+
+            const sendFormData = async () => {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/annon-leadform-submissions`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        data: {
+                            name: values.name,
+                            subject: values.subject,
+                            email_address: values.email,
+                            message: values.message
+                        }
+                    })
+
+                })  
+                const data = await response.json()
+                console.log('data', data)
+
+                if (!data.error ) {
+                    setMessage('Message sent!')
+                    setTitle('Message sent!')
+
+                    setStatus('success')
+                    const timer = setTimeout(() => {
+                        setSubmitting(false)
+                        clearTimeout(timer)
+                    }, 1000);
+                        
+                }
+                else {
+                    setMessage('Message failed to send!')
+                    setTitle('Message failed to send!')
+                    setStatus('error')
+                    setSubmitting(false)
+                }
+            }
+            sendFormData()
+
+
+            
         },
     });
     return (
         <section id="contact"  ref={contactRef}>
+                  {status && <Notification message={message} title={title} submitting={submitting} status={status} onClick={() => setSubmitting(false)} />}
+
             <div className="flex justify-center bg-gray-300 pt-8">
 
          
@@ -55,34 +130,34 @@ const Contact = (props) => {
                     <div className=" flex flex-col w-2/3  lg:w-2/4   ">
 
 
-                        <label htmlFor="firstName" className=" "> Name </label>
+                        <label htmlFor="name" className=" "> Name </label>
                         <input
-                            id="firstName"
-                            name="firstName"
+                            id="name"
+                            name="name"
                             type="text"
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            value={formik.values.firstName}
+                            value={formik.values.name}
                             className=""
                          
                         />
-                        {formik.touched.firstName && formik.errors.firstName ? (
-                            <div className="flex  text-red-600" >{formik.errors.firstName}</div>
+                        {formik.touched.name && formik.errors.name ? (
+                            <div className="flex  text-red-600" >{formik.errors.name}</div>
                         ) : null}
 
-                        <label htmlFor="lastName" className="flex ">Subject </label>
+                        <label htmlFor="subject" className="flex ">Subject </label>
                         <input
-                            id="lastName"
-                            name="lastName"
+                            id="subject"
+                            name="subject"
                             type="text"
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            value={formik.values.lastName}
+                            value={formik.values.subject}
                             className=""
                           
                         />
-                        {formik.touched.lastName && formik.errors.lastName ? (
-                            <div className="flex  text-red-600">{formik.errors.lastName}</div>
+                        {formik.touched.subject && formik.errors.subject ? (
+                            <div className="flex  text-red-600">{formik.errors.subject}</div>
                         ) : null}
 
                         <label htmlFor="email" className=" ">Email Address </label>
@@ -96,10 +171,22 @@ const Contact = (props) => {
                             className=""
                           
                         />
-                          <label htmlFor="email" className=" ">Message </label>
-                        <textarea id="email" name="email"  className="focus:text-blue-600    focus:border-blue-300" />
+
                         {formik.touched.email && formik.errors.email ? (
-                            <div className=" text-red-600">{formik.errors.email}</div>
+                            <div className="flex  text-red-600">{formik.errors.email}</div>
+                        ) : null}
+
+                          <label htmlFor="message" className=" ">Message </label>
+                        <textarea 
+                        id="message"
+                         name="message" 
+                          className="focus:text-blue-600    focus:border-blue-300" 
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          value={formik.values.message}
+                          />
+                        {formik.touched.message && formik.errors.message ? (
+                            <div className=" text-red-600">{formik.errors.message}</div>
                         ) : null}
                         
                         <div className="mt-4 flex justify-center">
@@ -108,11 +195,7 @@ const Contact = (props) => {
 
                     </div>
                 </form>
-                {/* <div id="go-top">
-               <a className="smoothscroll " title="Back to Top" href="#home">
-                  <FaChevronCircleUp className="hover:bg-[#0F9095] rounded-[100%]" />
-               </a>
-            </div> */}
+  
             </div>
             </div>
         </section>

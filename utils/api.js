@@ -1,4 +1,38 @@
+export const getFooter = async () => {
 
+  const getFooterData = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_GRAPHQL_API}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    }, 
+    body: JSON.stringify({
+      query: `
+      query {
+        codingDv {
+          data {
+            attributes {
+              footer {
+                footer_social_links {
+                  newTab
+                  text
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+      `
+    }),
+
+
+  })  
+  const footerData = await getFooterData.json()
+
+  // console.log("apiFooter", footerData);
+  return footerData
+
+}
 
 
 export const getAboutSection = async () => {
@@ -39,6 +73,7 @@ export const getAboutSection = async () => {
                       ...FileParts
                     }
                     title
+                    cv
                     contactDetailItem {
                       title
                       text
