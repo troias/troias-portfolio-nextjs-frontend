@@ -14,7 +14,7 @@ import Link from 'next/link'
     // console.log("skillsList props", props.skills);
 
     const skillsList = skills.map((skill, index) => (    <div class="card mt-5 ml-10 pr-8">
-    <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100" key={index}>
+    <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100 p-4" key={index}>
            <NextImage media={skill.attributes.icon} />   
           {console.log("skills", skill)}
    

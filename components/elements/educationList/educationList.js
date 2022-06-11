@@ -11,10 +11,10 @@ const EducationList = props => {
             {education.data.map((qualification, index) => {
 
                 return (
-                <div className=" ">
-                    {console.log("EducationListInner", qualification)}
-                    <h3 className="flex justify-center">{qualification.attributes.institution}</h3>
-                    <p className="info flex justify-center pr-7 pl-7 ">
+                <div className="  mb-8">
+                    {/* {console.log("EducationListInner", qualification)} */}
+                    <h3 className="flex justify-center ">{qualification.attributes.institution}</h3>
+                    <p className="info flex justify-center pr-7 pl-7 mt-4 ">
                         <span>&bull; {qualification.attributes.name} </span> <br />
                     </p>
                     <p className="info flex justify-center pr-7 pl-7 ">

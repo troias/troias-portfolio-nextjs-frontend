@@ -104,10 +104,16 @@ const Contact = (props) => {
                     setMessage('Message failed to send!')
                     setTitle('Message failed to send!')
                     setStatus('error')
+                    const timer = setTimeout(() => {
+
                     setSubmitting(false)
+                    formik.resetForm();
+                    clearTimeout(timer)
+                    }, 1000);
                 }
             }
             sendFormData()
+      
 
 
             
@@ -123,14 +129,16 @@ const Contact = (props) => {
 
             <div className="flex-col justify-center max-w-screen-lg w-full  ">
                 <div className="section-head flex justify-center">
+                <a href={`mailto:troyflavel@gmail.com`} target="_blank" className="mr-2">
                     <h2><AiOutlineMail className="text-6xl" /></h2>
+                </a>
                 </div>
 
                 <form onSubmit={formik.handleSubmit} className="flex justify-center ">
                     <div className=" flex flex-col w-2/3  lg:w-2/4   ">
 
-
-                        <label htmlFor="name" className=" "> Name </label>
+                        
+                        <label htmlFor="name" className=" ml-2 "> Name </label>
                         <input
                             id="name"
                             name="name"
@@ -145,7 +153,7 @@ const Contact = (props) => {
                             <div className="flex  text-red-600" >{formik.errors.name}</div>
                         ) : null}
 
-                        <label htmlFor="subject" className="flex ">Subject </label>
+                        <label htmlFor="subject" className="ml-2 mt-2 ">Subject </label>
                         <input
                             id="subject"
                             name="subject"
@@ -160,7 +168,7 @@ const Contact = (props) => {
                             <div className="flex  text-red-600">{formik.errors.subject}</div>
                         ) : null}
 
-                        <label htmlFor="email" className=" ">Email Address </label>
+                        <label htmlFor="email" className="ml-2 mt-2">Email Address </label>
                         <input
                             id="email"
                             name="email"
@@ -176,7 +184,7 @@ const Contact = (props) => {
                             <div className="flex  text-red-600">{formik.errors.email}</div>
                         ) : null}
 
-                          <label htmlFor="message" className=" ">Message </label>
+                          <label htmlFor="message" className="ml-2 mt-2 ">Message </label>
                         <textarea 
                         id="message"
                          name="message" 

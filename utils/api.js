@@ -413,6 +413,7 @@ export const getSkill = async (slug) => {
               name
               body
               slug
+              sandbox_url
               link {
                 newTab
                 url

@@ -164,8 +164,8 @@ const Header = React.forwardRef((props, ref) => {
 
           <div onClick={toggleMenu} className="h-full w-full pt-4 ml-6 md:hidden">
             {!visable ?
-              <AiOutlineAlignRight size={40} className=" bg-orange-600 bg-opacity-80  rounded-md text-white " /> :
-              <FaTimes size={40} className=" bg-orange-600 text-white rounded-md bg-opacity-80 " />}
+              <AiOutlineAlignRight size={50} className=" bg-red-500 bg-opacity-80  rounded-md text-white " /> :
+              <FaTimes size={50} className=" bg-red-500 text-white rounded-md bg-opacity-80 " />}
           </div>
 
 
@@ -182,12 +182,12 @@ const Header = React.forwardRef((props, ref) => {
             <ul className={""}>
               {menuItems.map((item, index) => {
                 return (
-                  <li key={index} ref={item.ref} className={
+                  <li key={index} ref={item.ref} onClick={toggleMenu} className={
                     item.cName === "current" ?
                       (`${item.id}` !== router.asPath ? (`${router.asPath === "/" ? "current " : "smoothscroll"}`) : "current ") :
                       "smoothscroll"
                   }  >
-                    <Link href={item.path} >{item.title}</Link>
+                    <Link href={item.path}>{item.title}</Link>
                   </li>
                 )
               }
@@ -213,7 +213,7 @@ const Header = React.forwardRef((props, ref) => {
                     <a href={social_link[1].url} target="_blank" className="text-red-500 mr-2">
                       <AiOutlineLinkedin size={30} className="text-red-500" />
                     </a>
-                    <a href={`mailto:${social_link[2].url}`} target="_top" className="text-red-500 mr-2">
+                    <a href={`mailto:${social_link[2].url}`} target="_blank" className="text-red-500 mr-2">
                       <FaEnvelope size={30} className="text-red-500" />
                     </a>
              
