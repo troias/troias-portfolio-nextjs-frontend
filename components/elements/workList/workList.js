@@ -2,14 +2,14 @@ import React from 'react'
 
 const WorkList = ({ work }) => {
 
-    console.log("WorkList", work);
+    // console.log("WorkList", work);
 
   
 
     return (
         <>
             {work.data.map((job, index) => {
-                console.log("workListInner", job);
+                // console.log("workListInner", job);
                 return (
                     <div key="" className="flex justify-center">
                         <div className="w-11/12 max-w-md">

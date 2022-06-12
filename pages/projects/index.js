@@ -7,7 +7,7 @@ const Index = ({portfolioData, projectsPageData}) => {
 
 
      const projects = portfolioData.data.projects.data
-     console.log("portfolioCompPropsData", projectsPageData);
+    //  console.log("portfolioCompPropsData", projectsPageData);
      const intro = projectsPageData.data.projectsPage.data.attributes.intro
      const body = projectsPageData.data.projectsPage.data.attributes.body
 

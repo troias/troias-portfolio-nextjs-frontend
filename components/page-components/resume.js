@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react"
-import SkillsList from "../elements/skillsList/skillsList"
+
 
 import Education from "../sections/education"
 import Work from "../sections/work"
@@ -27,7 +27,7 @@ const Resume = (props) => {
     // console.log("ResumePageSkills", skills)
 
 
-     console.log("featuredSkillsn", featuredSkills)
+    //  console.log("featuredSkillsn", featuredSkills)
 
 
 

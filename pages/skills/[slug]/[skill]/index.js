@@ -1,13 +1,13 @@
 import React from 'react'
 import PortfolioNav from '../../../../components/page-components/portfolioNav'
-import { getSkill, getAllSkills } from '../../../../utils/api'
+import { getSkill } from '../../../../utils/api'
 import Image from "../../../../components/elements/image"
 import Link from 'next/link'
-import Markdown from "react-markdown"
+
 
 const Index = ({ skill }) => {
 
-  console.log("SkillInnerSkill", skill.attributes.body)
+  // console.log("SkillInnerSkill", skill.attributes.body)
   return (
     <div className=" bg-white flex-wrap">
       <PortfolioNav />
@@ -149,7 +149,7 @@ export const getStaticPaths = async (ctx) => {
   }
   ).flat()
 
-  console.log("paths", paths)
+  // console.log("paths", paths)
   return {
 
     paths: paths,

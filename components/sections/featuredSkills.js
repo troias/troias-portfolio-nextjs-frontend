@@ -5,7 +5,7 @@ import SkillsList from "../elements/skillsList/skillsList"
 const FeaturedSkills = (props) => {
 
     // title/skillmessage
-    console.log("featureSkills", props);
+    // console.log("featureSkills", props);
 
     const skills = props.featuredSkills.data
     const featuredSkills = skills.filter(skill => skill.attributes.featured === true)

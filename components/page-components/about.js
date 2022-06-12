@@ -8,7 +8,7 @@ const About = ({aboutPageData}) => {
    // console.log("About page props", contactDetails, about )
 
    const {about, contactDetails} = aboutPageData
-   console.log("contactDetails", contactDetails)
+   // console.log("contactDetails", contactDetails)
 
 
 

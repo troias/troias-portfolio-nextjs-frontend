@@ -8,7 +8,7 @@ import Link from 'next/link'
 
  const SkillsList = ({skills}) => {
 
-  console.log("skillsListList", skills)
+  // console.log("skillsListList", skills)
    
 
     // console.log("skillsList props", props.skills);
@@ -16,7 +16,7 @@ import Link from 'next/link'
     const skillsList = skills.map((skill, index) => (    <div class="card mt-5 ml-10 pr-8">
     <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100 p-4" key={index}>
            <NextImage media={skill.attributes.icon} />   
-          {console.log("skills", skill)}
+          {/* {console.log("skills", skill)} */}
    
         <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">{skill.attributes.name}</div>

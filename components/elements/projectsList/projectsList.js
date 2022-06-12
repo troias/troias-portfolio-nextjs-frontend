@@ -5,7 +5,7 @@ const projectsList = (props) => {
 
   
   const projects = props.projects 
-  console.log("projectsListPropsprops", projects);
+  // console.log("projectsListPropsprops", projects);
 
   return (
     <div className="w-full justify-center flex-wrap flex "> 

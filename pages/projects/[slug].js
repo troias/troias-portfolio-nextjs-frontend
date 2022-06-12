@@ -17,8 +17,8 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 
 export const ProjectDetails = ({project, techStackArr}) => {
-    console.log("project details", project);
-    console.log("techStackArr details", techStackArr);
+    // console.log("project details", project);
+    // console.log("techStackArr details", techStackArr);
 
      const images = project.images.data
      const links = project.link
@@ -130,7 +130,7 @@ export const ProjectDetails = ({project, techStackArr}) => {
                           
                                     return (
                                         <li className="mr-2" key={index}>
-                                            <Image className="carosel" src={`http://localhost:1337${image.attributes.url}`} width={image.attributes.width} height={image.attributes.height} /> 
+                                            <Image className="carosel" src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`} width={image.attributes.width} height={image.attributes.height} /> 
                                         </li>
                                     )
                                 })}
@@ -148,15 +148,15 @@ export const getStaticPaths = async () => {
 
     const data = await getProjectsData()
 
-     console.log("data", data );
+    //  console.log("data", data );
 
      const projects = data.data.projects.data
 
-     console.log("projects",  projects);
+    //  console.log("projects",  projects);
 
 
     const paths = projects.map(project => {
-        console.log("pathsInner",  project)
+        // console.log("pathsInner",  project)
         const { slug } = project.attributes
         return { params: { slug: slug } }
     })

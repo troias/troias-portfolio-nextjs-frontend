@@ -18,7 +18,7 @@ const Portfolio = (props) => {
 
   const projects = props.portfolioData.data.projects.data
 
-   console.log("PortfolioComponentArr", projects);
+  //  console.log("PortfolioComponentArr", projects);
 
 
 

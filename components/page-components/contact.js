@@ -59,7 +59,7 @@ const Contact = (props) => {
             // console.log('blur')
         },
         onSubmit: values => {
-            console.log('submit', values)
+            // console.log('submit', values)
   
 
             // console.log('innerVals', JSON.stringify(data))
@@ -71,7 +71,7 @@ const Contact = (props) => {
             setStatus('pending')
 
             const sendFormData = async () => {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/annon-leadform-submissions`, {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_URL}api/annon-leadform-submissions`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

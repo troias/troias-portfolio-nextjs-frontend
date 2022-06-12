@@ -2,7 +2,7 @@ import React from 'react'
 import WorkList from "../elements/workList/workList"
 
 const Work = ({work}) => {
-  console.log("InnerWork", work);
+  // console.log("InnerWork", work);
   return (
     <div className=" work md:flex  md:justify-around ">
     <div className=" md:w-1/4 ">

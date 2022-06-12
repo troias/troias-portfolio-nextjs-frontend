@@ -4,7 +4,7 @@ import PortfolioNav from "../../components/page-components/portfolioNav"
 import {getAllSkills} from '../../utils/api'
 
 const Skills = ({skills}) => {
-   console.log("skills page props", skills)
+  //  console.log("skills page props", skills)
   return (
     <div className="min-h-screen bg-white">
     
@@ -39,7 +39,7 @@ export const getStaticProps = async () => {
   const getAllSkillsData = await getAllSkills()
   const skills = getAllSkillsData.data.skillCategories.data
 
-  console.log("getAllSkillsData", skills)
+  // console.log("getAllSkillsData", skills)
 
   return {
     props: {

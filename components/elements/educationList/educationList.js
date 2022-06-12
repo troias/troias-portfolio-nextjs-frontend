@@ -4,7 +4,7 @@ const EducationList = props => {
    
     const education = props.education
 
-    console.log("EducationList", education)
+    // console.log("EducationList", education)
     return (
 
         <>

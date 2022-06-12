@@ -11,9 +11,9 @@ import Header from '../components/navigation/header/header'
 
 
 
-export default function Home({props, aboutPageData, headerData, resumeData, portfolioData}) {
+export default function Home({ aboutPageData, headerData, resumeData, portfolioData}) {
 
-   console.log("portfolioData", portfolioData)
+  //  console.log("portfolioData", portfolioData)
 
 
 
@@ -76,7 +76,7 @@ export const getStaticProps = async () => {
   //  console.log("getResumeData", resumeData);
 
   const portfolioData = await getProjectsData()
-  console.log("portfolioData", portfolioData);
+  // console.log("portfolioData", portfolioData);
 
 
   return {
