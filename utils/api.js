@@ -10,6 +10,7 @@ export const getFooter = async () => {
       query {
         codingDv {
           data {
+            id
             attributes {
               footer {
                 footer_social_links {
@@ -62,6 +63,7 @@ export const getAboutSection = async () => {
         query {
            codingDv {
              data {
+              id
                 attributes {
                    about {
                       title
@@ -172,6 +174,7 @@ export const getResumeData = async () => {
 
         qualifications {
          data {
+          id
            attributes {
         
              name 
@@ -184,6 +187,7 @@ export const getResumeData = async () => {
       
      jobs {
       data {
+        id
         attributes {
           title
           duration
@@ -197,6 +201,7 @@ export const getResumeData = async () => {
 
     skillCategories {
       data {
+        id
         attributes {
           featured
           name
@@ -207,6 +212,7 @@ export const getResumeData = async () => {
           }
           project_categories {
             data {
+              id
               attributes {
                 name
               }
@@ -273,6 +279,7 @@ export const getProjectsData = async () => {
       query {
         projects {
           data {
+            id
             attributes {
               name
               body
@@ -337,12 +344,14 @@ export const getAllSkills = async () => {
       query {
         skillCategories {
           data {
+            id
             attributes {
               name 
               description
               slug
               skills {
                 data {
+                  id
                   attributes {
                     name
                     body
@@ -409,12 +418,14 @@ export const getSkill = async (slug) => {
           }
         }) {
           data {
+            id
             attributes {
               name
               body
               slug
               sandbox_url
               link {
+                id
                 newTab
                 url
                 text

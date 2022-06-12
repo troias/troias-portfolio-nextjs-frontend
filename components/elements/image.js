@@ -9,17 +9,17 @@ const NextImage = ({ media, collection, ...props }) => {
   const { url, alternativeText, width, height } = media.data.attributes
 
 
-  // console.log("media", media)
-  // console.log("media widh", width);
+   console.log("media", media)
+   console.log("media widh", width);
 
-  const loader = ({ src, width }) => {
+  const loader = ({ src }) => {
     return getStrapiMedia(src)
   }
 
   // The image has a fixed width and height
   if (props.width && props.height) {
     return (
-      <Image loader={loader} src={url} alt={alternativeText || ""} {...props} />
+      <Image loader={loader} src={url} width={width} height={height} alt={alternativeText || ""} {...props} />
     )
   }
 

@@ -6,14 +6,15 @@ import Image from "../../../components/elements/image"
 
 const SkillItem = ({skills}) => {
 
-  console.log("skills", skills)
+  console.log("skills", skills[0].id)
   // const name = skills.attributes.name
   return (
 
     <>
       {
         skills.map((skillCat, index) => (
-          <div className="min-h-screen bg-white ">
+          <div className="min-h-screen bg-white" key={skillCat.id}>
+            {console.log("test", skillCat.id)}
 
           <PortfolioNav />
           <div className="w-full flex justify-center ">
@@ -37,26 +38,21 @@ const SkillItem = ({skills}) => {
               </div>
     
               <div className="flex justify-center pt-8">
-              
-                
                     <a className=" text-black font-bold py-2 px-4">View All {skillCat.attributes.name} Skills</a>
-                
-              
               </div>
     
     
     
     
               <div className="pb-8 pt-8">
-        
-    
                 <div className="flex justify-around flex-wrap pr-2 pl-2  ">
     
                 
     
           {
             skillCat.attributes.skills.data.map((skill, index) => (
-              <table className="shadow-lg bg-white w-full  ">
+              <table className="shadow-lg bg-white w-full  " key={skill.id}>
+       
               <tr>
                 <Link href={`/skills/${skillCat.attributes.slug}/${skill.attributes.slug}`}>
            

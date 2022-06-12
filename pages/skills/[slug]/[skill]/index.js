@@ -25,7 +25,7 @@ const Index = ({ skill }) => {
             </div>
             <div className="w-2/5 flex items-center mb-8">
               <p>
-               {skill.attributes.body} 
+                {skill.attributes.body}
 
 
               </p>
@@ -46,32 +46,32 @@ const Index = ({ skill }) => {
               <h2 className="text-2xl font-bold">Links</h2>
             </div> */}
           <div className="flex justify-center mt-6 mb-8">
-       
-         
- {     skill.attributes.link && ( 
-  
-  skill.attributes.link.map(skill => (
-   
 
-          <> 
-          <btn class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4 hover:bg-sky-700 ">
-            <Link href={skill.url} >
-              {skill.text}
-            </Link>
 
-          </btn>
-          </>
-  ) 
-  )        
-        )}
+            {skill.attributes.link && (
 
-</div>
+              skill.attributes.link.map(skill => (
 
-          { skill.attributes.sandbox_url &&     <div className="mt-6 pr-2 pl-2 mb-6">
+
+                <>
+                  <btn className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4 hover:bg-sky-700 " key={skill.id}>
+                    <Link href={skill.url} >
+                      {skill.text}
+                    </Link>
+
+                  </btn>
+                </>
+              )
+              )
+            )}
+
+          </div>
+
+          {skill.attributes.sandbox_url && <div className="mt-6 pr-2 pl-2 mb-6">
             <div className="flex justify-center mb-6  ">
               <h2 className="text-2xl font-bold mt-6 mb-6"> CodeSandbox Example</h2>
             </div>
-       
+
 
 
             <iframe

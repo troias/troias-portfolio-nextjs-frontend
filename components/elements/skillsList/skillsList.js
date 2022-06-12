@@ -13,15 +13,15 @@ import Link from 'next/link'
 
     // console.log("skillsList props", props.skills);
 
-    const skillsList = skills.map((skill, index) => (    <div class="card mt-5 ml-10 pr-8">
-    <div class="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100 p-4" key={index}>
+    const skillsList = skills.map((skill, index) => (    <div className="card mt-5 ml-10 pr-8">
+    <div className="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100 p-4" key={skill.id}>
            <NextImage media={skill.attributes.icon} />   
-          {/* {console.log("skills", skill)} */}
+
    
-        <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">{skill.attributes.name}</div>
+        <div className="px-6 py-4">
+            <div className="font-bold text-xl mb-2">{skill.attributes.name}</div>
             <div className="">
-            <p class="text-gray-700 text-base ">
+            <p className="text-gray-700 text-base ">
                 {skill.attributes.description}
             </p>
             </div>
@@ -29,16 +29,16 @@ import Link from 'next/link'
         
         {skill.attributes.project_categories.data.map((project_category, index) => (
                <>
-               <div class="px-6 pt-4 pb-2"> 
+               <div className="px-6 pt-4 pb-2"> 
         
-                <span class="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out">#{project_category.attributes.name}</span> 
+                <span className="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out">#{project_category.attributes.name}</span> 
             </div> 
        
                </>
         ))}
             
-            <div class="px-6 pb-4">
-               <btn class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            <div className="px-6 pb-4">
+               <btn className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                  <Link href={`/skills/${skill.attributes.slug}`} >
                     View Skill
                  </Link>

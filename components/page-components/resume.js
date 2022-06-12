@@ -6,7 +6,7 @@ import Work from "../sections/work"
 import FeaturedSkills from "../sections/featuredSkills"
 
 const Resume = (props) => {
-    console.log("resumeProps", props);
+    // console.log("resumeProps", props);
 
      const education = props.resumeData.data.qualifications
      const work = props.resumeData.data.jobs

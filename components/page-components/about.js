@@ -42,7 +42,7 @@ const About = ({aboutPageData}) => {
                <div>
                      {contactDetails.contactDetailItem.map((item, index) => {
                         return (
-                           <div key={index}>
+                           <div key={item.id}>
                              <p> {item.title}:   {item.text}</p>
                             
                            </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import EducationList from "../elements/educationList/educationList"
 
  const Education = ({education}) => {
-   console.log("educationProps", education);
+  //  console.log("educationProps", education);
   return (
     <div className="education md:flex md:justify-around  ">
     <div className=" md:w-1/4">

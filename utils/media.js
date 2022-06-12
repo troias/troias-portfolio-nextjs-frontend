@@ -1,4 +1,4 @@
-export function getStrapiMedia(url) {
+export function getStrapiMedia(url, width, height) {
     if (url == null) {
       return null
     }
@@ -7,6 +7,12 @@ export function getStrapiMedia(url) {
     if (url.startsWith("http") || url.startsWith("//")) {
       return url
     }
+
+    // Return the full URL if the media is hosted on an external provider
+    if (url.startsWith("/")) {
+      return `${process.env.STRAPI_URL}${url}`
+    }
+    
   
     // Otherwise prepend the URL path with the Strapi URL
     return `${
