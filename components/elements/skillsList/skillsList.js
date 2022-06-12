@@ -29,7 +29,7 @@ import Link from 'next/link'
         
         {skill.attributes.project_categories.data.map((project_category, index) => (
                <>
-               <div className="px-6 pt-4 pb-2"> 
+               <div className="px-6 pt-4 pb-2" key={project_category.id}> 
         
                 <span className="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out">#{project_category.attributes.name}</span> 
             </div> 

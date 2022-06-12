@@ -181,13 +181,14 @@ const Header = React.forwardRef((props, ref) => {
           }>
             <ul className={""}>
               {menuItems.map((item, index) => {
+                {console.log("testsuka", item.id)}
                 return (
                   <li key={item.id} ref={item.ref} onClick={toggleMenu} className={
                     item.cName === "current" ?
                       (`${item.id}` !== router.asPath ? (`${router.asPath === "/" ? "current " : "smoothscroll"}`) : "current ") :
                       "smoothscroll"
                   }  >
-                    <Link href={item.path}>{item.title}</Link>
+                    <Link key={item.id} href={item.path}>{item.title}</Link>
                   </li>
                 )
               }
@@ -206,14 +207,14 @@ const Header = React.forwardRef((props, ref) => {
               <div className="flex justify-center mt-4">
                
              
-                    <a href={social_link[0].url} target="_blank" rel="noopener" className="text-red-500 mr-2">
+                    <a href={social_link[0].url} target="_blank" rel="noopener noreferrer" className="text-red-500 mr-2">
                       <RiMessengerLine size={30} className="text-red-500" />
                     </a>
 
-                    <a href={social_link[1].url} target="_blank" rel="noopener" className="text-red-500 mr-2">
+                    <a href={social_link[1].url} target="_blank" rel="noopener noreferrer" className="text-red-500 mr-2">
                       <AiOutlineLinkedin size={30} className="text-red-500" />
                     </a>
-                    <a href={`mailto:${social_link[2].url}`} target="_blank" rel="noopener" className="text-red-500 mr-2">
+                    <a href={`mailto:${social_link[2].url}`} target="_blank" rel="noopener noreferrer" className="text-red-500 mr-2">
                       <FaEnvelope size={30} className="text-red-500" />
                     </a>
              

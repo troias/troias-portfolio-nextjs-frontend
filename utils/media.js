@@ -12,6 +12,7 @@ export function getStrapiMedia(url, width, height) {
     if (url.startsWith("/")) {
       return `${process.env.STRAPI_URL}${url}`
     }
+
     
   
     // Otherwise prepend the URL path with the Strapi URL
