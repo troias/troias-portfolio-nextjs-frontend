@@ -15,18 +15,19 @@ const Contact = (props) => {
     const [message, setMessage] = useState("");
     const [title, setTitle] = useState("");
 
-    console.log("status", status)
+    // console.log("status", status)
 
     const contactRef = useRef()
 
     const sendReftoHeader = useCallback(() => {
+        // console.log("dqfqe")
         props.headerRef(contactRef)
     }
     , [])
 
     useEffect(() => {
         sendReftoHeader()
-    }, [sendReftoHeader])
+    }, [])
 
     if (status === "success") {
   

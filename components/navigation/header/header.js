@@ -118,15 +118,16 @@ const Header = React.forwardRef((props, ref) => {
   }
 
 
-  const checkDimensions = () => {
+  const checkDimensions =  useCallback(() => {
 
     if (window.innerWidth > 768) {
       setDesktop(true)
     }
     else { setDesktop(false) }
   }
+  , [])
 
-  const setIntialNavItem = useCallback( () => {
+  const setIntialNavItem = useCallback(() => {
     const refs = [homeLinkRef, aboutref, resumeref, worksRef, contactref]
     refs.forEach(ref => {
       // console.log("roter.pathname", router.pathname);
@@ -153,7 +154,7 @@ const Header = React.forwardRef((props, ref) => {
     return () => {
       window.removeEventListener("scroll", addBackGroundOnNav);
     }
-  }, [router.asPath, isDesktop, setIntialNavItem ])
+  }, [router.asPath ])
 
 
 

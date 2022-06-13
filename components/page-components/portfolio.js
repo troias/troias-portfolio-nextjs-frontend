@@ -14,7 +14,7 @@ const Portfolio = (props) => {
 
   useEffect(() => {
     sendReftoHeader()
-  }, [sendReftoHeader])
+  }, [])
 
   const projects = props.portfolioData.data.projects.data
 

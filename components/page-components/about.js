@@ -76,7 +76,7 @@ export const getStaticProps = async () => {
 
 
 
-   console.log("responseAboutSection", about)
+   // console.log("responseAboutSection", about)
  
 
    return {

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useCallback } from "react"
 
 
 import Education from "../sections/education"
@@ -12,16 +12,17 @@ const Resume = (props) => {
      const work = props.resumeData.data.jobs
      const featuredSkills = props.resumeData.data.skillCategories
 
-     console.log("work", work);
+    //  console.log("work", work);
     const resumeRef = useRef()
 
-    const sendReftoHeader = () => {
+    const sendReftoHeader = useCallback(() => {
         props.headerRef(resumeRef)
     }
+    , [])
 
     useEffect(() => {
         sendReftoHeader()
-    }, [sendReftoHeader])
+    }, [])
     // console.log("resumeComp props", props)
     // const { education, work, skills } = props.resumeData
     // console.log("ResumePageSkills", skills)
