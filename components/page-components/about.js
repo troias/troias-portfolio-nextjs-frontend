@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useRef } from 'react';
 import NextImage from '../elements/image';
-import getAboutSection from '../../utils/api'
+import {getAboutSection} from '../../utils/api'
 
 const About = ({aboutPageData}) => {
 
@@ -54,7 +54,7 @@ const About = ({aboutPageData}) => {
 
                <div className="mt-4">
                   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                  <a className="bg-grey mt-2" target="_blank" download href={contactDetails.cv}> View CV</a>
+                  <a className="bg-grey mt-2" target="_blank" rel="noreferrer" download href={contactDetails.cv}> View CV</a>
                   </button>
                </div>
 

@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react"
+import React, {useEffect, useRef, useState, useCallback} from "react"
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { AiOutlineMail } from 'react-icons/ai';
@@ -19,13 +19,14 @@ const Contact = (props) => {
 
     const contactRef = useRef()
 
-    const sendReftoHeader = () => {
+    const sendReftoHeader = useCallback(() => {
         props.headerRef(contactRef)
     }
+    , [])
 
     useEffect(() => {
         sendReftoHeader()
-    }, [])
+    }, [sendReftoHeader])
 
     if (status === "success") {
   
@@ -129,7 +130,7 @@ const Contact = (props) => {
 
             <div className="flex-col justify-center max-w-screen-lg w-full  ">
                 <div className="section-head flex justify-center">
-                <a href={`mailto:troyflavel@gmail.com`} target="_blank" className="mr-2">
+                <a href={`mailto:troyflavel@gmail.com`} target="_blank" rel="noreferrer" className="mr-2">
                     <h2><AiOutlineMail className="text-6xl" /></h2>
                 </a>
                 </div>

@@ -73,7 +73,7 @@ export const ProjectDetails = ({project, techStackArr}) => {
                               
                                             <CSSTransition in={currImage} timeout={150} className="carosel" key={index} >
                                                 <>
-                                                    {currImage && <Image className="carosel" src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`} width={image.attributes.width} height={image.attributes.height} />
+                                                    {currImage && <Image className="carosel" alt="carosel" src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`} width={image.attributes.width} height={image.attributes.height} />
                                                     }
                                                 </>
                                             </CSSTransition>
@@ -99,7 +99,7 @@ export const ProjectDetails = ({project, techStackArr}) => {
                             {links.map((link, index) => {
                                 return (
                                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 " key={index}>
-                                    <a href={link.url} target="_blank" className=" ">
+                                    <a href={link.url} target="_blank" rel="noreferrer" className=" ">
                                         {link.text}
                                         
                                     </a>
@@ -130,7 +130,7 @@ export const ProjectDetails = ({project, techStackArr}) => {
                           
                                     return (
                                         <li className="mr-2" key={index}>
-                                            <Image className="carosel" src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`} width={image.attributes.width} height={image.attributes.height} /> 
+                                            <Image className="carosel" alt="project slider " src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`} width={image.attributes.width} height={image.attributes.height} /> 
                                         </li>
                                     )
                                 })}

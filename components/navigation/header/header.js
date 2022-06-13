@@ -1,6 +1,6 @@
 
 // import { FaChevronCircleDown } from 'react-icons/fa';
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from 'react'
 
 import Link from 'next/link';
 import { useRouter } from 'next/router'
@@ -13,9 +13,10 @@ import { RiMessengerLine } from 'react-icons/ri'
 
 
 const Header = React.forwardRef((props, ref) => {
-  const router = useRouter()
+
   // console.log("Headerprops", props);
 
+  const router = useRouter()
   const currentEmployment = props.headerData.contactDetails.currentEmployment
   const jobTitle = props.headerData.contactDetails.jobTitle
   const location = props.headerData.contactDetails.location
@@ -39,24 +40,24 @@ const Header = React.forwardRef((props, ref) => {
       url: "#Home",
       cName: "current",
       ref: homeLinkRef,
-      id: '#Home',
-      path: '/',
+      id: "#Home",
+      path: "/",
     },
     {
       title: "About",
       url: "#About",
       cName: "nav-links",
       ref: aboutref,
-      id: '#About',
-      path: '/#about',
+      id: "#About",
+      path: "/#about",
     },
     {
       title: "Resume",
       url: "#Resume",
       cName: "nav-links",
       ref: resumeref,
-      id: '#Resume',
-      path: '/#resume',
+      id: "#Resume",
+      path: "/#resume",
 
     },
     {
@@ -64,16 +65,16 @@ const Header = React.forwardRef((props, ref) => {
       url: "#Portfolio",
       cName: "nav-links",
       ref: worksRef,
-      id: '#Portfolio',
-      path: '/#portfolio',
+      id: "#Portfolio",
+      path: "/#portfolio",
     },
     {
       title: "Contact",
       url: "#Contact",
       cName: "nav-links-mobile",
       ref: contactref,
-      id: '#Contact',
-      path: '/#contact',
+      id: "#Contact",
+      path: "/#contact",
     }
 
   ];
@@ -83,7 +84,7 @@ const Header = React.forwardRef((props, ref) => {
   const [hidden, setHidden] = useState(false);
 
   const isDesktop = useMediaQuery({
-    query: '(min-device-width:768px)'
+    query: "(min-device-width:768px)"
   })
 
   const toggleMenu = (event) => {
@@ -125,7 +126,7 @@ const Header = React.forwardRef((props, ref) => {
     else { setDesktop(false) }
   }
 
-  const setIntialNavItem = () => {
+  const setIntialNavItem = useCallback( () => {
     const refs = [homeLinkRef, aboutref, resumeref, worksRef, contactref]
     refs.forEach(ref => {
       // console.log("roter.pathname", router.pathname);
@@ -137,6 +138,7 @@ const Header = React.forwardRef((props, ref) => {
       }
     })
   }
+  , [router.asPath])
 
   // const overAboutTop = window.scrollY > ref.current[0].current.offsetTop 
   // console.log("overAboutTop", overAboutTop);
@@ -151,7 +153,7 @@ const Header = React.forwardRef((props, ref) => {
     return () => {
       window.removeEventListener("scroll", addBackGroundOnNav);
     }
-  }, [router.asPath])
+  }, [router.asPath, isDesktop, setIntialNavItem ])
 
 
 
@@ -172,7 +174,7 @@ const Header = React.forwardRef((props, ref) => {
           <nav ref={navRef} className={
             !isDesktop ||
               !desktop ?
-              `${visable ? 'mobile' : 'hidden '}` :
+              `${visable ? "mobile" : "hidden "}` :
               (`${!hidden ?
                 (`${window.scrollY > ref.current[0].current.offsetTop ?
                   "  desktop active " :
@@ -199,7 +201,7 @@ const Header = React.forwardRef((props, ref) => {
 
         <div className=" banner flex  items-center  z-0 ">
           <div className="banner-text pb-20 z-0">
-            <h1 className="responsive-headline z-0">I'm <span className="text-red-500 ">Troy Flavell  </span></h1>
+            <h1 className="responsive-headline z-0">Hi, my name is <span className="text-red-500 ">Troy Flavell  </span></h1>
             <h3>A {location}  based {jobTitle} {currentEmployment} <span> </span><span></span>.</h3>
             <hr />
             <div>

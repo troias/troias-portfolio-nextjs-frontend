@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useCallback } from 'react'
 import ProjectsList from '../elements/projectsList/projectsList'
 
 
@@ -8,13 +8,13 @@ const Portfolio = (props) => {
   // console.log("baseProps", props);
   const porfolioRef = useRef()
 
-  const sendReftoHeader = () => {
+  const sendReftoHeader = useCallback(() => {
     props.headerRef(porfolioRef)
-  }
+  } , [])
 
   useEffect(() => {
     sendReftoHeader()
-  }, [])
+  }, [sendReftoHeader])
 
   const projects = props.portfolioData.data.projects.data
 

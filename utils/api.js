@@ -284,6 +284,7 @@ export const getProjectsData = async () => {
               name
               body
               link {
+                id
                 newTab
                 url
                 text
@@ -360,6 +361,7 @@ export const getAllSkills = async () => {
                       ...FileParts
                     }
                     link {
+                      id
                       newTab
                       url
                       text
@@ -372,6 +374,7 @@ export const getAllSkills = async () => {
               }
               project_categories {
                 data {
+                  id
                   attributes {
                     name
                   }

@@ -21,7 +21,7 @@ const Resume = (props) => {
 
     useEffect(() => {
         sendReftoHeader()
-    }, [])
+    }, [sendReftoHeader])
     // console.log("resumeComp props", props)
     // const { education, work, skills } = props.resumeData
     // console.log("ResumePageSkills", skills)

@@ -16,7 +16,7 @@ const projectsList = (props) => {
   
    
    
-       const links = link.map((link, index) =>  ( <span className="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold
+       const links = link.map((link, index) =>  ( <span key={link.id} className="inline-block bg-red-500 rounded-full px-3 py-1 text-sm font-semibold
            text-gray-100 mr-2 mb-2 cursor-pointer hover:bg-red-600 transition delay-50 duration-300 ease-in-out">
             <a href={link.url}> #{link.text}</a>
              </span>)
