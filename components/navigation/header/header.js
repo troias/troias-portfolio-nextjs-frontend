@@ -117,7 +117,7 @@ const Header = React.forwardRef((props, ref) => {
     }
   }
 
-
+  console.log("routerPath", router.asPath);
   const checkDimensions =  useCallback(() => {
 
     if (window.innerWidth > 768) {
