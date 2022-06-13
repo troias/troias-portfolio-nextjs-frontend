@@ -171,7 +171,8 @@ export const getStaticProps = async ({ params }) => {
   return {
     props: {
       skill
-    }
+    },
+    revalidate: 1
   }
 }
 

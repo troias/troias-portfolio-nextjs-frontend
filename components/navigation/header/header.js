@@ -202,7 +202,7 @@ const Header = React.forwardRef((props, ref) => {
 
         <div className=" banner flex  items-center  z-0 ">
           <div className="banner-text pb-20 z-0">
-            <h1 className="responsive-headline z-0">Hi, my name is <span className="text-red-500 ">Troy Flavell  </span></h1>
+            <h1 className="responsive-headline z-0">Hi, I'm <span className="text-red-500 ">Troy Flavell  </span></h1>
             <h3>A {location}  based {jobTitle} {currentEmployment} <span> </span><span></span>.</h3>
             <hr />
             <div>

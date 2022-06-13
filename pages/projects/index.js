@@ -76,6 +76,7 @@ export const getStaticProps = async () => {
             portfolioData,
             projectsPageData
         },
+        revalidate: 1
     }
 }
 

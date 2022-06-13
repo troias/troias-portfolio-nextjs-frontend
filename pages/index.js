@@ -86,6 +86,7 @@ export const getStaticProps = async () => {
       headerData: headerDetails.data.codingDv.data.attributes,
       resumeData: resumeData,
       portfolioData: portfolioData
-    }
+    },
+    revalidate: 1
   }
 }

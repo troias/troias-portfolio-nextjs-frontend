@@ -55,22 +55,15 @@ const SkillItem = ({skills}) => {
        
               <tr>
                 <Link href={`/skills/${skillCat.attributes.slug}/${skill.attributes.slug}`}>
-           
                  <td className="border px-8 py-4">{skill.attributes.name}</td> 
                  </Link>
-               
               </tr>
             </table>
             )
             )
           }
-               
-    
-    
                 </div>
               </div>
-    
-    
             </div>
           </div>
         </div>
@@ -138,6 +131,7 @@ export const getStaticProps = async (ctx) => {
   return {
     props: {
        skills: getAllSkillsCat
-    }
+    },
+    revalidate: 1
   }
 }
