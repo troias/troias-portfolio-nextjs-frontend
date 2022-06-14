@@ -23,7 +23,7 @@ const Index = ({portfolioData, projectsPageData}) => {
                         <h1 className="text-black text-5xl font-bold  pr-8 pt-8">
                         {intro} <span className="text-blue-500">Troy</span>
                         </h1>
-                        <div className="w-3/5 md:w-2/3 lg:w-11/12">
+                        <div className="w-full sm:w-3/5 md:w-2/3 lg:w-11/12">
                         <p className="text-black text-2xl pl-10 pr-10 pt-8">
                             {body}
                         </p>

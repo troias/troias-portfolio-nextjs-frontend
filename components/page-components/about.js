@@ -52,9 +52,12 @@ const About = ({aboutPageData}) => {
                      )}
                </div>
 
-               <div className="mt-4">
+               <div className="mt-4 flex">
                   <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                   <a className="bg-grey mt-2" target="_blank" rel="noreferrer" download href={contactDetails.cv}> View CV</a>
+                  </button>
+                  <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-4">
+                  <a className="bg-grey mt-2" target="_blank" rel="noreferrer" download href={contactDetails.nzqa}> View NZQA qualifications</a>
                   </button>
                </div>
 

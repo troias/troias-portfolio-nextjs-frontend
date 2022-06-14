@@ -18,47 +18,28 @@ const Index = ({ skill }) => {
 
 
         <div className="max-w-screen-lg  w-full">
-          <div className="pr-2 pl-2 flex justify-around">
+          <div className="pr-2 pl-2 flex-col sm:flex justify-around">
 
-            <div className="w-64 h-64 ">
+            <div className="w-64 h-64 m-auto ">
               {skill.attributes.cover.data && <Image media={skill.attributes.cover} />}
             </div>
-            <div className="w-2/5 flex items-center mb-8">
+            <div className="w-4/5 sm:w-2/5 flex m-auto mb-8">
               <p>
                 {skill.attributes.body}
-
-
               </p>
-
-
-
             </div>
-
-
-
-
-
-
-
-
           </div>
           {/* <div className="flex justify-center mt-6">
               <h2 className="text-2xl font-bold">Links</h2>
             </div> */}
           <div className="flex justify-center mt-6 mb-8">
-
-
             {skill.attributes.link && (
-
               skill.attributes.link.map(skill => (
-
-
                 <>
                   <btn className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-4 hover:bg-sky-700 " key={skill.id}>
                     <Link href={skill.url} >
                       {skill.text}
                     </Link>
-
                   </btn>
                 </>
               )
@@ -72,11 +53,9 @@ const Index = ({ skill }) => {
               <h2 className="text-2xl font-bold mt-6 mb-6"> CodeSandbox Example</h2>
             </div>
 
-
-
             <iframe
               src={skill.attributes.sandbox_url}
-              className="w-full h-[500px] rounded-xl overflow-hidden"
+              className="w-full h-[500px] rounded-xl overflow-hidden pl-4 pr-4"
               allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
               sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
             ></iframe>

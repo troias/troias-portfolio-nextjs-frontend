@@ -76,6 +76,7 @@ export const getAboutSection = async () => {
                     }
                     title
                     cv
+                    nzqa
                     contactDetailItem {
                       title
                       text

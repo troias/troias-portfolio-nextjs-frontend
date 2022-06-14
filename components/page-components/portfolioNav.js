@@ -13,7 +13,7 @@ const PortfolioNav = () => {
 
     
     const isMobile = useMediaQuery({ query: '(max-width: 1024px)' })
-    // console.log("active", active, "mobile", isMobile);
+  
 
     return (
         <>
@@ -84,6 +84,11 @@ const PortfolioNav = () => {
                             <li className="py-4  hover:bg-gray-600 flex justify-center">
                                 <Link href="/skills">
                                     <a className=" px-3 py-2  rounded  border-teal-400 hover:text-teal-200 hover:bg-gray-600">Skills</a>
+                                </Link>
+                            </li>
+                            <li className="py-4  hover:bg-gray-600 flex justify-center">
+                                <Link href="/#contact">
+                                    <a className=" px-3 py-2  rounded  border-teal-400 hover:text-teal-200 hover:bg-gray-600">Contact</a>
                                 </Link>
                             </li>
     

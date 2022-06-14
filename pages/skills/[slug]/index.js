@@ -24,12 +24,12 @@ const SkillItem = ({skills}) => {
     
     
             <div className="max-w-screen-lg  w-full">
-              <div className="pr-2 pl-2 flex justify-around">
+              <div className="pr-2 pl-2 flex-col  sm:flex sm:flex-row sm:justify-around ">
                
-                <div className="w-64 h-64">
+                <div className="w-64 h-64 m-auto ">
                 <Image media={skillCat.attributes.icon}/>
                 </div>
-                <div className="w-2/5 flex items-center">
+                <div className="w-3/5 sm:w-2/5 m-auto ">
                   <p>
                   {skillCat.attributes.description}
     

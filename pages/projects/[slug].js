@@ -73,7 +73,7 @@ export const ProjectDetails = ({project, techStackArr}) => {
                               
                                             <CSSTransition in={currImage} timeout={150} className="carosel" key={index} >
                                                 <>
-                                                    {currImage && <Image className="carosel" alt="carosel" src={`${process.env.NEXT_PUBLIC_STRAPI_URL}/${image.attributes.url}`} width={image.attributes.width} height={image.attributes.height} />
+                                                    {currImage && <Image className="carosel" alt="carosel" src={`${image.attributes.url}`} width={image.attributes.width} height={image.attributes.height} />
                                                     }
                                                 </>
                                             </CSSTransition>
@@ -109,7 +109,7 @@ export const ProjectDetails = ({project, techStackArr}) => {
                             )}
                         </div>
 
-                        <div className="w-3/5 md:w-1/2">
+                        <div className="w-4/5 sm:w-3/5 md:w-1/2">
                             <p>
                                {description}
                             </p>
