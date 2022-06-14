@@ -177,7 +177,7 @@ export const getResumeData = async () => {
          data {
           id
            attributes {
-        
+              digital_link
              name 
              completed
              institution

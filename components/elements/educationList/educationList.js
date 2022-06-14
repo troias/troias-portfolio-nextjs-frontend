@@ -24,6 +24,9 @@ const EducationList = props => {
 
                         <span className="pr-1">Distinction:  </span><em className="text-black font-medium"> {qualification.attributes.distinction}</em>
                     </p> : null}
+                    {qualification.attributes.digital_link && <a href={qualification.attributes.digital_link} target="_blank" rel="noopener noreferrer" className="info flex justify-center pr-7 pl-7 ">
+                        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">View Certificate</button>
+                    </a>}
                 </div>
                 )
             }
