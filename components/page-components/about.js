@@ -27,7 +27,7 @@ const About = ({aboutPageData}) => {
                 <NextImage media={contactDetails.iconImage} className=" md:rounded-full z-0 " /> 
             </div>
 
-            <div className=" flex flex-col p-4  justify-center  ">
+            <div className=" flex flex-col p-4  justify-center w-3/5   ">
 
 
                <div>
