@@ -16,7 +16,7 @@ const WorkList = ({ work }) => {
                             <h3 className="flex justify-center">{job.attributes.company}</h3>
                             <div className="flex pl-4  ">
                                 <p className="info   space-x-3 w-2/3  ">
-                                    {job.attributes.title}<span className=" pl-6"> &bull;</span> <em className="date">{job.attributes.duration}</em>
+                                    {job.attributes.title}<span className=" "> &bull;</span> <em className="date">{job.attributes.duration}</em>
                                 </p>
                             </div>
                             <div className="flex justify-center pl-4 pr-4">
