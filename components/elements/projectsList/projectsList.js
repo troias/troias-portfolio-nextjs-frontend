@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import NextImage from '../image'
 
 const projectsList = (props) => {
 
@@ -26,8 +27,7 @@ const projectsList = (props) => {
       <div className="max-w-max " key={project.id}>
          <div className="card mt-5 ml-10 pr-8">
          <div className="max-w-sm rounded overflow-hidden shadow-2xl bg-gray-100">
-             <img className="w-full" 
-             src="https://static.vecteezy.com/system/resources/previews/001/882/528/non_2x/beautiful-landscape-pine-forest-with-mesmerizing-mountain-views-free-vector.jpg" alt="Mountain" />
+         <NextImage media={project.attributes.cover} /> 
              <div className="px-6 py-4">
                  <div className="font-bold text-xl mb-2">{name}</div>
                  <p className="text-gray-700 text-base">
