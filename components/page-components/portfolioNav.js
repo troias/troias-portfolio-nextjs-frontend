@@ -38,23 +38,25 @@ const PortfolioNav = () => {
 
 
                     <div className={"hidden w-full block flex-grow lg:flex lg:items-center lg:w-auto "} >
-                        <div className="text-sm lg:flex-grow">
-                            <Link href="/" className="block mt-4 lg:inline-block lg:mt-0 hover:text-teal-200 text-white mr-4">
-                                Home
-                            </Link>
-                            <Link href="/projects" className="block mt-4 lg:inline-block lg:mt-0 hover:text-teal-200 text-white mr-4">
+                        <ul className="text-sm lg:flex-grow text-white flex justify-end">
+                       
+                            <li className="mr-3">
+                            <Link href="/projects" className="mr-2 block mt-4 lg:inline-block lg:mt-0 hover:text-teal-200 text-white">
                                 Projects
                             </Link>
+                            </li>
+                            <li className="mr-3">
                             <Link href="/skills" className="block mt-4 lg:inline-block lg:mt-0 hover:text-teal-200 text-white mr-4">
                                 Skills
                             </Link>
+                            </li>
+                            <li className="mr-3">
                             <Link href="/#contact" className="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-teal-200 mr-4">
                             Contact
                         </Link> 
-                        </div>
-                        <div>
-                            <Link href="#" className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Download CV</Link>
-                        </div>
+                            </li>
+                        </ul>
+                   
                     </div>
                 </nav>
 
@@ -72,23 +74,23 @@ const PortfolioNav = () => {
 
                         <ul className="flex-col justify-center items-center text-2xl text-white pb-8 pt-8  w-full    ">
                             <li className="py-4  hover:bg-gray-600 flex justify-center">
-                                <Link href="/">
-                                    <a className=" px-3 py-2 rounded  border-teal-400  hover:text-teal-200 ">Home</a>
+                                <Link href="/" className=" px-3 py-2 rounded  border-teal-400  hover:text-teal-200 text-white mr-4 ">
+                                Home
+                                </Link>
+                            </li>
+                            <li className="py-4  hover:bg-gray-600 flex justify-center ">
+                                <Link href="/projects" className=" px-3 py-2  rounded  border-teal-400 hover:text-teal-200 hover:bg-gray-600 text-white">
+                                   Projects
                                 </Link>
                             </li>
                             <li className="py-4  hover:bg-gray-600 flex justify-center">
-                                <Link href="/projects">
-                                    <a className=" px-3 py-2  rounded  border-teal-400 hover:text-teal-200 hover:bg-gray-600">Projects</a>
+                                <Link href="/skills" className=" px-3 py-2  rounded  border-teal-400 hover:text-teal-200 hover:bg-gray-600 text-white">
+                                   Skills
                                 </Link>
                             </li>
-                            <li className="py-4  hover:bg-gray-600 flex justify-center">
-                                <Link href="/skills">
-                                    <a className=" px-3 py-2  rounded  border-teal-400 hover:text-teal-200 hover:bg-gray-600">Skills</a>
-                                </Link>
-                            </li>
-                            <li className="py-4  hover:bg-gray-600 flex justify-center">
-                                <Link href="/#contact">
-                                    <a className=" px-3 py-2  rounded  border-teal-400 hover:text-teal-200 hover:bg-gray-600">Contact</a>
+                            <li className="py-4  hover:bg-gray-600 flex justify-center text-white">
+                                <Link href="/#contact" className=" px-3 py-2  rounded  border-teal-400 hover:text-teal-200 hover:bg-gray-600 text-white">
+                                    Contact
                                 </Link>
                             </li>
     
