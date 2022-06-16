@@ -73,7 +73,7 @@ export const ProjectDetails = ({project, techStackArr}) => {
                               
                                             <CSSTransition in={currImage} timeout={150} className="carosel" key={index} >
                                                 <>
-                                                    {currImage && <Image className="carosel" alt="carosel" src={`${image.attributes.url}`} width={image.attributes.width} height={image.attributes.height} />
+                                                    {currImage && <Image className="carosel w-full" alt="carosel" src={`${image.attributes.url}`} width={image.attributes.width} height={image.attributes.height} />
                                                     }
                                                 </>
                                             </CSSTransition>
@@ -93,9 +93,9 @@ export const ProjectDetails = ({project, techStackArr}) => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col  items-center pt-8 pb-8 md:flex-row">
+                    <div className="flex flex-col  items-center pt-8 pb-8 md:flex-row lg:justify-around">
 
-                        <div className="w-3/5 pb-8 flex justify-center md:w-1/2  ">
+                        <div className="w-2/5 pb-8 flex justify-center md:w-1/2 lg:w-1/4  ">
                             {links.map((link, index) => {
                                 return (
                                     <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2 " key={index}>
@@ -109,8 +109,8 @@ export const ProjectDetails = ({project, techStackArr}) => {
                             )}
                         </div>
 
-                        <div className="w-4/5 sm:w-3/5 md:w-1/2">
-                            <p>
+                        <div className="w-4/5 sm:w-3/5 md:w-1/2 lg:w-2/5 mr-4 pr-4">
+                            <p className="">
                                {description}
                             </p>
                         </div>
@@ -130,7 +130,7 @@ export const ProjectDetails = ({project, techStackArr}) => {
                           
                                     return (
                                         <li className="mr-2" key={index}>
-                                            <Image className="carosel" alt="project slider " src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${image.attributes.url}`} width={image.attributes.width} height={image.attributes.height} /> 
+                                            <Image className="carosel" alt="project slider " src={`${image.attributes.url}`} width={80} height={80} /> 
                                         </li>
                                     )
                                 })}
