@@ -5,12 +5,12 @@ import Image from "next/image"
 
 const NextImage = ({ media, collection, ...props }) => {
 
-  
+
   const { url, alternativeText, width, height } = media.data.attributes
 
 
-   console.log("media", media)
-   console.log("media widh", width);
+  //  console.log("media", media)
+  //  console.log("media widh", width);
 
   const loader = ({ src }) => {
     return getStrapiMedia(src)
@@ -26,7 +26,7 @@ const NextImage = ({ media, collection, ...props }) => {
   // The image is responsive
   return (
     <Image
-     
+
       loader={loader}
       layout="responsive"
       width={width}

@@ -1,19 +1,14 @@
-
 // import { FaChevronCircleDown } from 'react-icons/fa';
-import React, { useState, useRef, useEffect, useCallback } from 'react'
+import React, { useState, useRef, useEffect, useCallback } from "react"
 
-import Link from 'next/link';
-import { useRouter } from 'next/router'
-import { useMediaQuery } from 'react-responsive'
-import { AiOutlineAlignRight, AiOutlineLinkedin } from 'react-icons/ai'
-import { FaTimes, FaEnvelope } from 'react-icons/fa'
-import { RiMessengerLine } from 'react-icons/ri'
-
-
-
+import Link from "next/link"
+import { useRouter } from "next/router"
+import { useMediaQuery } from "react-responsive"
+import { AiOutlineAlignRight, AiOutlineLinkedin } from "react-icons/ai"
+import { FaTimes, FaEnvelope } from "react-icons/fa"
+import { RiMessengerLine } from "react-icons/ri"
 
 const Header = React.forwardRef((props, ref) => {
-
   // console.log("Headerprops", props);
 
   const router = useRouter()
@@ -21,8 +16,6 @@ const Header = React.forwardRef((props, ref) => {
   const jobTitle = props.headerData.contactDetails.jobTitle
   const location = props.headerData.contactDetails.location
   const social_link = props.headerData.header_social_links
-
-
 
   const headerRef = useRef()
   const homeLinkRef = useRef()
@@ -58,7 +51,6 @@ const Header = React.forwardRef((props, ref) => {
       ref: resumeref,
       id: "#Resume",
       path: "/#resume",
-
     },
     {
       title: "Portfolio",
@@ -75,22 +67,20 @@ const Header = React.forwardRef((props, ref) => {
       ref: contactref,
       id: "#Contact",
       path: "/#contact",
-    }
+    },
+  ]
 
-  ];
-
-  const [visable, setVisable] = useState(false);
+  const [visable, setVisable] = useState(false)
   const [desktop, setDesktop] = useState(false)
-  const [hidden, setHidden] = useState(false);
+  const [hidden, setHidden] = useState(false)
 
   const isDesktop = useMediaQuery({
-    query: "(min-device-width:768px)"
+    query: "(min-device-width:768px)",
   })
 
   const toggleMenu = (event) => {
-    event.preventDefault();
-    setVisable(!visable);
-
+    event.preventDefault()
+    setVisable(!visable)
   }
 
   /*----------------------------------------------------*/
@@ -98,148 +88,172 @@ const Header = React.forwardRef((props, ref) => {
   ------------------------------------------------------*/
 
   const addBackGroundOnNav = () => {
-    const scroll = window.scrollY;
+    const scroll = window.scrollY
 
     if (headerRef.current) {
-
-
-
       if (scroll > headerRef.current.offsetHeight / 4) {
-        setHidden(true);
+        setHidden(true)
       }
       if (scroll > headerRef.current.offsetHeight) {
-        setHidden(false);
+        setHidden(false)
       }
     }
 
     if (scroll === 0) {
-      setHidden(false);
+      setHidden(false)
     }
   }
 
-  console.log("routerPath", router.asPath);
-  const checkDimensions =  useCallback(() => {
-
+  // console.log("routerPath", router.asPath)
+  const checkDimensions = useCallback(() => {
     if (window.innerWidth > 768) {
       setDesktop(true)
+    } else {
+      setDesktop(false)
     }
-    else { setDesktop(false) }
-  }
-  , [])
+  }, [])
 
   const setIntialNavItem = useCallback(() => {
     const refs = [homeLinkRef, aboutref, resumeref, worksRef, contactref]
-    refs.forEach(ref => {
+    refs.forEach((ref) => {
       // console.log("roter.pathname", router.pathname);
-      if (ref.current.childNodes[0].href === `${`${process.env.NEXT_PUBLIC_STRAPI_URL}${router.asPath}`}`) {
+      if (
+        ref.current.childNodes[0].href ===
+        `${`${process.env.NEXT_PUBLIC_STRAPI_URL}${router.asPath}`}`
+      ) {
         // console.log("refs", ref.current.childNodes[0].href);
-        ref.current.childNodes[0].classList.add("current");
+        ref.current.childNodes[0].classList.add("current")
       } else {
-        ref.current.childNodes[0].classList.remove("current");
+        ref.current.childNodes[0].classList.remove("current")
       }
     })
-  }
-  , [router.asPath])
+  }, [router.asPath])
 
-  // const overAboutTop = window.scrollY > ref.current[0].current.offsetTop 
+  // const overAboutTop = window.scrollY > ref.current[0].current.offsetTop
   // console.log("overAboutTop", overAboutTop);
 
-
   useEffect(() => {
-    window.addEventListener("scroll", addBackGroundOnNav);
+    window.addEventListener("scroll", addBackGroundOnNav)
     setDesktop(isDesktop)
-    window.addEventListener("resize", checkDimensions);
+    window.addEventListener("resize", checkDimensions)
     checkDimensions()
     setIntialNavItem()
     return () => {
-      window.removeEventListener("scroll", addBackGroundOnNav);
+      window.removeEventListener("scroll", addBackGroundOnNav)
     }
-  }, [router.asPath ])
-
-
-
+  }, [router.asPath])
 
   return (
     <div id="nav-wrap ">
-      <header id="home" className="" ref={headerRef} >
+      <header id="home" className="" ref={headerRef}>
         <div className=" fixed z-10   ">
-
-
-          <div onClick={toggleMenu} className="h-full w-full pt-4 ml-6 md:hidden">
-            {!visable ?
-              <AiOutlineAlignRight size={50} className=" bg-red-500 bg-opacity-80  rounded-md text-white " /> :
-              <FaTimes size={50} className=" bg-red-500 text-white rounded-md bg-opacity-80 " />}
+          <div
+            onClick={toggleMenu}
+            className="h-full w-full pt-4 ml-6 md:hidden"
+          >
+            {!visable ? (
+              <AiOutlineAlignRight
+                size={50}
+                className=" bg-red-500 bg-opacity-80  rounded-md text-white "
+              />
+            ) : (
+              <FaTimes
+                size={50}
+                className=" bg-red-500 text-white rounded-md bg-opacity-80 "
+              />
+            )}
           </div>
 
-
-          <nav ref={navRef} className={
-            !isDesktop ||
-              !desktop ?
-              `${visable ? "mobile" : "hidden "}` :
-              (`${!hidden ?
-                (`${window.scrollY > ref.current[0].current.offsetTop ?
-                  "  desktop active " :
-                  "desktop"}`) : "hidden"}`)
-
-          }>
+          <nav
+            ref={navRef}
+            className={
+              !isDesktop || !desktop
+                ? `${visable ? "mobile" : "hidden "}`
+                : `${
+                    !hidden
+                      ? `${
+                          window.scrollY > ref.current[0].current.offsetTop
+                            ? "  desktop active "
+                            : "desktop"
+                        }`
+                      : "hidden"
+                  }`
+            }
+          >
             <ul className={""}>
               {menuItems.map((item, index) => {
-                {console.log("testsuka", item.id)}
                 return (
-                  <li key={item.id} ref={item.ref} onClick={toggleMenu} className={
-                    item.cName === "current" ?
-                      (`${item.id}` !== router.asPath ? (`${router.asPath === "/" ? "current " : "smoothscroll"}`) : "current ") :
-                      "smoothscroll"
-                  }  >
-                    <Link key={item.id} href={item.path}>{item.title}</Link>
+                  <li
+                    key={item.id}
+                    ref={item.ref}
+                    onClick={toggleMenu}
+                    className={
+                      item.cName === "current"
+                        ? `${item.id}` !== router.asPath
+                          ? `${
+                              router.asPath === "/"
+                                ? "current "
+                                : "smoothscroll"
+                            }`
+                          : "current "
+                        : "smoothscroll"
+                    }
+                  >
+                    <Link key={item.id} href={item.path}>
+                      {item.title}
+                    </Link>
                   </li>
                 )
-              }
-              )}
+              })}
             </ul>
           </nav>
         </div>
 
         <div className=" banner flex  items-center  z-0 ">
           <div className="banner-text pb-20 z-0">
-            <h1 className="responsive-headline z-0">Hi, I'm <span className="text-red-500 ">Troy Flavell  </span></h1>
-            <h3>A {location}  based {jobTitle} {currentEmployment} <span> </span><span></span>.</h3>
+            <h1 className="responsive-headline z-0">
+              Hi, I'm <span className="text-red-500 ">Troy Flavell </span>
+            </h1>
+            <h3>
+              A {location} based {jobTitle} {currentEmployment} <span> </span>
+              <span></span>.
+            </h3>
             <hr />
             <div>
               <h3> Get in touch with me @</h3>
               <div className="flex justify-center mt-4">
-               
-             
-                    <a href={social_link[0].url} target="_blank" rel="noopener noreferrer" className="text-red-500 mr-2">
-                      <RiMessengerLine size={30} className="text-red-500" />
-                    </a>
+                <a
+                  href={social_link[0].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-500 mr-2"
+                >
+                  <RiMessengerLine size={30} className="text-red-500" />
+                </a>
 
-                    <a href={social_link[1].url} target="_blank" rel="noopener noreferrer" className="text-red-500 mr-2">
-                      <AiOutlineLinkedin size={30} className="text-red-500" />
-                    </a>
-                    <a href={`mailto:${social_link[2].url}`} target="_blank" rel="noopener noreferrer" className="text-red-500 mr-2">
-                      <FaEnvelope size={30} className="text-red-500" />
-                    </a>
-             
-          
-
+                <a
+                  href={social_link[1].url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-500 mr-2"
+                >
+                  <AiOutlineLinkedin size={30} className="text-red-500" />
+                </a>
+                <a
+                  href={`mailto:${social_link[2].url}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-500 mr-2"
+                >
+                  <FaEnvelope size={30} className="text-red-500" />
+                </a>
               </div>
-
-
             </div>
-
           </div>
-
         </div>
-
-
       </header>
     </div>
-
   )
 })
 
-
-
-
-export default Header;
+export default Header
