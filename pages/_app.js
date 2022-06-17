@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import Head from 'next/head'
 
-import { getFooter} from '../utils/api'
+import { getFooter } from '../utils/api'
 
 
 
@@ -11,22 +11,23 @@ function MyApp({ Component, pageProps, footer }) {
   // console.log("FooterDataappPage", footer);
   return (
     <>
-        <Head>
-          <title>Create Next App</title>
-        </Head>
+      <Head>
+        <title>Troy Flavell | Portfolio</title>
+        <meta name="description" content="A portfolio made by Troy Favell" />
+      </Head>
       <Component {...pageProps} />
-      <Footer footer={footer}/>
+      <Footer footer={footer} />
     </>
   )
-  
-  
+
+
 
 }
 
 
 
 
- MyApp.getInitialProps = async (ctx) => {
+MyApp.getInitialProps = async (ctx) => {
   const footer = await getFooter()
   // console.log("footer", footer)
   return {
